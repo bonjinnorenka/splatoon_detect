@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カメラ自動デス数カウンター</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        video {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+        .controls {
+            margin: 20px 0;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .start-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .start-btn:hover {
+            background-color: #45a049;
+        }
+        .stop-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .stop-btn:hover {
+            background-color: #da190b;
+        }
+        .manual-btn {
+            background-color: #ff9800;
+            color: white;
+        }
+        .manual-btn:hover {
+            background-color: #f57c00;
+        }
+        .reset-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+        .reset-btn:hover {
+            background-color: #5a6268;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .status.idle {
+            background-color: #e7e7e7;
+            color: #666;
+        }
+        .status.detecting {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .status.death-detected {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .death-counter {
+            text-align: center;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .death-counter h2 {
+            margin: 0 0 20px 0;
+            color: #333;
+        }
+        .count {
+            font-size: 4em;
+            font-weight: bold;
+            color: #dc3545;
+            margin: 20px 0;
+        }
+        .date {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .crop-preview {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .crop-canvas {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .crop-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .debug-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .history {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .history h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .history-item {
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .history-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>カメラ自動デス数カウンター</h1>
+        
+        <div class="date" id="currentDate"></div>
+        
+        <div class="status idle" id="status">
+            カメラ準備中...
+        </div>
+
+        <video id="video" autoplay playsinline></video>
+        
+        <div class="controls">
+            <button class="start-btn" id="startBtn">自動検出開始</button>
+            <button class="stop-btn" id="stopBtn" disabled>自動検出停止</button>
+            <button class="manual-btn" id="manualBtn">手動でデス+1</button>
+            <button class="reset-btn" id="resetBtn">今日のカウントリセット</button>
+        </div>
+
+        <div class="death-counter">
+            <h2>今日のデス数</h2>
+            <div class="count" id="deathCount">0</div>
+        </div>
+
+        <div class="crop-preview">
+            <div class="crop-label">Death Detection Area</div>
+            <canvas id="deathCropCanvas" class="crop-canvas" width="340" height="250"></canvas>
+        </div>
+
+        <div class="history">
+            <h3>今日の記録</h3>
+            <div id="historyList">
+                記録はまだありません
+            </div>
+        </div>
+
+        <div class="debug-info" id="debugInfo">
+            デバッグ情報がここに表示されます
+        </div>
+    </div>
+
+    <script>
+        class DeathCounterCamera {
+            constructor() {
+                this.video = document.getElementById('video');
+                this.startBtn = document.getElementById('startBtn');
+                this.stopBtn = document.getElementById('stopBtn');
+                this.manualBtn = document.getElementById('manualBtn');
+                this.resetBtn = document.getElementById('resetBtn');
+                this.status = document.getElementById('status');
+                this.deathCount = document.getElementById('deathCount');
+                this.debugInfo = document.getElementById('debugInfo');
+                this.deathCropCanvas = document.getElementById('deathCropCanvas');
+                this.currentDateElement = document.getElementById('currentDate');
+                this.historyListElement = document.getElementById('historyList');
+                
+                this.stream = null;
+                this.isDetecting = false;
+                this.detectionInterval = null;
+                this.lastDeathDetection = 0;
+                this.deathCooldown = 10000; // 10秒
+                this.deathDetectionBuffer = [];
+                this.deathDetectionThreshold = 2; // 3回連続で検知する必要がある
+                
+                this.deathDetector = new DeathDetectionModel();
+                
+                this.today = new Date().toDateString();
+                this.storageKey = `death-count-${this.today}`;
+                this.historyKey = `death-history-${this.today}`;
+                this.deathCountValue = 0;
+                this.history = [];
+                
+                this.init();
+            }
+
+            async init() {
+                try {
+                    this.displayCurrentDate();
+                    this.loadCount();
+                    this.loadHistory();
+                    await this.initCamera();
+                    await this.initModels();
+                    this.bindEvents();
+                    this.updateStatus('準備完了 - 検出開始ボタンを押してください', 'idle');
+                } catch (error) {
+                    this.updateStatus('初期化エラー: ' + error.message, 'idle');
+                    this.debugLog('初期化エラー: ' + error.message);
+                }
+            }
+
+            displayCurrentDate() {
+                const now = new Date();
+                const dateString = now.toLocaleDateString('ja-JP', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    weekday: 'long'
+                });
+                this.currentDateElement.textContent = dateString;
+            }
+
+            loadCount() {
+                const savedCount = localStorage.getItem(this.storageKey);
+                this.deathCountValue = savedCount ? parseInt(savedCount) : 0;
+                this.updateCountDisplay();
+            }
+
+            loadHistory() {
+                const savedHistory = localStorage.getItem(this.historyKey);
+                this.history = savedHistory ? JSON.parse(savedHistory) : [];
+                this.updateHistoryDisplay();
+            }
+
+            async initCamera() {
+                try {
+                    this.stream = await navigator.mediaDevices.getUserMedia({
+                        video: { width: 1920, height: 1080, facingMode: 'user' }
+                    });
+                    this.video.srcObject = this.stream;
+                    this.debugLog('カメラが開始されました');
+                } catch (error) {
+                    throw new Error('カメラアクセスに失敗しました: ' + error.message);
+                }
+            }
+
+            async initModels() {
+                try {
+                    await this.deathDetector.loadModel('./death_detect/death_detection_model.json');
+                    this.debugLog('デス検出モデルが読み込まれました');
+                } catch (error) {
+                    this.debugLog('モデルの読み込みに失敗: ' + error.message);
+                }
+            }
+
+            bindEvents() {
+                this.startBtn.addEventListener('click', () => this.startDetection());
+                this.stopBtn.addEventListener('click', () => this.stopDetection());
+                this.manualBtn.addEventListener('click', () => this.addManualDeath());
+                this.resetBtn.addEventListener('click', () => this.resetCount());
+            }
+
+            startDetection() {
+                if (this.isDetecting) return;
+                
+                this.isDetecting = true;
+                this.startBtn.disabled = true;
+                this.stopBtn.disabled = false;
+                this.updateStatus('自動検出中...', 'detecting');
+                
+                this.detectionInterval = setInterval(() => {
+                    this.performDetection();
+                }, 100); // 100ms間隔で検出
+                
+                this.debugLog('自動検出を開始しました');
+            }
+
+            stopDetection() {
+                if (!this.isDetecting) return;
+                
+                this.isDetecting = false;
+                this.startBtn.disabled = false;
+                this.stopBtn.disabled = true;
+                this.updateStatus('自動検出停止', 'idle');
+                
+                if (this.detectionInterval) {
+                    clearInterval(this.detectionInterval);
+                    this.detectionInterval = null;
+                }
+                
+                this.deathDetectionBuffer = [];
+                this.debugLog('自動検出を停止しました');
+            }
+
+            async performDetection() {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    canvas.width = this.video.videoWidth;
+                    canvas.height = this.video.videoHeight;
+                    
+                    if (canvas.width === 0 || canvas.height === 0) return;
+                    
+                    ctx.drawImage(this.video, 0, 0);
+                    
+                    // Death detection crop (780, 245, 340x250)
+                    const deathImageData = ctx.getImageData(780, 245, 340, 250);
+                    this.drawCropPreview(this.deathCropCanvas, deathImageData);
+                    
+                    // Perform death detection (with cooldown)
+                    const now = Date.now();
+                    if (now - this.lastDeathDetection > this.deathCooldown) {
+                        await this.checkDeathDetection(deathImageData);
+                    }
+                    
+                } catch (error) {
+                    this.debugLog('検出エラー: ' + error.message);
+                }
+            }
+
+            drawCropPreview(canvas, imageData) {
+                const ctx = canvas.getContext('2d');
+                canvas.width = imageData.width;
+                canvas.height = imageData.height;
+                ctx.putImageData(imageData, 0, 0);
+            }
+
+            async checkDeathDetection(imageData) {
+                try {
+                    if (this.deathDetector.isLoaded) {
+                        const result = this.deathDetector.predict(
+                            imageData.data,
+                            imageData.width,
+                            imageData.height
+                        );
+                        
+                        // 信頼度が0.9以上かつ予測が1の場合のみバッファに追加
+                        const highConfidenceDetection = result.prediction === 1 && result.confidence >= 0.9;
+                        this.deathDetectionBuffer.push(highConfidenceDetection ? 1 : 0);
+                        
+                        // バッファサイズを制限
+                        if (this.deathDetectionBuffer.length > this.deathDetectionThreshold) {
+                            this.deathDetectionBuffer.shift();
+                        }
+                        
+                        // 3回連続で検知したかチェック
+                        if (this.deathDetectionBuffer.length === this.deathDetectionThreshold) {
+                            const allDetected = this.deathDetectionBuffer.every(detection => detection === 1);
+                            if (allDetected) {
+                                this.deathDetected();
+                                this.deathDetectionBuffer = []; // バッファをクリア
+                            }
+                        }
+                        
+                        // 検知ログを表示
+                        if (highConfidenceDetection) {
+                            this.debugLog(`デス検出: ${result.label} (信頼度: ${result.confidence.toFixed(2)}) [${this.deathDetectionBuffer.join(',')}]`);
+                        }
+                    }
+                } catch (error) {
+                    this.debugLog('デス検出エラー: ' + error.message);
+                }
+            }
+
+            deathDetected() {
+                this.addDeath();
+                this.lastDeathDetection = Date.now();
+                this.updateStatus('デス検出！', 'death-detected');
+                this.debugLog(`自動デス検出 - 合計: ${this.deathCountValue}回`);
+                
+                setTimeout(() => {
+                    if (this.isDetecting) {
+                        this.updateStatus('自動検出中...', 'detecting');
+                    }
+                }, 2000);
+            }
+
+            addManualDeath() {
+                this.addDeath();
+                this.debugLog(`手動デス追加 - 合計: ${this.deathCountValue}回`);
+            }
+
+            addDeath() {
+                this.deathCountValue++;
+                this.saveCount();
+                this.updateCountDisplay();
+                this.addToHistory();
+            }
+
+            resetCount() {
+                if (confirm('今日のデス数をリセットしますか？')) {
+                    this.deathCountValue = 0;
+                    this.history = [];
+                    this.saveCount();
+                    this.saveHistory();
+                    this.updateCountDisplay();
+                    this.updateHistoryDisplay();
+                    this.debugLog('今日のデス数をリセットしました');
+                }
+            }
+
+            saveCount() {
+                localStorage.setItem(this.storageKey, this.deathCountValue.toString());
+            }
+
+            saveHistory() {
+                localStorage.setItem(this.historyKey, JSON.stringify(this.history));
+            }
+
+            addToHistory() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('ja-JP');
+                this.history.push({
+                    time: timeString,
+                    count: this.deathCountValue,
+                    type: this.isDetecting ? '自動検出' : '手動追加'
+                });
+                this.saveHistory();
+                this.updateHistoryDisplay();
+            }
+
+            updateCountDisplay() {
+                this.deathCount.textContent = this.deathCountValue;
+            }
+
+            updateHistoryDisplay() {
+                if (this.history.length === 0) {
+                    this.historyListElement.innerHTML = '記録はまだありません';
+                    return;
+                }
+                
+                const historyHTML = this.history.map(item => 
+                    `<div class="history-item">${item.time} - デス数: ${item.count} (${item.type})</div>`
+                ).join('');
+                
+                this.historyListElement.innerHTML = historyHTML;
+            }
+
+            updateStatus(message, type) {
+                this.status.textContent = message;
+                this.status.className = `status ${type}`;
+            }
+
+            debugLog(message) {
+                const timestamp = new Date().toLocaleTimeString();
+                const logEntry = `[${timestamp}] ${message}`;
+                console.log(logEntry);
+                
+                const currentText = this.debugInfo.textContent;
+                const lines = currentText.split('\n');
+                lines.unshift(logEntry);
+                
+                // Keep only last 10 lines
+                if (lines.length > 10) {
+                    lines.splice(10);
+                }
+                
+                this.debugInfo.textContent = lines.join('\n');
+            }
+        }
+
+        // Initialize app when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new DeathCounterCamera();
+        });
+    </script>
+    
+    <!-- Include the death detection model -->
+    <script src="./death_detect/death_detection.js"></script>
+</body>
+</html>

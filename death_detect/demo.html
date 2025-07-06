@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Detection Model Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .result {
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .death { background-color: #ffebee; }
+        .not-death { background-color: #e8f5e8; }
+        .loading { background-color: #fff3e0; }
+        #preview {
+            max-width: 300px;
+            max-height: 300px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Death Detection Model Demo</h1>
+    
+    <div class="container">
+        <h2>モデル読み込み</h2>
+        <button id="loadModelBtn">モデルを読み込む</button>
+        <div id="modelStatus">モデルが読み込まれていません</div>
+    </div>
+
+    <div class="container">
+        <h2>画像予測</h2>
+        <input type="file" id="fileInput" accept="image/*" disabled>
+        <br>
+        <img id="preview" style="display: none;">
+        <button id="predictBtn" disabled>予測実行</button>
+        <div id="result"></div>
+    </div>
+
+    <script src="death_detection.js"></script>
+    <script>
+        const model = new DeathDetectionModel();
+        const loadModelBtn = document.getElementById('loadModelBtn');
+        const fileInput = document.getElementById('fileInput');
+        const predictBtn = document.getElementById('predictBtn');
+        const preview = document.getElementById('preview');
+        const resultDiv = document.getElementById('result');
+        const modelStatus = document.getElementById('modelStatus');
+
+        loadModelBtn.addEventListener('click', async () => {
+            try {
+                loadModelBtn.disabled = true;
+                modelStatus.textContent = 'モデルを読み込み中...';
+                await model.loadModel();
+                modelStatus.textContent = 'モデルが読み込まれました';
+                fileInput.disabled = false;
+                loadModelBtn.textContent = 'モデル読み込み完了';
+            } catch (error) {
+                modelStatus.textContent = 'モデルの読み込みに失敗しました: ' + error.message;
+                loadModelBtn.disabled = false;
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    predictBtn.disabled = false;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        predictBtn.addEventListener('click', async () => {
+            if (!fileInput.files[0]) return;
+            
+            try {
+                predictBtn.disabled = true;
+                resultDiv.innerHTML = '<div class="result loading">予測中...</div>';
+                
+                const result = await model.predictFromFile(fileInput.files[0]);
+                
+                const resultClass = result.prediction === 1 ? 'death' : 'not-death';
+                resultDiv.innerHTML = `
+                    <div class="result ${resultClass}">
+                        <h3>予測結果</h3>
+                        <p><strong>予測:</strong> ${result.label}</p>
+                        <p><strong>確率:</strong> ${(result.probability * 100).toFixed(2)}%</p>
+                        <p><strong>信頼度:</strong> ${(result.confidence * 100).toFixed(2)}%</p>
+                    </div>
+                `;
+                
+                predictBtn.disabled = false;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="result" style="background-color: #ffebee;">エラー: ${error.message}</div>`;
+                predictBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

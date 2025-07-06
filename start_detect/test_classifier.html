@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Image Classifier Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .upload-area {
+            border: 2px dashed #ccc;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .upload-area.dragover {
+            border-color: #007bff;
+            background-color: #f8f9fa;
+        }
+        .image-preview {
+            max-width: 100px;
+            max-height: 100px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        .class-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .class-section h3 {
+            margin-top: 0;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        .progress {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Image Classifier Test</h1>
+    <p>Upload images to test the JavaScript port of the simple classifier.</p>
+    
+    <div class="class-section">
+        <h3>Class 0 (Not Start) Images</h3>
+        <div class="upload-area" id="upload-area-0">
+            <p>Drop images here or click to select</p>
+            <input type="file" id="file-input-0" multiple accept="image/*" style="display: none;">
+        </div>
+        <div class="image-container" id="images-0"></div>
+    </div>
+    
+    <div class="class-section">
+        <h3>Class 1 (Start) Images</h3>
+        <div class="upload-area" id="upload-area-1">
+            <p>Drop images here or click to select</p>
+            <input type="file" id="file-input-1" multiple accept="image/*" style="display: none;">
+        </div>
+        <div class="image-container" id="images-1"></div>
+    </div>
+    
+    <button id="analyze-btn" onclick="analyzeImages()">Analyze Images</button>
+    <div class="progress" id="progress"></div>
+    
+    <div class="results" id="results" style="display: none;">
+        <h3>Classification Results</h3>
+        <div id="results-content"></div>
+    </div>
+
+    <script src="simple_classifier.js"></script>
+    <script>
+        const classifier = new SimpleClassifier();
+        const imageData = [];
+        
+        // Setup drag and drop for both upload areas
+        for (let classIndex = 0; classIndex <= 1; classIndex++) {
+            const uploadArea = document.getElementById(`upload-area-${classIndex}`);
+            const fileInput = document.getElementById(`file-input-${classIndex}`);
+            
+            uploadArea.addEventListener('click', () => fileInput.click());
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('dragover');
+            });
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                handleFiles(e.dataTransfer.files, classIndex);
+            });
+            
+            fileInput.addEventListener('change', (e) => {
+                handleFiles(e.target.files, classIndex);
+            });
+        }
+        
+        function handleFiles(files, classIndex) {
+            const container = document.getElementById(`images-${classIndex}`);
+            
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'image-preview';
+                        container.appendChild(img);
+                        
+                        // Add to dataset
+                        imageData.push({
+                            src: e.target.result,
+                            label: classIndex
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+        
+        async function analyzeImages() {
+            if (imageData.length === 0) {
+                alert('Please upload some images first!');
+                return;
+            }
+            
+            const analyzeBtn = document.getElementById('analyze-btn');
+            const progress = document.getElementById('progress');
+            const resultsDiv = document.getElementById('results');
+            const resultsContent = document.getElementById('results-content');
+            
+            analyzeBtn.disabled = true;
+            progress.textContent = 'Processing images...';
+            
+            try {
+                const results = await classifier.analyzeImages(imageData);
+                
+                // Display results
+                let html = '<h4>Classifier Performance:</h4>';
+                html += '<table border="1" style="width: 100%; border-collapse: collapse;">';
+                html += '<tr><th>Classifier</th><th>Train Accuracy</th><th>Test Accuracy</th><th>Threshold</th></tr>';
+                
+                for (const [name, result] of Object.entries(results)) {
+                    html += `<tr>
+                        <td>${name}</td>
+                        <td>${(result.trainAccuracy * 100).toFixed(2)}%</td>
+                        <td>${(result.testAccuracy * 100).toFixed(2)}%</td>
+                        <td>${result.threshold.toFixed(4)}</td>
+                    </tr>`;
+                }
+                html += '</table>';
+                
+                // Find best classifier
+                const bestClassifier = Object.entries(results).reduce((best, [name, result]) => {
+                    return result.testAccuracy > best.accuracy ? { name, accuracy: result.testAccuracy } : best;
+                }, { name: '', accuracy: 0 });
+                
+                html += `<h4>Analysis:</h4>`;
+                html += `<p><strong>Best Classifier:</strong> ${bestClassifier.name} (${(bestClassifier.accuracy * 100).toFixed(2)}% accuracy)</p>`;
+                
+                if (bestClassifier.accuracy < 0.6) {
+                    html += '<p style="color: red;"><strong>Warning:</strong> Low accuracy (<60%). Classes may not be visually distinguishable.</p>';
+                } else if (bestClassifier.accuracy > 0.8) {
+                    html += '<p style="color: green;"><strong>Good:</strong> High accuracy (>80%). Problem is solvable with simple features.</p>';
+                } else {
+                    html += '<p style="color: orange;"><strong>Moderate:</strong> Moderate accuracy (60-80%). May need better features.</p>';
+                }
+                
+                resultsContent.innerHTML = html;
+                resultsDiv.style.display = 'block';
+                progress.textContent = 'Analysis complete!';
+                
+            } catch (error) {
+                progress.textContent = `Error: ${error.message}`;
+                console.error('Analysis error:', error);
+            } finally {
+                analyzeBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

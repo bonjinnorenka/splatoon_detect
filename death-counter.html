@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今日のデス数カウンター</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .counter {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .counter h2 {
+            margin: 0 0 20px 0;
+            color: #333;
+        }
+        .count {
+            font-size: 4em;
+            font-weight: bold;
+            color: #dc3545;
+            margin: 20px 0;
+        }
+        .date {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .controls {
+            margin: 30px 0;
+        }
+        button {
+            padding: 15px 30px;
+            margin: 0 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+        .add-btn:hover {
+            background-color: #c82333;
+        }
+        .reset-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+        .reset-btn:hover {
+            background-color: #5a6268;
+        }
+        .history {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .history h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .history-item {
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .history-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>今日のデス数カウンター</h1>
+        
+        <div class="date" id="currentDate"></div>
+        
+        <div class="counter">
+            <h2>今日のデス数</h2>
+            <div class="count" id="deathCount">0</div>
+        </div>
+        
+        <div class="controls">
+            <button class="add-btn" id="addBtn">デス +1</button>
+            <button class="reset-btn" id="resetBtn">リセット</button>
+        </div>
+        
+        <div class="history">
+            <h3>今日の記録</h3>
+            <div id="historyList">
+                記録はまだありません
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class DeathCounter {
+            constructor() {
+                this.deathCountElement = document.getElementById('deathCount');
+                this.addBtn = document.getElementById('addBtn');
+                this.resetBtn = document.getElementById('resetBtn');
+                this.currentDateElement = document.getElementById('currentDate');
+                this.historyListElement = document.getElementById('historyList');
+                
+                this.today = new Date().toDateString();
+                this.storageKey = `death-count-${this.today}`;
+                this.historyKey = `death-history-${this.today}`;
+                
+                this.init();
+            }
+            
+            init() {
+                this.displayCurrentDate();
+                this.loadCount();
+                this.loadHistory();
+                this.bindEvents();
+            }
+            
+            displayCurrentDate() {
+                const now = new Date();
+                const dateString = now.toLocaleDateString('ja-JP', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    weekday: 'long'
+                });
+                this.currentDateElement.textContent = dateString;
+            }
+            
+            loadCount() {
+                const savedCount = localStorage.getItem(this.storageKey);
+                this.deathCount = savedCount ? parseInt(savedCount) : 0;
+                this.updateDisplay();
+            }
+            
+            loadHistory() {
+                const savedHistory = localStorage.getItem(this.historyKey);
+                this.history = savedHistory ? JSON.parse(savedHistory) : [];
+                this.updateHistoryDisplay();
+            }
+            
+            bindEvents() {
+                this.addBtn.addEventListener('click', () => this.addDeath());
+                this.resetBtn.addEventListener('click', () => this.resetCount());
+            }
+            
+            addDeath() {
+                this.deathCount++;
+                this.saveCount();
+                this.updateDisplay();
+                this.addToHistory();
+            }
+            
+            resetCount() {
+                if (confirm('本当にリセットしますか？')) {
+                    this.deathCount = 0;
+                    this.history = [];
+                    this.saveCount();
+                    this.saveHistory();
+                    this.updateDisplay();
+                    this.updateHistoryDisplay();
+                }
+            }
+            
+            saveCount() {
+                localStorage.setItem(this.storageKey, this.deathCount.toString());
+            }
+            
+            saveHistory() {
+                localStorage.setItem(this.historyKey, JSON.stringify(this.history));
+            }
+            
+            addToHistory() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('ja-JP');
+                this.history.push({
+                    time: timeString,
+                    count: this.deathCount
+                });
+                this.saveHistory();
+                this.updateHistoryDisplay();
+            }
+            
+            updateDisplay() {
+                this.deathCountElement.textContent = this.deathCount;
+            }
+            
+            updateHistoryDisplay() {
+                if (this.history.length === 0) {
+                    this.historyListElement.innerHTML = '記録はまだありません';
+                    return;
+                }
+                
+                const historyHTML = this.history.map(item => 
+                    `<div class="history-item">${item.time} - デス数: ${item.count}</div>`
+                ).join('');
+                
+                this.historyListElement.innerHTML = historyHTML;
+            }
+        }
+        
+        // Initialize counter when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new DeathCounter();
+        });
+    </script>
+</body>
+</html>

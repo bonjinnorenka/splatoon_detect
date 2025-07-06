@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Detection App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        video {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+        .controls {
+            margin: 20px 0;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .start-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .start-btn:hover {
+            background-color: #45a049;
+        }
+        .stop-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .stop-btn:hover {
+            background-color: #da190b;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .status.idle {
+            background-color: #e7e7e7;
+            color: #666;
+        }
+        .status.detecting {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .status.start-detected {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status.death-detected {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .counters {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .counter {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            flex: 1;
+            margin: 0 10px;
+        }
+        .counter h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .counter .count {
+            font-size: 2em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .debug-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .crop-preview {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .crop-canvas {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .crop-label {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Camera Detection App</h1>
+        
+        <div class="status idle" id="status">
+            待機中
+        </div>
+
+        <video id="video" autoplay playsinline></video>
+        
+        <div class="controls">
+            <button class="start-btn" id="startBtn">検出開始</button>
+            <button class="stop-btn" id="stopBtn" disabled>検出停止</button>
+            <label>
+                <input type="checkbox" id="showNonDetectionLogs"> 非検知ログも表示
+            </label>
+        </div>
+
+        <div class="counters">
+            <div class="counter">
+                <h3>開始検出回数</h3>
+                <div class="count" id="startCount">0</div>
+            </div>
+            <div class="counter">
+                <h3>デス検出回数</h3>
+                <div class="count" id="deathCount">0</div>
+            </div>
+        </div>
+
+        <div class="crop-preview">
+            <div>
+                <div class="crop-label">Start Detection Area</div>
+                <canvas id="startCropCanvas" class="crop-canvas" width="400" height="400"></canvas>
+            </div>
+            <div>
+                <div class="crop-label">Death Detection Area</div>
+                <canvas id="deathCropCanvas" class="crop-canvas" width="340" height="250"></canvas>
+            </div>
+        </div>
+
+        <div class="debug-info" id="debugInfo">
+            デバッグ情報がここに表示されます
+        </div>
+    </div>
+
+    <script>
+        class CameraDetectionApp {
+            constructor() {
+                this.video = document.getElementById('video');
+                this.startBtn = document.getElementById('startBtn');
+                this.stopBtn = document.getElementById('stopBtn');
+                this.status = document.getElementById('status');
+                this.startCount = document.getElementById('startCount');
+                this.deathCount = document.getElementById('deathCount');
+                this.debugInfo = document.getElementById('debugInfo');
+                this.startCropCanvas = document.getElementById('startCropCanvas');
+                this.deathCropCanvas = document.getElementById('deathCropCanvas');
+                this.showNonDetectionLogsCheckbox = document.getElementById('showNonDetectionLogs');
+                
+                this.stream = null;
+                this.isDetecting = false;
+                this.detectionInterval = null;
+                this.lastDeathDetection = 0;
+                this.deathCooldown = 10000; // 10秒
+                this.startDetectionBuffer = []; // 開始検出のバッファ
+                this.startDetectionThreshold = 10; // 10回連続で検知する必要がある
+                this.deathDetectionBuffer = []; // デス検出のバッファ
+                this.deathDetectionThreshold = 2; // 3回連続で検知する必要がある
+                this.showNonDetectionLogs = false; // 非検知ログの表示設定
+                
+                this.startDetector = new LogisticImagePredictor();
+                this.deathDetector = new DeathDetectionModel();
+                
+                this.startCountValue = 0;
+                this.deathCountValue = 0;
+                
+                this.init();
+            }
+
+            async init() {
+                try {
+                    await this.initCamera();
+                    await this.initModels();
+                    this.bindEvents();
+                    this.updateStatus('カメラとモデルが準備完了', 'idle');
+                } catch (error) {
+                    this.updateStatus('初期化エラー: ' + error.message, 'error');
+                    this.debugLog('初期化エラー: ' + error.message);
+                }
+            }
+
+            async initCamera() {
+                try {
+                    this.stream = await navigator.mediaDevices.getUserMedia({
+                        video: { width: 1920, height: 1080, facingMode: 'user' }
+                    });
+                    this.video.srcObject = this.stream;
+                    this.debugLog('カメラが開始されました');
+                } catch (error) {
+                    throw new Error('カメラアクセスに失敗しました: ' + error.message);
+                }
+            }
+
+            async initModels() {
+                try {
+                    const startModelLoaded = await this.startDetector.loadModel('./start_detect/logistic_model.json');
+                    if (startModelLoaded) {
+                        this.debugLog('開始検出モデルが読み込まれました');
+                    } else {
+                        this.debugLog('開始検出モデルの読み込みに失敗しました');
+                    }
+                    
+                    await this.deathDetector.loadModel('./death_detect/death_detection_model.json');
+                    this.debugLog('デス検出モデルが読み込まれました');
+                } catch (error) {
+                    this.debugLog('モデルの読み込みに失敗: ' + error.message);
+                }
+            }
+
+            bindEvents() {
+                this.startBtn.addEventListener('click', () => this.startDetection());
+                this.stopBtn.addEventListener('click', () => this.stopDetection());
+                this.showNonDetectionLogsCheckbox.addEventListener('change', (e) => {
+                    this.showNonDetectionLogs = e.target.checked;
+                });
+            }
+
+            startDetection() {
+                if (this.isDetecting) return;
+                
+                this.isDetecting = true;
+                this.startBtn.disabled = true;
+                this.stopBtn.disabled = false;
+                this.updateStatus('検出中...', 'detecting');
+                
+                this.detectionInterval = setInterval(() => {
+                    this.performDetection();
+                }, 100); // 100ms間隔で検出
+                
+                this.debugLog('検出を開始しました');
+            }
+
+            stopDetection() {
+                if (!this.isDetecting) return;
+                
+                this.isDetecting = false;
+                this.startBtn.disabled = false;
+                this.stopBtn.disabled = true;
+                this.updateStatus('検出停止', 'idle');
+                
+                if (this.detectionInterval) {
+                    clearInterval(this.detectionInterval);
+                    this.detectionInterval = null;
+                }
+                
+                // バッファをクリア
+                this.startDetectionBuffer = [];
+                this.deathDetectionBuffer = [];
+                
+                this.debugLog('検出を停止しました');
+            }
+
+            async performDetection() {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    canvas.width = this.video.videoWidth;
+                    canvas.height = this.video.videoHeight;
+                    
+                    if (canvas.width === 0 || canvas.height === 0) return;
+                    
+                    ctx.drawImage(this.video, 0, 0);
+                    
+                    // Start detection crop (760, 260, 400x400)
+                    const startImageData = ctx.getImageData(760, 260, 400, 400);
+                    this.drawCropPreview(this.startCropCanvas, startImageData);
+                    
+                    // Death detection crop (780, 245, 340x250)
+                    const deathImageData = ctx.getImageData(780, 245, 340, 250);
+                    this.drawCropPreview(this.deathCropCanvas, deathImageData);
+                    
+                    const now = Date.now();
+                    if (now - this.lastDeathDetection > this.deathCooldown) {
+                        const deathWasDetected = await this.checkDeathDetection(deathImageData);
+                        
+                        // デスが検出されなかった場合のみ、スタート検出を行う
+                        if (!deathWasDetected) {
+                            await this.checkStartDetection(startImageData);
+                        }
+                    }
+                    
+                } catch (error) {
+                    this.debugLog('検出エラー: ' + error.message);
+                }
+            }
+
+            drawCropPreview(canvas, imageData) {
+                const ctx = canvas.getContext('2d');
+                canvas.width = imageData.width;
+                canvas.height = imageData.height;
+                ctx.putImageData(imageData, 0, 0);
+            }
+
+            async checkStartDetection(imageData) {
+                try {
+                    // Use logistic regression for start detection
+                    if (this.startDetector.weights) {
+                        const result = this.startDetector.predict(imageData);
+                        
+                        // 確率が0.9以上かつ予測が1の場合のみバッファに追加
+                        const highConfidenceDetection = result.prediction === 1 && result.probability >= 0.9;
+                        this.startDetectionBuffer.push(highConfidenceDetection ? 1 : 0);
+                        
+                        // バッファサイズを制限
+                        if (this.startDetectionBuffer.length > this.startDetectionThreshold) {
+                            this.startDetectionBuffer.shift();
+                        }
+                        
+                        // 10回連続で検知したかチェック
+                        if (this.startDetectionBuffer.length === this.startDetectionThreshold) {
+                            const allDetected = this.startDetectionBuffer.every(detection => detection === 1);
+                            if (allDetected) {
+                                this.startDetected();
+                                this.startDetectionBuffer = []; // バッファをクリア
+                            }
+                        }
+                        
+                        // 検知時または設定により非検知ログも表示
+                        if (highConfidenceDetection || this.showNonDetectionLogs) {
+                            this.debugLog(`開始検出: ${result.class} (確率: ${result.probability.toFixed(2)}) [${this.startDetectionBuffer.join(',')}]`);
+                        }
+                    }
+                } catch (error) {
+                    this.debugLog('開始検出エラー: ' + error.message);
+                }
+            }
+
+            async checkDeathDetection(imageData) {
+                try {
+                    if (this.deathDetector.isLoaded) {
+                        const result = this.deathDetector.predict(
+                            imageData.data,
+                            imageData.width,
+                            imageData.height
+                        );
+                        
+                        // 信頼度が0.9以上かつ予測が1の場合のみバッファに追加
+                        const highConfidenceDetection = result.prediction === 1 && result.confidence >= 0.9;
+                        this.deathDetectionBuffer.push(highConfidenceDetection ? 1 : 0);
+                        
+                        // バッファサイズを制限
+                        if (this.deathDetectionBuffer.length > this.deathDetectionThreshold) {
+                            this.deathDetectionBuffer.shift();
+                        }
+                        
+                        // 3回連続で検知したかチェック
+                        if (this.deathDetectionBuffer.length === this.deathDetectionThreshold) {
+                            const allDetected = this.deathDetectionBuffer.every(detection => detection === 1);
+                            if (allDetected) {
+                                this.deathDetected();
+                                this.deathDetectionBuffer = []; // バッファをクリア
+                                return true;
+                            }
+                        }
+                        
+                        // 検知時または設定により非検知ログも表示
+                        if (highConfidenceDetection || this.showNonDetectionLogs) {
+                            this.debugLog(`デス検出: ${result.label} (信頼度: ${result.confidence.toFixed(2)}) [${this.deathDetectionBuffer.join(',')}]`);
+                        }
+                    }
+                } catch (error) {
+                    this.debugLog('デス検出エラー: ' + error.message);
+                }
+                return false;
+            }
+
+            startDetected() {
+                this.startCountValue = 0; // Reset start count
+                this.deathCountValue = 0; // Reset death count
+                this.startCount.textContent = this.startCountValue;
+                this.deathCount.textContent = this.deathCountValue;
+                this.updateStatus('開始検出！カウントリセット', 'start-detected');
+                this.debugLog('開始が検出されました - カウントリセット');
+                
+                setTimeout(() => {
+                    if (this.isDetecting) {
+                        this.updateStatus('検出中...', 'detecting');
+                    }
+                }, 2000);
+            }
+
+            deathDetected() {
+                this.deathCountValue++;
+                this.deathCount.textContent = this.deathCountValue;
+                this.lastDeathDetection = Date.now();
+                this.updateStatus('デス検出！', 'death-detected');
+                this.debugLog(`デスが検出されました - 合計: ${this.deathCountValue}回`);
+                
+                setTimeout(() => {
+                    if (this.isDetecting) {
+                        this.updateStatus('検出中...', 'detecting');
+                    }
+                }, 2000);
+            }
+
+            updateStatus(message, type) {
+                this.status.textContent = message;
+                this.status.className = `status ${type}`;
+            }
+
+            debugLog(message) {
+                const timestamp = new Date().toLocaleTimeString();
+                const logEntry = `[${timestamp}] ${message}`;
+                console.log(logEntry);
+                
+                const currentText = this.debugInfo.textContent;
+                const lines = currentText.split('\n');
+                lines.unshift(logEntry);
+                
+                // Keep only last 10 lines
+                if (lines.length > 10) {
+                    lines.splice(10);
+                }
+                
+                this.debugInfo.textContent = lines.join('\n');
+            }
+        }
+
+        // Initialize app when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new CameraDetectionApp();
+        });
+    </script>
+    
+    <!-- Include the detection models -->
+    <script src="./start_detect/logistic_regression_predictor_browser.js"></script>
+    <script src="./death_detect/death_detection.js"></script>
+</body>
+</html>
