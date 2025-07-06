@@ -1,0 +1,11 @@
+{
+  "name": "death-detection-nodejs-test",
+  "version": "1.0.0",
+  "description": "Node.js test for death detection model",
+  "main": "test_nodejs_simple.js",
+  "scripts": {
+    "test": "node test_nodejs_simple.js"
+  },
+  "dependencies": {},
+  "type": "module"
+}

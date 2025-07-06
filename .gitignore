@@ -29,9 +29,11 @@ ENV/
 .env/
 
 # Data files
-*.pkl
-*.json
 *.h5
+
+# Model files (keep these in git)
+# *.pkl
+# *.json
 
 # Training data and outputs
 death_detect/data/

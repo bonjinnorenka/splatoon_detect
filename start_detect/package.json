@@ -1,0 +1,14 @@
+{
+  "name": "start-detect",
+  "version": "1.0.0",
+  "description": "Start detection from video frames.",
+  "main": "logistic_regression_predictor.js",
+  "scripts": {
+    "train": "node logistic_regression_predictor.js",
+    "predict": "node inference.js"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "fluent-ffmpeg": "^2.1.2"
+  }
+}
