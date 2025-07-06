@@ -35,11 +35,11 @@ ENV/
 # *.pkl
 # *.json
 
-# Training data and outputs
-death_detect/data/
-start_detect/data/
-start_detect/balanced_data/
-start_detect/balanced_data_improved/
+# Training data and outputs (keep these in git)
+# death_detect/data/
+# start_detect/data/
+# start_detect/balanced_data/
+# start_detect/balanced_data_improved/
 start_detect/result/
 start_detect/node_modules/
 
