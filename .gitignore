@@ -43,13 +43,13 @@ ENV/
 start_detect/result/
 start_detect/node_modules/
 
-# Image files
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.bmp
-*.tiff
+# Image files (but keep training data)
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+# *.bmp
+# *.tiff
 
 # Video files
 *.mp4
