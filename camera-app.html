@@ -142,12 +142,12 @@
 
         <div class="counters">
             <div class="counter">
-                <h3>開始検出回数</h3>
-                <div class="count" id="startCount">0</div>
+                <h3>この試合のデス数</h3>
+                <div class="count" id="deathCount">0</div>
             </div>
             <div class="counter">
-                <h3>デス検出回数</h3>
-                <div class="count" id="deathCount">0</div>
+                <h3>今日のデス数</h3>
+                <div class="count" id="todayDeathCount">0</div>
             </div>
         </div>
 
@@ -174,8 +174,8 @@
                 this.startBtn = document.getElementById('startBtn');
                 this.stopBtn = document.getElementById('stopBtn');
                 this.status = document.getElementById('status');
-                this.startCount = document.getElementById('startCount');
                 this.deathCount = document.getElementById('deathCount');
+                this.todayDeathCount = document.getElementById('todayDeathCount');
                 this.debugInfo = document.getElementById('debugInfo');
                 this.startCropCanvas = document.getElementById('startCropCanvas');
                 this.deathCropCanvas = document.getElementById('deathCropCanvas');
@@ -195,8 +195,8 @@
                 this.startDetector = new LogisticImagePredictor();
                 this.deathDetector = new DeathDetectionModel();
                 
-                this.startCountValue = 0;
                 this.deathCountValue = 0;
+                this.todayDeathCountValue = this.loadTodayDeathCount();
                 
                 this.init();
             }
@@ -206,6 +206,7 @@
                     await this.initCamera();
                     await this.initModels();
                     this.bindEvents();
+                    this.todayDeathCount.textContent = this.todayDeathCountValue;
                     this.updateStatus('カメラとモデルが準備完了', 'idle');
                 } catch (error) {
                     this.updateStatus('初期化エラー: ' + error.message, 'error');
@@ -400,12 +401,10 @@
             }
 
             startDetected() {
-                this.startCountValue = 0; // Reset start count
-                this.deathCountValue = 0; // Reset death count
-                this.startCount.textContent = this.startCountValue;
+                this.deathCountValue = 0; // Reset match death count
                 this.deathCount.textContent = this.deathCountValue;
-                this.updateStatus('開始検出！カウントリセット', 'start-detected');
-                this.debugLog('開始が検出されました - カウントリセット');
+                this.updateStatus('開始検出！この試合のデス数リセット', 'start-detected');
+                this.debugLog('開始が検出されました - この試合のデス数リセット');
                 
                 setTimeout(() => {
                     if (this.isDetecting) {
@@ -416,10 +415,13 @@
 
             deathDetected() {
                 this.deathCountValue++;
+                this.todayDeathCountValue++;
                 this.deathCount.textContent = this.deathCountValue;
+                this.todayDeathCount.textContent = this.todayDeathCountValue;
+                this.saveTodayDeathCount();
                 this.lastDeathDetection = Date.now();
                 this.updateStatus('デス検出！', 'death-detected');
-                this.debugLog(`デスが検出されました - 合計: ${this.deathCountValue}回`);
+                this.debugLog(`デスが検出されました - この試合: ${this.deathCountValue}回, 今日: ${this.todayDeathCountValue}回`);
                 
                 setTimeout(() => {
                     if (this.isDetecting) {
@@ -431,6 +433,27 @@
             updateStatus(message, type) {
                 this.status.textContent = message;
                 this.status.className = `status ${type}`;
+            }
+
+            loadTodayDeathCount() {
+                const today = new Date().toDateString();
+                const savedData = localStorage.getItem('todayDeathCount');
+                if (savedData) {
+                    const data = JSON.parse(savedData);
+                    if (data.date === today) {
+                        return data.count;
+                    }
+                }
+                return 0;
+            }
+
+            saveTodayDeathCount() {
+                const today = new Date().toDateString();
+                const data = {
+                    date: today,
+                    count: this.todayDeathCountValue
+                };
+                localStorage.setItem('todayDeathCount', JSON.stringify(data));
             }
 
             debugLog(message) {
