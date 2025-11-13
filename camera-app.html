@@ -142,7 +142,7 @@
         <div class="controls">
             <button class="start-btn" id="startBtn">検出開始</button>
             <button class="stop-btn" id="stopBtn" disabled>検出停止</button>
-            <button class="reset-btn" id="resetTodayBtn">今日のデス数リセット</button>
+            <button class="reset-btn" id="resetTodayBtn">今日のデス数・試合数リセット</button>
             <label>
                 <input type="checkbox" id="showNonDetectionLogs"> 非検知ログも表示
             </label>
@@ -156,6 +156,10 @@
             <div class="counter">
                 <h3>今日のデス数</h3>
                 <div class="count" id="todayDeathCount">0</div>
+            </div>
+            <div class="counter">
+                <h3>今日の試合数</h3>
+                <div class="count" id="todayMatchCount">0</div>
             </div>
         </div>
 
@@ -185,6 +189,7 @@
                 this.status = document.getElementById('status');
                 this.deathCount = document.getElementById('deathCount');
                 this.todayDeathCount = document.getElementById('todayDeathCount');
+                this.todayMatchCount = document.getElementById('todayMatchCount');
                 this.debugInfo = document.getElementById('debugInfo');
                 this.startCropCanvas = document.getElementById('startCropCanvas');
                 this.deathCropCanvas = document.getElementById('deathCropCanvas');
@@ -194,7 +199,9 @@
                 this.isDetecting = false;
                 this.detectionInterval = null;
                 this.lastDeathDetection = 0;
+                this.lastStartDetection = 0;
                 this.deathCooldown = 10000; // 10秒
+                this.startCooldown = 120000; // 2分 (120秒)
                 this.startDetectionBuffer = []; // 開始検出のバッファ
                 this.startDetectionThreshold = 10; // 10回連続で検知する必要がある
                 this.deathDetectionBuffer = []; // デス検出のバッファ
@@ -206,6 +213,7 @@
                 
                 this.deathCountValue = 0;
                 this.todayDeathCountValue = this.loadTodayDeathCount();
+                this.todayMatchCountValue = this.loadTodayMatchCount();
                 
                 this.init();
             }
@@ -216,6 +224,7 @@
                     await this.initModels();
                     this.bindEvents();
                     this.todayDeathCount.textContent = this.todayDeathCountValue;
+                    this.todayMatchCount.textContent = this.todayMatchCountValue;
                     this.updateStatus('カメラとモデルが準備完了', 'idle');
                 } catch (error) {
                     this.updateStatus('初期化エラー: ' + error.message, 'error');
@@ -316,13 +325,15 @@
                     this.drawCropPreview(this.deathCropCanvas, deathImageData);
                     
                     const now = Date.now();
+                    
+                    // Perform start detection (with cooldown)
+                    if (now - this.lastStartDetection > this.startCooldown) {
+                        await this.checkStartDetection(startImageData);
+                    }
+                    
+                    // Perform death detection (with cooldown)
                     if (now - this.lastDeathDetection > this.deathCooldown) {
-                        const deathWasDetected = await this.checkDeathDetection(deathImageData);
-                        
-                        // デスが検出されなかった場合のみ、スタート検出を行う
-                        if (!deathWasDetected) {
-                            await this.checkStartDetection(startImageData);
-                        }
+                        await this.checkDeathDetection(deathImageData);
                     }
                     
                 } catch (error) {
@@ -395,7 +406,6 @@
                             if (allDetected) {
                                 this.deathDetected();
                                 this.deathDetectionBuffer = []; // バッファをクリア
-                                return true;
                             }
                         }
                         
@@ -407,14 +417,17 @@
                 } catch (error) {
                     this.debugLog('デス検出エラー: ' + error.message);
                 }
-                return false;
             }
 
             startDetected() {
                 this.deathCountValue = 0; // Reset match death count
+                this.todayMatchCountValue++; // Increment match count
                 this.deathCount.textContent = this.deathCountValue;
+                this.todayMatchCount.textContent = this.todayMatchCountValue;
+                this.saveTodayMatchCount();
+                this.lastStartDetection = Date.now();
                 this.updateStatus('開始検出！この試合のデス数リセット', 'start-detected');
-                this.debugLog('開始が検出されました - この試合のデス数リセット');
+                this.debugLog(`開始が検出されました - この試合のデス数リセット、今日の試合数: ${this.todayMatchCountValue}`);
                 
                 setTimeout(() => {
                     if (this.isDetecting) {
@@ -466,12 +479,36 @@
                 localStorage.setItem('todayDeathCount', JSON.stringify(data));
             }
 
+            loadTodayMatchCount() {
+                const today = new Date().toDateString();
+                const savedData = localStorage.getItem('todayMatchCount');
+                if (savedData) {
+                    const data = JSON.parse(savedData);
+                    if (data.date === today) {
+                        return data.count;
+                    }
+                }
+                return 0;
+            }
+
+            saveTodayMatchCount() {
+                const today = new Date().toDateString();
+                const data = {
+                    date: today,
+                    count: this.todayMatchCountValue
+                };
+                localStorage.setItem('todayMatchCount', JSON.stringify(data));
+            }
+
             resetTodayDeathCount() {
-                if (confirm('今日のデス数をリセットしますか？')) {
+                if (confirm('今日のデス数と試合数をリセットしますか？')) {
                     this.todayDeathCountValue = 0;
+                    this.todayMatchCountValue = 0;
                     this.todayDeathCount.textContent = this.todayDeathCountValue;
+                    this.todayMatchCount.textContent = this.todayMatchCountValue;
                     this.saveTodayDeathCount();
-                    this.debugLog('今日のデス数をリセットしました');
+                    this.saveTodayMatchCount();
+                    this.debugLog('今日のデス数と試合数をリセットしました');
                 }
             }
 
