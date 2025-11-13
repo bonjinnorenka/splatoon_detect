@@ -52,6 +52,13 @@
         .stop-btn:hover {
             background-color: #da190b;
         }
+        .reset-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+        .reset-btn:hover {
+            background-color: #5a6268;
+        }
         .status {
             margin: 20px 0;
             padding: 15px;
@@ -135,6 +142,7 @@
         <div class="controls">
             <button class="start-btn" id="startBtn">検出開始</button>
             <button class="stop-btn" id="stopBtn" disabled>検出停止</button>
+            <button class="reset-btn" id="resetTodayBtn">今日のデス数リセット</button>
             <label>
                 <input type="checkbox" id="showNonDetectionLogs"> 非検知ログも表示
             </label>
@@ -173,6 +181,7 @@
                 this.video = document.getElementById('video');
                 this.startBtn = document.getElementById('startBtn');
                 this.stopBtn = document.getElementById('stopBtn');
+                this.resetTodayBtn = document.getElementById('resetTodayBtn');
                 this.status = document.getElementById('status');
                 this.deathCount = document.getElementById('deathCount');
                 this.todayDeathCount = document.getElementById('todayDeathCount');
@@ -245,6 +254,7 @@
             bindEvents() {
                 this.startBtn.addEventListener('click', () => this.startDetection());
                 this.stopBtn.addEventListener('click', () => this.stopDetection());
+                this.resetTodayBtn.addEventListener('click', () => this.resetTodayDeathCount());
                 this.showNonDetectionLogsCheckbox.addEventListener('change', (e) => {
                     this.showNonDetectionLogs = e.target.checked;
                 });
@@ -454,6 +464,15 @@
                     count: this.todayDeathCountValue
                 };
                 localStorage.setItem('todayDeathCount', JSON.stringify(data));
+            }
+
+            resetTodayDeathCount() {
+                if (confirm('今日のデス数をリセットしますか？')) {
+                    this.todayDeathCountValue = 0;
+                    this.todayDeathCount.textContent = this.todayDeathCountValue;
+                    this.saveTodayDeathCount();
+                    this.debugLog('今日のデス数をリセットしました');
+                }
             }
 
             debugLog(message) {
