@@ -20,7 +20,8 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
+balanced_data
+balanced_data_improved
 # Virtual environments
 venv/
 env/

@@ -1,0 +1,38 @@
+{
+  "hog_params": {
+    "winSize": [
+      64,
+      64
+    ],
+    "blockSize": [
+      16,
+      16
+    ],
+    "blockStride": [
+      8,
+      8
+    ],
+    "cellSize": [
+      8,
+      8
+    ],
+    "nbins": 9
+  },
+  "svm_params": {
+    "C": 1,
+    "break_ties": false,
+    "cache_size": 200,
+    "class_weight": null,
+    "coef0": 0.0,
+    "decision_function_shape": "ovr",
+    "degree": 3,
+    "gamma": "scale",
+    "kernel": "rbf",
+    "max_iter": -1,
+    "probability": true,
+    "random_state": 42,
+    "shrinking": true,
+    "tol": 0.001,
+    "verbose": false
+  }
+}
