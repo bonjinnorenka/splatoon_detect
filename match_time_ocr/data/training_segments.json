@@ -1,0 +1,18 @@
+[
+  {
+    "video": "../../videos/2026-02-01 21-18-24.mp4",
+    "starts_at": 20.0,
+    "start_seconds": 300,
+    "duration": 300,
+    "sample_step": 1.0,
+    "note": "First observed match: 5:00 at 00:20, overtime around 05:20."
+  },
+  {
+    "video": "../../videos/2026-02-06 22-39-39.mkv",
+    "starts_at": 13.0,
+    "start_seconds": 300,
+    "duration": 300,
+    "sample_step": 1.0,
+    "note": "First observed match in the second capture: 5:00 at 00:13, 4:53 at 00:20."
+  }
+]
