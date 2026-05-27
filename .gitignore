@@ -41,6 +41,7 @@ ENV/
 # start_detect/data/
 # start_detect/balanced_data/
 # start_detect/balanced_data_improved/
+debug_timer_samples/
 start_detect/result/
 start_detect/node_modules/
 
