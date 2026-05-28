@@ -1,0 +1,47 @@
+[
+  {
+    "video": "../../videos/2026-02-01 21-18-24.mp4",
+    "timestamp": 12.0,
+    "note": "team intro after start title"
+  },
+  {
+    "video": "../../videos/2026-02-01 21-18-24.mp4",
+    "timestamp": 30.0,
+    "note": "match HUD"
+  },
+  {
+    "video": "../../videos/2026-02-01 21-18-24.mp4",
+    "timestamp": 100.0,
+    "note": "match HUD"
+  },
+  {
+    "video": "../../videos/2026-02-01 21-18-24.mp4",
+    "timestamp": 500.0,
+    "note": "match HUD"
+  },
+  {
+    "video": "../../videos/2026-02-06 22-39-39.mkv",
+    "timestamp": 20.0,
+    "note": "match HUD"
+  },
+  {
+    "video": "../../videos/2026-02-06 22-39-39.mkv",
+    "timestamp": 397.0,
+    "note": "team intro after start title"
+  },
+  {
+    "video": "../../videos/小白川工業スプラ課 #122 えいえんなるまでサービス残業編 [Z6NAjVHq7Wc].mkv",
+    "timestamp": 4530.0,
+    "note": "result screen false start-detector candidate"
+  },
+  {
+    "video": "../../videos/小白川工業スプラ課 #122 えいえんなるまでサービス残業編 [Z6NAjVHq7Wc].mkv",
+    "timestamp": 4830.0,
+    "note": "result screen false start-detector candidate"
+  },
+  {
+    "video": "../../videos/小白川工業スプラ課#135 [h6BAoRKoml0].mkv",
+    "timestamp": 620.0,
+    "note": "match HUD after splat zones title"
+  }
+]

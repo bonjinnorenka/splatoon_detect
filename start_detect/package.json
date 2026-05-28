@@ -5,7 +5,9 @@
   "main": "logistic_regression_predictor.js",
   "scripts": {
     "train": "node logistic_regression_predictor.js",
-    "predict": "node inference.js"
+    "predict": "node inference.js",
+    "train:hog-svm": "venv/bin/python hog_svm_predictor.py train",
+    "compare": "venv/bin/python compare_start_detectors.py"
   },
   "dependencies": {
     "canvas": "^2.11.2",

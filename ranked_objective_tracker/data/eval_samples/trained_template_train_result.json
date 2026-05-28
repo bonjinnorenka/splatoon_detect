@@ -1,0 +1,522 @@
+{
+  "annotation_samples": 29,
+  "evaluated_splits": [
+    "train"
+  ],
+  "coverage": {
+    "evaluatedAnnotationSamples": 11,
+    "bySplit": {
+      "train": 11
+    },
+    "byRule": {
+      "splat_zones": {
+        "annotations": 3,
+        "counterSamples": 3,
+        "sideCountLabels": 6,
+        "counterLabels": 9,
+        "objectiveLabels": 3,
+        "goalStateLabels": 0,
+        "markerLabels": 3,
+        "visibleMarkerLabels": 0,
+        "staticObjectiveState": {
+          "zoneControl=unknown": 3
+        },
+        "staticMarkerState": {
+          "null": 3
+        }
+      },
+      "tower_control": {
+        "annotations": 2,
+        "counterSamples": 2,
+        "sideCountLabels": 4,
+        "counterLabels": 6,
+        "objectiveLabels": 2,
+        "goalStateLabels": 0,
+        "markerLabels": 2,
+        "visibleMarkerLabels": 0,
+        "staticObjectiveState": {
+          "towerOwner=neutral": 2
+        },
+        "staticMarkerState": {
+          "offscreen:offscreen": 2
+        }
+      },
+      "rainmaker": {
+        "annotations": 3,
+        "counterSamples": 3,
+        "sideCountLabels": 6,
+        "counterLabels": 9,
+        "objectiveLabels": 3,
+        "goalStateLabels": 0,
+        "markerLabels": 3,
+        "visibleMarkerLabels": 0,
+        "staticObjectiveState": {
+          "rainmakerState=unknown": 3
+        },
+        "staticMarkerState": {
+          "offscreen:offscreen": 3
+        }
+      },
+      "clam_blitz": {
+        "annotations": 3,
+        "counterSamples": 3,
+        "sideCountLabels": 6,
+        "counterLabels": 9,
+        "objectiveLabels": 0,
+        "goalStateLabels": 3,
+        "markerLabels": 6,
+        "visibleMarkerLabels": 0,
+        "staticObjectiveState": {
+          "goalState.our=closed.enemy=closed": 2,
+          "goalState.our=closed.enemy=open": 1
+        },
+        "staticMarkerState": {
+          "null": 6
+        }
+      }
+    }
+  },
+  "annotation_result": {
+    "metrics": {
+      "side_count": {
+        "correct": 20,
+        "total": 22,
+        "accuracy": 0.9090909090909091
+      },
+      "count": {
+        "correct": 20,
+        "total": 22,
+        "accuracy": 0.9090909090909091
+      },
+      "leader": {
+        "correct": 10,
+        "total": 11,
+        "accuracy": 0.9090909090909091
+      },
+      "progress_direction": {
+        "correct": 0,
+        "total": 0,
+        "accuracy": null
+      },
+      "objective_state": {
+        "correct": 8,
+        "total": 8,
+        "accuracy": 1.0
+      },
+      "goal_state": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "marker": {
+        "correct": 14,
+        "total": 14,
+        "accuracy": 1.0
+      }
+    },
+    "mistakes": [
+      {
+        "id": "zones_135_0500",
+        "type": "leftCount",
+        "expected": 82,
+        "actual": 66
+      },
+      {
+        "id": "zones_135_0500",
+        "type": "enemyCount",
+        "expected": 82,
+        "actual": 66
+      },
+      {
+        "id": "clam_20260201_2000",
+        "type": "rightCount",
+        "expected": 56,
+        "actual": 6
+      },
+      {
+        "id": "clam_20260201_2000",
+        "type": "ourCount",
+        "expected": 56,
+        "actual": 6
+      },
+      {
+        "id": "clam_20260201_2000",
+        "type": "leader",
+        "expected": "enemy",
+        "actual": "our"
+      }
+    ]
+  },
+  "sequence_result": {
+    "metrics": {
+      "progress_direction": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "objective_state": {
+        "correct": 3,
+        "total": 3,
+        "accuracy": 1.0
+      },
+      "sequence_count": {
+        "correct": 15,
+        "total": 16,
+        "accuracy": 0.9375
+      }
+    },
+    "mistakes": [
+      {
+        "id": "clam_20260201_2000",
+        "type": "sequence_ourCount",
+        "expected": 56,
+        "actual": 6
+      }
+    ],
+    "segments": 4,
+    "sequenceCoverage": {
+      "progressDirection": {
+        "our_count_decreasing": 3
+      },
+      "objectiveState": {
+        "zoneControl=our_control": 1,
+        "towerOwner=our": 1,
+        "rainmakerState=our_carrier": 1
+      }
+    }
+  },
+  "per_rule_annotation_result": {
+    "splat_zones": {
+      "metrics": {
+        "side_count": {
+          "correct": 5,
+          "total": 6,
+          "accuracy": 0.8333333333333334
+        },
+        "count": {
+          "correct": 5,
+          "total": 6,
+          "accuracy": 0.8333333333333334
+        },
+        "leader": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        },
+        "progress_direction": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "objective_state": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        },
+        "goal_state": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "marker": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        }
+      },
+      "mistakes": [
+        {
+          "id": "zones_135_0500",
+          "type": "leftCount",
+          "expected": 82,
+          "actual": 66
+        },
+        {
+          "id": "zones_135_0500",
+          "type": "enemyCount",
+          "expected": 82,
+          "actual": 66
+        }
+      ]
+    },
+    "tower_control": {
+      "metrics": {
+        "side_count": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1.0
+        },
+        "count": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1.0
+        },
+        "leader": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1.0
+        },
+        "progress_direction": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "objective_state": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1.0
+        },
+        "goal_state": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "marker": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1.0
+        }
+      },
+      "mistakes": []
+    },
+    "rainmaker": {
+      "metrics": {
+        "side_count": {
+          "correct": 6,
+          "total": 6,
+          "accuracy": 1.0
+        },
+        "count": {
+          "correct": 6,
+          "total": 6,
+          "accuracy": 1.0
+        },
+        "leader": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        },
+        "progress_direction": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "objective_state": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        },
+        "goal_state": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "marker": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        }
+      },
+      "mistakes": []
+    },
+    "clam_blitz": {
+      "metrics": {
+        "side_count": {
+          "correct": 5,
+          "total": 6,
+          "accuracy": 0.8333333333333334
+        },
+        "count": {
+          "correct": 5,
+          "total": 6,
+          "accuracy": 0.8333333333333334
+        },
+        "leader": {
+          "correct": 2,
+          "total": 3,
+          "accuracy": 0.6666666666666666
+        },
+        "progress_direction": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "objective_state": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "goal_state": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        },
+        "marker": {
+          "correct": 6,
+          "total": 6,
+          "accuracy": 1.0
+        }
+      },
+      "mistakes": [
+        {
+          "id": "clam_20260201_2000",
+          "type": "rightCount",
+          "expected": 56,
+          "actual": 6
+        },
+        {
+          "id": "clam_20260201_2000",
+          "type": "ourCount",
+          "expected": 56,
+          "actual": 6
+        },
+        {
+          "id": "clam_20260201_2000",
+          "type": "leader",
+          "expected": "enemy",
+          "actual": "our"
+        }
+      ]
+    }
+  },
+  "per_rule_sequence_result": {
+    "splat_zones": {
+      "metrics": {
+        "progress_direction": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1.0
+        },
+        "objective_state": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1.0
+        },
+        "sequence_count": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1.0
+        }
+      },
+      "mistakes": [],
+      "segments": 1,
+      "sequenceCoverage": {
+        "progressDirection": {
+          "our_count_decreasing": 1
+        },
+        "objectiveState": {
+          "zoneControl=our_control": 1
+        }
+      }
+    },
+    "tower_control": {
+      "metrics": {
+        "progress_direction": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1.0
+        },
+        "objective_state": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1.0
+        },
+        "sequence_count": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1.0
+        }
+      },
+      "mistakes": [],
+      "segments": 1,
+      "sequenceCoverage": {
+        "progressDirection": {
+          "our_count_decreasing": 1
+        },
+        "objectiveState": {
+          "towerOwner=our": 1
+        }
+      }
+    },
+    "rainmaker": {
+      "metrics": {
+        "progress_direction": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1.0
+        },
+        "objective_state": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1.0
+        },
+        "sequence_count": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1.0
+        }
+      },
+      "mistakes": [],
+      "segments": 1,
+      "sequenceCoverage": {
+        "progressDirection": {
+          "our_count_decreasing": 1
+        },
+        "objectiveState": {
+          "rainmakerState=our_carrier": 1
+        }
+      }
+    },
+    "clam_blitz": {
+      "metrics": {
+        "progress_direction": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "objective_state": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "sequence_count": {
+          "correct": 3,
+          "total": 4,
+          "accuracy": 0.75
+        }
+      },
+      "mistakes": [
+        {
+          "id": "clam_20260201_2000",
+          "type": "sequence_ourCount",
+          "expected": 56,
+          "actual": 6
+        }
+      ],
+      "segments": 1,
+      "sequenceCoverage": {
+        "progressDirection": {},
+        "objectiveState": {}
+      }
+    }
+  },
+  "coverage_requirements": {
+    "passed": false,
+    "requireFullObjectiveStates": false,
+    "failures": [
+      "clam_blitz: no sequence progressDirection labels",
+      "clam_blitz: no sequence objective_state labels"
+    ]
+  },
+  "static_coverage_gaps": [
+    "tower_control: no visible screen marker labels",
+    "rainmaker: no visible screen marker labels",
+    "splat_zones: no non-unknown static zoneControl labels",
+    "tower_control: no non-neutral static towerOwner labels",
+    "rainmaker: no non-unknown static rainmakerState labels"
+  ],
+  "synthetic": {
+    "passed": true,
+    "failures": []
+  }
+}

@@ -192,7 +192,10 @@
                 this.deathDetectionThreshold = 2; // 3回連続で検知する必要がある
                 this.showNonDetectionLogs = false; // 非検知ログの表示設定
                 
-                this.startDetector = new LogisticImagePredictor();
+                this.startDetectorType = new URLSearchParams(window.location.search).get('startDetector') || 'logistic';
+                this.startDetector = this.startDetectorType === 'hog-svm'
+                    ? new HOGSVMImagePredictor()
+                    : new LogisticImagePredictor();
                 this.deathDetector = new DeathDetectionModel();
                 
                 this.deathCountValue = 0;
@@ -228,11 +231,14 @@
 
             async initModels() {
                 try {
-                    const startModelLoaded = await this.startDetector.loadModel('./start_detect/logistic_model.json');
+                    const startModelPath = this.startDetectorType === 'hog-svm'
+                        ? './start_detect/hog_svm_model.json'
+                        : './start_detect/logistic_model.json';
+                    const startModelLoaded = await this.startDetector.loadModel(startModelPath);
                     if (startModelLoaded) {
-                        this.debugLog('開始検出モデルが読み込まれました');
+                        this.debugLog(`開始検出モデル(${this.startDetectorType})が読み込まれました`);
                     } else {
-                        this.debugLog('開始検出モデルの読み込みに失敗しました');
+                        this.debugLog(`開始検出モデル(${this.startDetectorType})の読み込みに失敗しました`);
                     }
                     
                     await this.deathDetector.loadModel('./death_detect/death_detection_model.json');
@@ -329,12 +335,12 @@
 
             async checkStartDetection(imageData) {
                 try {
-                    // Use logistic regression for start detection
+                    // Use the selected start detector.
                     if (this.startDetector.weights) {
                         const result = this.startDetector.predict(imageData);
                         
-                        // 確率が0.9以上かつ予測が1の場合のみバッファに追加
-                        const highConfidenceDetection = result.prediction === 1 && result.probability >= 0.9;
+                        const confidenceThreshold = this.startDetector.recommendedProbabilityThreshold || 0.9;
+                        const highConfidenceDetection = result.prediction === 1 && result.probability >= confidenceThreshold;
                         this.startDetectionBuffer.push(highConfidenceDetection ? 1 : 0);
                         
                         // バッファサイズを制限
@@ -482,6 +488,7 @@
     
     <!-- Include the detection models -->
     <script src="./start_detect/logistic_regression_predictor_browser.js"></script>
+    <script src="./start_detect/hog_svm_predictor_browser.js"></script>
     <script src="./death_detect/death_detection.js"></script>
 </body>
 </html>

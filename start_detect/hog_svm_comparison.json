@@ -1,0 +1,95 @@
+{
+  "dataset": {
+    "total": 16671,
+    "not": 16532,
+    "start": 139,
+    "train": 13336,
+    "test": 3335,
+    "test_size": 0.2,
+    "include_false_positives": false
+  },
+  "class_names": [
+    "not",
+    "start"
+  ],
+  "results": {
+    "Majority baseline": {
+      "accuracy": 0.9916041979010495,
+      "balanced_accuracy": 0.5,
+      "precision_start": 0.0,
+      "recall_start": 0.0,
+      "f1_start": 0.0,
+      "confusion_matrix": [
+        [
+          3307,
+          0
+        ],
+        [
+          28,
+          0
+        ]
+      ]
+    },
+    "Std threshold": {
+      "accuracy": 0.9949025487256372,
+      "balanced_accuracy": 0.8557821072184544,
+      "precision_start": 0.6896551724137931,
+      "recall_start": 0.7142857142857143,
+      "f1_start": 0.7017543859649122,
+      "confusion_matrix": [
+        [
+          3298,
+          9
+        ],
+        [
+          8,
+          20
+        ]
+      ],
+      "threshold": {
+        "threshold": 83.1992196354525,
+        "direction": ">",
+        "score": 0.995125974805039
+      }
+    },
+    "Logistic Regression (stats+hist)": {
+      "accuracy": 0.9988005997001499,
+      "balanced_accuracy": 0.9285714285714286,
+      "precision_start": 1.0,
+      "recall_start": 0.8571428571428571,
+      "f1_start": 0.9230769230769231,
+      "confusion_matrix": [
+        [
+          3307,
+          0
+        ],
+        [
+          4,
+          24
+        ]
+      ]
+    },
+    "HOG + Linear SVM": {
+      "accuracy": 0.9997001499250375,
+      "balanced_accuracy": 0.9998488055639552,
+      "precision_not": 1.0,
+      "recall_not": 0.9996976111279104,
+      "f1_not": 0.999848782700741,
+      "precision_start": 0.9655172413793104,
+      "recall_start": 1.0,
+      "f1_start": 0.9824561403508771,
+      "confusion_matrix": [
+        [
+          3306,
+          1
+        ],
+        [
+          0,
+          28
+        ]
+      ]
+    }
+  },
+  "hog_svm_model_json": "/home/ryokuryu/splat_2/private/start_detect/hog_svm_model.json",
+  "hog_svm_model_pkl": "/home/ryokuryu/splat_2/private/start_detect/hog_svm_model.pkl"
+}

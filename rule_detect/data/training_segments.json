@@ -1,0 +1,59 @@
+[
+  {
+    "rule": "turf_war",
+    "video": "../../videos/小白川工業スプラ課 #122 えいえんなるまでサービス残業編 [Z6NAjVHq7Wc].mkv",
+    "timestamps": [
+      40.0,
+      320.0,
+      590.0,
+      1400.0,
+      1660.0,
+      1930.0,
+      2010.0,
+      2280.0,
+      2540.0,
+      2820.0,
+      6450.0,
+      8420.0,
+      10040.0,
+      11200.0
+    ],
+    "note": "ナワバリバトル"
+  },
+  {
+    "rule": "splat_zones",
+    "video": "../../videos/小白川工業スプラ課#135 [h6BAoRKoml0].mkv",
+    "timestamps": [610.0],
+    "note": "ガチエリア"
+  },
+  {
+    "rule": "tower_control",
+    "video": "../../videos/2026-02-06 22-39-39.mkv",
+    "timestamps": [0.0, 393.0, 788.0],
+    "note": "ガチヤグラ"
+  },
+  {
+    "rule": "tower_control",
+    "video": "../../videos/小白川工業スプラ課#135 [h6BAoRKoml0].mkv",
+    "timestamps": [6030.0],
+    "note": "ガチヤグラ"
+  },
+  {
+    "rule": "rainmaker",
+    "video": "../../videos/2026-02-06 22-39-39.mkv",
+    "timestamps": [1628.0, 1783.0, 2218.0, 2828.0, 3608.0, 3803.0],
+    "note": "ガチホコバトル"
+  },
+  {
+    "rule": "clam_blitz",
+    "video": "../../videos/2026-02-01 21-18-24.mp4",
+    "timestamps": [8.0, 418.0, 1268.0, 3373.0, 4243.0, 4673.0, 5088.0],
+    "note": "ガチアサリ"
+  },
+  {
+    "rule": "clam_blitz",
+    "video": "../../videos/小白川工業スプラ課#135 [h6BAoRKoml0].mkv",
+    "timestamps": [2070.0, 2730.0, 3980.0, 4810.0, 5240.0, 6880.0, 8570.0, 8990.0],
+    "note": "ガチアサリ"
+  }
+]

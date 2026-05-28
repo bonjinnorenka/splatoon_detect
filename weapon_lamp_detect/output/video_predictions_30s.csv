@@ -1,0 +1,9 @@
+timestamp,timestamp_ms,frame_index,hud_state,side,slot_index,state,weapon,weapon_class,confidence,score
+30.0,30000,1800,match,left,0,alive,E-liter 4K,charger,0.3226,0.553
+30.0,30000,1800,match,left,1,down,Flingza Roller,roller,0.304,0.5218
+30.0,30000,1800,match,left,2,down,Painbrush,brush,0.3614,0.5827
+30.0,30000,1800,match,left,3,alive,Flingza Roller,roller,0.4281,0.6409
+30.0,30000,1800,match,right,0,alive,Rapid Blaster,blaster,0.3761,0.5577
+30.0,30000,1800,match,right,1,down,Inkbrush,brush,0.3865,0.5714
+30.0,30000,1800,match,right,2,alive,Ballpoint Splatling,splatling,0.319,0.5221
+30.0,30000,1800,match,right,3,alive,Octobrush,brush,0.4083,0.5727

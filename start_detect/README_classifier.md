@@ -30,6 +30,31 @@ node test_node.js
 
 This runs a comprehensive test with synthetic data to verify all functionality.
 
+## HOG + SVM Usage
+
+Train the HOG + Linear SVM detector and export the browser model:
+
+```bash
+npm run train:hog-svm
+```
+
+Compare it against the existing start-detect approaches on the same stratified split:
+
+```bash
+npm run compare
+```
+
+The comparison writes:
+- `hog_svm_model.json` - browser-loadable HOG + SVM model
+- `hog_svm_model.pkl` - Python model for local inference
+- `hog_svm_comparison.json` / `hog_svm_comparison.md` - accuracy comparison report
+
+The camera app can use the HOG + SVM start detector with:
+
+```text
+../camera-app.html?startDetector=hog-svm
+```
+
 ## Implementation Details
 
 The JavaScript port implements:

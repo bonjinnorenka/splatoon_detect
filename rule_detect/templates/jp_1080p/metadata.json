@@ -1,0 +1,11 @@
+{
+  "source_config": "/home/ryokuryu/splat_2/private/rule_detect/data/training_segments.json",
+  "template_width": 320,
+  "counts": {
+    "turf_war": 14,
+    "splat_zones": 1,
+    "tower_control": 4,
+    "rainmaker": 6,
+    "clam_blitz": 15
+  }
+}

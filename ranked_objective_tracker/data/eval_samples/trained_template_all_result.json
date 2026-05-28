@@ -1,0 +1,682 @@
+{
+  "annotation_samples": 29,
+  "evaluated_splits": "all",
+  "coverage": {
+    "evaluatedAnnotationSamples": 29,
+    "bySplit": {
+      "train": 11,
+      "eval": 18
+    },
+    "byRule": {
+      "splat_zones": {
+        "annotations": 6,
+        "counterSamples": 6,
+        "sideCountLabels": 12,
+        "counterLabels": 18,
+        "objectiveLabels": 6,
+        "goalStateLabels": 0,
+        "markerLabels": 6,
+        "visibleMarkerLabels": 0,
+        "staticObjectiveState": {
+          "zoneControl=unknown": 6
+        },
+        "staticMarkerState": {
+          "null": 6
+        }
+      },
+      "tower_control": {
+        "annotations": 7,
+        "counterSamples": 6,
+        "sideCountLabels": 12,
+        "counterLabels": 18,
+        "objectiveLabels": 5,
+        "goalStateLabels": 0,
+        "markerLabels": 5,
+        "visibleMarkerLabels": 0,
+        "staticObjectiveState": {
+          "towerOwner=neutral": 5
+        },
+        "staticMarkerState": {
+          "offscreen:offscreen": 5
+        }
+      },
+      "rainmaker": {
+        "annotations": 6,
+        "counterSamples": 6,
+        "sideCountLabels": 12,
+        "counterLabels": 18,
+        "objectiveLabels": 6,
+        "goalStateLabels": 0,
+        "markerLabels": 6,
+        "visibleMarkerLabels": 0,
+        "staticObjectiveState": {
+          "rainmakerState=unknown": 6
+        },
+        "staticMarkerState": {
+          "offscreen:offscreen": 6
+        }
+      },
+      "clam_blitz": {
+        "annotations": 10,
+        "counterSamples": 8,
+        "sideCountLabels": 16,
+        "counterLabels": 24,
+        "objectiveLabels": 0,
+        "goalStateLabels": 9,
+        "markerLabels": 18,
+        "visibleMarkerLabels": 2,
+        "staticObjectiveState": {
+          "goalState.our=closed.enemy=closed": 7,
+          "goalState.our=closed.enemy=open": 2
+        },
+        "staticMarkerState": {
+          "null": 16,
+          "visible:visible_power_clam": 1,
+          "visible": 1
+        }
+      }
+    }
+  },
+  "annotation_result": {
+    "metrics": {
+      "side_count": {
+        "correct": 47,
+        "total": 52,
+        "accuracy": 0.9038461538461539
+      },
+      "count": {
+        "correct": 47,
+        "total": 52,
+        "accuracy": 0.9038461538461539
+      },
+      "leader": {
+        "correct": 24,
+        "total": 26,
+        "accuracy": 0.9230769230769231
+      },
+      "progress_direction": {
+        "correct": 0,
+        "total": 0,
+        "accuracy": null
+      },
+      "objective_state": {
+        "correct": 17,
+        "total": 17,
+        "accuracy": 1.0
+      },
+      "goal_state": {
+        "correct": 9,
+        "total": 9,
+        "accuracy": 1.0
+      },
+      "marker": {
+        "correct": 35,
+        "total": 35,
+        "accuracy": 1.0
+      }
+    },
+    "mistakes": [
+      {
+        "id": "zones_135_0500",
+        "type": "leftCount",
+        "expected": 82,
+        "actual": 66
+      },
+      {
+        "id": "zones_135_0500",
+        "type": "enemyCount",
+        "expected": 82,
+        "actual": 66
+      },
+      {
+        "id": "clam_20260201_2000",
+        "type": "rightCount",
+        "expected": 56,
+        "actual": 6
+      },
+      {
+        "id": "clam_20260201_2000",
+        "type": "ourCount",
+        "expected": 56,
+        "actual": 6
+      },
+      {
+        "id": "clam_20260201_2000",
+        "type": "leader",
+        "expected": "enemy",
+        "actual": "our"
+      },
+      {
+        "id": "rainmaker_135_7500",
+        "type": "leftCount",
+        "expected": 68,
+        "actual": 66
+      },
+      {
+        "id": "rainmaker_135_7500",
+        "type": "enemyCount",
+        "expected": 68,
+        "actual": 66
+      },
+      {
+        "id": "tower_enemy_push_0960",
+        "type": "leftCount",
+        "expected": 76,
+        "actual": 78
+      },
+      {
+        "id": "tower_enemy_push_0960",
+        "type": "enemyCount",
+        "expected": 76,
+        "actual": 78
+      },
+      {
+        "id": "clam_enemy_goal_1200",
+        "type": "rightCount",
+        "expected": 56,
+        "actual": 6
+      },
+      {
+        "id": "clam_enemy_goal_1200",
+        "type": "ourCount",
+        "expected": 56,
+        "actual": 6
+      },
+      {
+        "id": "clam_enemy_goal_1200",
+        "type": "leader",
+        "expected": "enemy",
+        "actual": "our"
+      }
+    ]
+  },
+  "sequence_result": {
+    "metrics": {
+      "progress_direction": {
+        "correct": 11,
+        "total": 11,
+        "accuracy": 1.0
+      },
+      "objective_state": {
+        "correct": 11,
+        "total": 11,
+        "accuracy": 1.0
+      },
+      "sequence_count": {
+        "correct": 39,
+        "total": 44,
+        "accuracy": 0.8863636363636364
+      }
+    },
+    "mistakes": [
+      {
+        "id": "zones_135_0500",
+        "type": "sequence_enemyCount",
+        "expected": 82,
+        "actual": 66
+      },
+      {
+        "id": "clam_20260201_2000",
+        "type": "sequence_ourCount",
+        "expected": 56,
+        "actual": 6
+      },
+      {
+        "id": "clam_enemy_goal_1200",
+        "type": "sequence_ourCount",
+        "expected": 56,
+        "actual": 6
+      },
+      {
+        "id": "tower_enemy_push_0960",
+        "type": "sequence_enemyCount",
+        "expected": 76,
+        "actual": 78
+      },
+      {
+        "id": "rainmaker_135_7500",
+        "type": "sequence_enemyCount",
+        "expected": 68,
+        "actual": 66
+      }
+    ],
+    "segments": 8,
+    "sequenceCoverage": {
+      "progressDirection": {
+        "our_count_decreasing": 4,
+        "stable": 4,
+        "enemy_count_decreasing": 3
+      },
+      "objectiveState": {
+        "zoneControl=our_control": 2,
+        "zoneControl=unknown": 1,
+        "zoneControl=enemy_control": 1,
+        "goalState.our=open.enemy=closed": 1,
+        "goalState.our=closed.enemy=closed": 1,
+        "towerOwner=our": 1,
+        "towerOwner=enemy": 1,
+        "towerOwner=neutral": 1,
+        "rainmakerState=our_carrier": 1,
+        "rainmakerState=unknown": 1
+      }
+    }
+  },
+  "per_rule_annotation_result": {
+    "splat_zones": {
+      "metrics": {
+        "side_count": {
+          "correct": 11,
+          "total": 12,
+          "accuracy": 0.9166666666666666
+        },
+        "count": {
+          "correct": 11,
+          "total": 12,
+          "accuracy": 0.9166666666666666
+        },
+        "leader": {
+          "correct": 6,
+          "total": 6,
+          "accuracy": 1.0
+        },
+        "progress_direction": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "objective_state": {
+          "correct": 6,
+          "total": 6,
+          "accuracy": 1.0
+        },
+        "goal_state": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "marker": {
+          "correct": 6,
+          "total": 6,
+          "accuracy": 1.0
+        }
+      },
+      "mistakes": [
+        {
+          "id": "zones_135_0500",
+          "type": "leftCount",
+          "expected": 82,
+          "actual": 66
+        },
+        {
+          "id": "zones_135_0500",
+          "type": "enemyCount",
+          "expected": 82,
+          "actual": 66
+        }
+      ]
+    },
+    "tower_control": {
+      "metrics": {
+        "side_count": {
+          "correct": 11,
+          "total": 12,
+          "accuracy": 0.9166666666666666
+        },
+        "count": {
+          "correct": 11,
+          "total": 12,
+          "accuracy": 0.9166666666666666
+        },
+        "leader": {
+          "correct": 6,
+          "total": 6,
+          "accuracy": 1.0
+        },
+        "progress_direction": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "objective_state": {
+          "correct": 5,
+          "total": 5,
+          "accuracy": 1.0
+        },
+        "goal_state": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "marker": {
+          "correct": 5,
+          "total": 5,
+          "accuracy": 1.0
+        }
+      },
+      "mistakes": [
+        {
+          "id": "tower_enemy_push_0960",
+          "type": "leftCount",
+          "expected": 76,
+          "actual": 78
+        },
+        {
+          "id": "tower_enemy_push_0960",
+          "type": "enemyCount",
+          "expected": 76,
+          "actual": 78
+        }
+      ]
+    },
+    "rainmaker": {
+      "metrics": {
+        "side_count": {
+          "correct": 11,
+          "total": 12,
+          "accuracy": 0.9166666666666666
+        },
+        "count": {
+          "correct": 11,
+          "total": 12,
+          "accuracy": 0.9166666666666666
+        },
+        "leader": {
+          "correct": 6,
+          "total": 6,
+          "accuracy": 1.0
+        },
+        "progress_direction": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "objective_state": {
+          "correct": 6,
+          "total": 6,
+          "accuracy": 1.0
+        },
+        "goal_state": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "marker": {
+          "correct": 6,
+          "total": 6,
+          "accuracy": 1.0
+        }
+      },
+      "mistakes": [
+        {
+          "id": "rainmaker_135_7500",
+          "type": "leftCount",
+          "expected": 68,
+          "actual": 66
+        },
+        {
+          "id": "rainmaker_135_7500",
+          "type": "enemyCount",
+          "expected": 68,
+          "actual": 66
+        }
+      ]
+    },
+    "clam_blitz": {
+      "metrics": {
+        "side_count": {
+          "correct": 14,
+          "total": 16,
+          "accuracy": 0.875
+        },
+        "count": {
+          "correct": 14,
+          "total": 16,
+          "accuracy": 0.875
+        },
+        "leader": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        },
+        "progress_direction": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "objective_state": {
+          "correct": 0,
+          "total": 0,
+          "accuracy": null
+        },
+        "goal_state": {
+          "correct": 9,
+          "total": 9,
+          "accuracy": 1.0
+        },
+        "marker": {
+          "correct": 18,
+          "total": 18,
+          "accuracy": 1.0
+        }
+      },
+      "mistakes": [
+        {
+          "id": "clam_20260201_2000",
+          "type": "rightCount",
+          "expected": 56,
+          "actual": 6
+        },
+        {
+          "id": "clam_20260201_2000",
+          "type": "ourCount",
+          "expected": 56,
+          "actual": 6
+        },
+        {
+          "id": "clam_20260201_2000",
+          "type": "leader",
+          "expected": "enemy",
+          "actual": "our"
+        },
+        {
+          "id": "clam_enemy_goal_1200",
+          "type": "rightCount",
+          "expected": 56,
+          "actual": 6
+        },
+        {
+          "id": "clam_enemy_goal_1200",
+          "type": "ourCount",
+          "expected": 56,
+          "actual": 6
+        },
+        {
+          "id": "clam_enemy_goal_1200",
+          "type": "leader",
+          "expected": "enemy",
+          "actual": "our"
+        }
+      ]
+    }
+  },
+  "per_rule_sequence_result": {
+    "splat_zones": {
+      "metrics": {
+        "progress_direction": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1.0
+        },
+        "objective_state": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1.0
+        },
+        "sequence_count": {
+          "correct": 11,
+          "total": 12,
+          "accuracy": 0.9166666666666666
+        }
+      },
+      "mistakes": [
+        {
+          "id": "zones_135_0500",
+          "type": "sequence_enemyCount",
+          "expected": 82,
+          "actual": 66
+        }
+      ],
+      "segments": 2,
+      "sequenceCoverage": {
+        "progressDirection": {
+          "our_count_decreasing": 2,
+          "stable": 1,
+          "enemy_count_decreasing": 1
+        },
+        "objectiveState": {
+          "zoneControl=our_control": 2,
+          "zoneControl=unknown": 1,
+          "zoneControl=enemy_control": 1
+        }
+      }
+    },
+    "tower_control": {
+      "metrics": {
+        "progress_direction": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        },
+        "objective_state": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        },
+        "sequence_count": {
+          "correct": 11,
+          "total": 12,
+          "accuracy": 0.9166666666666666
+        }
+      },
+      "mistakes": [
+        {
+          "id": "tower_enemy_push_0960",
+          "type": "sequence_enemyCount",
+          "expected": 76,
+          "actual": 78
+        }
+      ],
+      "segments": 3,
+      "sequenceCoverage": {
+        "progressDirection": {
+          "our_count_decreasing": 1,
+          "enemy_count_decreasing": 1,
+          "stable": 1
+        },
+        "objectiveState": {
+          "towerOwner=our": 1,
+          "towerOwner=enemy": 1,
+          "towerOwner=neutral": 1
+        }
+      }
+    },
+    "rainmaker": {
+      "metrics": {
+        "progress_direction": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1.0
+        },
+        "objective_state": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1.0
+        },
+        "sequence_count": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        }
+      },
+      "mistakes": [
+        {
+          "id": "rainmaker_135_7500",
+          "type": "sequence_enemyCount",
+          "expected": 68,
+          "actual": 66
+        }
+      ],
+      "segments": 1,
+      "sequenceCoverage": {
+        "progressDirection": {
+          "our_count_decreasing": 1,
+          "stable": 1
+        },
+        "objectiveState": {
+          "rainmakerState=our_carrier": 1,
+          "rainmakerState=unknown": 1
+        }
+      }
+    },
+    "clam_blitz": {
+      "metrics": {
+        "progress_direction": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1.0
+        },
+        "objective_state": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1.0
+        },
+        "sequence_count": {
+          "correct": 10,
+          "total": 12,
+          "accuracy": 0.8333333333333334
+        }
+      },
+      "mistakes": [
+        {
+          "id": "clam_20260201_2000",
+          "type": "sequence_ourCount",
+          "expected": 56,
+          "actual": 6
+        },
+        {
+          "id": "clam_enemy_goal_1200",
+          "type": "sequence_ourCount",
+          "expected": 56,
+          "actual": 6
+        }
+      ],
+      "segments": 2,
+      "sequenceCoverage": {
+        "progressDirection": {
+          "enemy_count_decreasing": 1,
+          "stable": 1
+        },
+        "objectiveState": {
+          "goalState.our=open.enemy=closed": 1,
+          "goalState.our=closed.enemy=closed": 1
+        }
+      }
+    }
+  },
+  "coverage_requirements": {
+    "passed": true,
+    "requireFullObjectiveStates": false,
+    "failures": []
+  },
+  "static_coverage_gaps": [
+    "tower_control: no visible screen marker labels",
+    "rainmaker: no visible screen marker labels",
+    "splat_zones: no non-unknown static zoneControl labels",
+    "tower_control: no non-neutral static towerOwner labels",
+    "rainmaker: no non-unknown static rainmakerState labels"
+  ],
+  "synthetic": {
+    "passed": true,
+    "failures": []
+  }
+}

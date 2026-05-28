@@ -1,0 +1,20 @@
+{
+  "source": "/home/ryokuryu/splat_2/private/ranked_objective_tracker/data/eval_samples/annotations.jsonl",
+  "template_size": [
+    42,
+    28
+  ],
+  "counts": {
+    "0": 48,
+    "1": 29,
+    "2": 7,
+    "3": 22,
+    "4": 10,
+    "5": 8,
+    "6": 4,
+    "7": 8,
+    "8": 5,
+    "9": 2
+  },
+  "fallback_dir": "/home/ryokuryu/splat_2/private/match_time_ocr/templates/digits"
+}

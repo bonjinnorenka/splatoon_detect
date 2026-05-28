@@ -1,0 +1,113 @@
+{
+  "annotation_samples": 20,
+  "evaluated_splits": [
+    "eval"
+  ],
+  "annotation_result": {
+    "metrics": {
+      "side_count": {
+        "correct": 13,
+        "total": 18,
+        "accuracy": 0.7222222222222222
+      },
+      "count": {
+        "correct": 13,
+        "total": 18,
+        "accuracy": 0.7222222222222222
+      },
+      "leader": {
+        "correct": 7,
+        "total": 9,
+        "accuracy": 0.7777777777777778
+      },
+      "progress_direction": {
+        "correct": 0,
+        "total": 0,
+        "accuracy": null
+      },
+      "marker": {
+        "correct": 0,
+        "total": 0,
+        "accuracy": null
+      }
+    },
+    "mistakes": [
+      {
+        "id": "zones_135_1500",
+        "type": "leftCount",
+        "expected": 53,
+        "actual": 88
+      },
+      {
+        "id": "zones_135_1500",
+        "type": "enemyCount",
+        "expected": 53,
+        "actual": 88
+      },
+      {
+        "id": "zones_135_2500",
+        "type": "rightCount",
+        "expected": 14,
+        "actual": 82
+      },
+      {
+        "id": "zones_135_2500",
+        "type": "ourCount",
+        "expected": 14,
+        "actual": 82
+      },
+      {
+        "id": "tower_20260206_4000",
+        "type": "leftCount",
+        "expected": 73,
+        "actual": 8
+      },
+      {
+        "id": "tower_20260206_4000",
+        "type": "enemyCount",
+        "expected": 73,
+        "actual": 8
+      },
+      {
+        "id": "tower_20260206_4000",
+        "type": "leader",
+        "expected": "our",
+        "actual": "enemy"
+      },
+      {
+        "id": "rainmaker_135_7500",
+        "type": "leftCount",
+        "expected": 68,
+        "actual": 18
+      },
+      {
+        "id": "rainmaker_135_7500",
+        "type": "enemyCount",
+        "expected": 68,
+        "actual": 18
+      },
+      {
+        "id": "rainmaker_135_16000",
+        "type": "rightCount",
+        "expected": 49,
+        "actual": 98
+      },
+      {
+        "id": "rainmaker_135_16000",
+        "type": "ourCount",
+        "expected": 49,
+        "actual": 98
+      },
+      {
+        "id": "rainmaker_135_16000",
+        "type": "leader",
+        "expected": "our",
+        "actual": "enemy"
+      }
+    ]
+  },
+  "synthetic": {
+    "passed": true,
+    "failures": []
+  }
+}
