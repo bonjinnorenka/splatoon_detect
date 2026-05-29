@@ -253,11 +253,13 @@ def main() -> None:
     parser.add_argument("--down-fraction", type=float, default=0.25)
     parser.add_argument("--seed", type=int, default=7)
     parser.add_argument("--top-k", type=int, default=5)
+    parser.add_argument("--variant-sizes", type=int, nargs="+", default=[62, 82])
+    parser.add_argument("--variant-angles", type=float, nargs="+", default=[-8.0, 0.0, 8.0])
     parser.add_argument("--json", dest="json_path", type=Path, default=None)
     parser.add_argument("--debug-dir", type=Path, default=None)
     args = parser.parse_args()
 
-    matcher = WeaponIconMatcher.from_dir(args.template_dir)
+    matcher = WeaponIconMatcher.from_dir(args.template_dir, variant_sizes=args.variant_sizes, variant_angles=args.variant_angles)
     result = evaluate(
         matcher,
         samples_per_weapon=max(1, args.samples_per_weapon),

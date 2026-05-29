@@ -101,18 +101,18 @@ python -m ranked_objective_tracker.validate_samples --split all --require-full-c
 
 4ルール分の初期教師データと測定結果は `data/eval_samples/` にあります。
 
-現在の既定設定では、注釈済み29フレーム/52 side-countラベルで以下です。
+現在の既定設定では、注釈済み30フレーム/54 side-countラベルで以下です。
 
-- eval side-count: 30/30、100.00%
+- eval side-count: 32/32、100.00%
 - train side-count: 22/22、100.00%
-- all side-count: 52/52、100.00%
-- all leader: 26/26、100.00%
-- static objective state: 17/17、100.00%
+- all side-count: 54/54、100.00%
+- all leader: 27/27、100.00%
+- static objective state: 18/18、100.00%
 - static goal state: 9/9、100.00%
-- static marker/position: 35/35、100.00%
-- sequence progress direction: 14/14、100.00%
-- sequence objective state: 14/14、100.00%
-- sequence smoothed count: 44/44、100.00%
+- static marker/position: 36/36、100.00%
+- sequence progress direction: 15/15、100.00%
+- sequence objective state: 15/15、100.00%
+- sequence smoothed count: 46/46、100.00%
 - 720p相当の検出平均時間: 19.51ms/frame
 
 改善前baselineは eval side-count 13/18、72.22%でした。詳細は `data/eval_samples/RESULTS.md` を参照してください。
@@ -136,7 +136,7 @@ python -m ranked_objective_tracker.validate_samples \
   --split eval
 ```
 
-現時点では、専用テンプレートは all side-count 47/52、90.38%です。通常検証では `--templates-dir` を付けない既定設定の方が高精度です。
+現時点では、専用テンプレートは all side-count 49/54、90.74%です。通常検証では `--templates-dir` を付けない既定設定の方が高精度です。
 
 構文チェック:
 

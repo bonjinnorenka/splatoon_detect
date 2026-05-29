@@ -74,13 +74,15 @@ def main() -> None:
     parser.add_argument("--end", type=float, default=None)
     parser.add_argument("--ally-side", choices=["left", "right"], default="right")
     parser.add_argument("--top-k", type=int, default=5)
+    parser.add_argument("--variant-sizes", type=int, nargs="+", default=[62, 82])
+    parser.add_argument("--variant-angles", type=float, nargs="+", default=[-8.0, 0.0, 8.0])
     parser.add_argument("--jsonl", dest="jsonl_path", type=Path, default=None)
     parser.add_argument("--csv", dest="csv_path", type=Path, default=None)
     parser.add_argument("--debug-dir", type=Path, default=None)
     parser.add_argument("--debug-max-frames", type=int, default=20)
     args = parser.parse_args()
 
-    matcher = WeaponIconMatcher.from_dir(args.template_dir)
+    matcher = WeaponIconMatcher.from_dir(args.template_dir, variant_sizes=args.variant_sizes, variant_angles=args.variant_angles)
     squid_detector = _load_squid_detector(args.ally_side)
     rows: list[dict[str, object]] = []
     debug_count = 0

@@ -4,9 +4,9 @@
 
 ## Dataset
 
-- 合計29フレーム
+- 合計30フレーム
 - `train`: 11フレーム、22 side-countラベル
-- `eval`: 18フレーム、30 side-countラベル
+- `eval`: 19フレーム、32 side-countラベル
 - 4ルールを含む:
   - `splat_zones`
   - `tower_control`
@@ -18,6 +18,7 @@
   - ガチヤグラの背景誤検出抑制用陰性
   - eval splitのガチエリア/ガチヤグラ時系列評価用フレーム
   - ガチヤグラの敵push、ガチアサリの敵ゴールopen評価用フレーム
+  - ガチヤグラの左カウント `81` がROI端で `8` に落ちる回帰サンプル
 
 ## Baseline
 
@@ -51,18 +52,18 @@ python -m ranked_objective_tracker.validate_samples --split train
 python -m ranked_objective_tracker.validate_samples --split all
 ```
 
-- eval side count: 30/30 = 100.00%
-- eval our/enemy count: 30/30 = 100.00%
-- eval leader: 15/15 = 100.00%
+- eval side count: 32/32 = 100.00%
+- eval our/enemy count: 32/32 = 100.00%
+- eval leader: 16/16 = 100.00%
 - train side count: 22/22 = 100.00%
-- all side count: 52/52 = 100.00%
-- all leader: 26/26 = 100.00%
-- static objective state: 17/17 = 100.00%
+- all side count: 54/54 = 100.00%
+- all leader: 27/27 = 100.00%
+- static objective state: 18/18 = 100.00%
 - static goal state: 9/9 = 100.00%
-- static marker/position: 35/35 = 100.00%
-- sequence progress direction: 14/14 = 100.00%
-- sequence objective state: 14/14 = 100.00%
-- sequence smoothed count: 44/44 = 100.00%
+- static marker/position: 36/36 = 100.00%
+- sequence progress direction: 15/15 = 100.00%
+- sequence objective state: 15/15 = 100.00%
+- sequence smoothed count: 46/46 = 100.00%
 - full coverage gate: pass
 - 720p相当の検出平均時間: 19.51ms/frame
 
@@ -71,7 +72,7 @@ python -m ranked_objective_tracker.validate_samples --split all
 | rule | annotations | counter samples | side-count labels | static objective labels | goal labels | marker labels |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | `splat_zones` | 6 | 6 | 12 | 6 | 0 | 6 |
-| `tower_control` | 7 | 6 | 12 | 5 | 0 | 5 |
+| `tower_control` | 8 | 7 | 14 | 6 | 0 | 6 |
 | `rainmaker` | 6 | 6 | 12 | 6 | 0 | 6 |
 | `clam_blitz` | 10 | 8 | 16 | 0 | 9 | 18 |
 
@@ -80,14 +81,14 @@ python -m ranked_objective_tracker.validate_samples --split all
 | rule | side-count | count | leader | static objective/goal | marker | sequence progress | sequence count |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | `splat_zones` | 12/12 | 12/12 | 6/6 | 6/6 | 6/6 | 4/4 | 12/12 |
-| `tower_control` | 12/12 | 12/12 | 6/6 | 5/5 | 5/5 | 3/3 | 12/12 |
+| `tower_control` | 14/14 | 14/14 | 7/7 | 6/6 | 6/6 | 4/4 | 14/14 |
 | `rainmaker` | 12/12 | 12/12 | 6/6 | 6/6 | 6/6 | 3/3 | 8/8 |
 | `clam_blitz` | 16/16 | 16/16 | 8/8 | 9/9 | 18/18 | 4/4 | 12/12 |
 
 時系列objective状態の測定対象:
 
 - `splat_zones`: `our_control` 2件、`enemy_control` 1件、`unknown` 1件
-- `tower_control`: `our` 1件、`enemy` 1件、`neutral` 1件
+- `tower_control`: `our` 1件、`enemy` 2件、`neutral` 1件
 - `rainmaker`: `our_carrier` 1件、`enemy_carrier` 1件、`unknown` 1件
 - `clam_blitz`: `ourGoal=open/enemyGoal=closed` 1件、`ourGoal=closed/enemyGoal=open` 2件、`closed/closed` 1件
 
@@ -109,6 +110,7 @@ python -m ranked_objective_tracker.validate_samples --split all
 - `static_coverage_gaps` を追加し、静止フレーム側で不足しているobjective/marker教師データを次の作業候補として見えるようにした。
 - eval splitでも4ルールすべての時系列評価が走るよう、ガチエリアとガチヤグラに連続フレーム注釈を追加した。
 - 平滑化の急減チェックを、候補フレームの古さではなく前回安定カウントからの経過時間で判定するようにした。
+- ガチヤグラのカウントがROI端に近い単独桁として読まれた場合だけ、端方向へ小さく拡張した候補を追加し、`81` が `8` に落ちるケースを回帰テストに入れた。
 - 静止フレームにも rule別 objective ラベルを追加し、`zoneControl` / `towerOwner` / `rainmakerState` / `goalState` / marker visible/offscreen を測定対象にした。
 - ガチアサリで背景の縦長成分をパワーアサリ候補として拾わないよう、マーカー候補のアスペクト比条件を締めた。
 - objective search ROIの端に接する候補を棄却し、画面端の看板/壁をヤグラやパワーアサリとして拾う誤検出を抑制した。
@@ -121,13 +123,13 @@ python -m ranked_objective_tracker.validate_samples --split all
 
 `train` split から `ranked_objective_tracker/templates/counter_digits` を生成した場合の結果:
 
-- eval side count: 27/30 = 90.00%
+- eval side count: 29/32 = 90.62%
 - train side count: 20/22 = 90.91%
-- all side count: 47/52 = 90.38%
-- all leader: 24/26 = 92.31%
-- all static objective/goal/marker: 61/61 = 100.00%
-- sequence smoothed count: 39/44 = 88.64%
-- sequence progress direction: 11/11 = 100.00%
+- all side count: 49/54 = 90.74%
+- all leader: 25/27 = 92.59%
+- all static objective/goal/marker: 63/63 = 100.00%
+- sequence smoothed count: 41/46 = 89.13%
+- sequence progress direction: 12/12 = 100.00%
 
 保存結果:
 

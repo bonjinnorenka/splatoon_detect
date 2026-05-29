@@ -1,11 +1,11 @@
 {
-  "annotation_samples": 29,
+  "annotation_samples": 30,
   "evaluated_splits": "all",
   "coverage": {
-    "evaluatedAnnotationSamples": 29,
+    "evaluatedAnnotationSamples": 30,
     "bySplit": {
       "train": 11,
-      "eval": 18
+      "eval": 19
     },
     "byRule": {
       "splat_zones": {
@@ -25,19 +25,19 @@
         }
       },
       "tower_control": {
-        "annotations": 7,
-        "counterSamples": 6,
-        "sideCountLabels": 12,
-        "counterLabels": 18,
-        "objectiveLabels": 5,
+        "annotations": 8,
+        "counterSamples": 7,
+        "sideCountLabels": 14,
+        "counterLabels": 21,
+        "objectiveLabels": 6,
         "goalStateLabels": 0,
-        "markerLabels": 5,
+        "markerLabels": 6,
         "visibleMarkerLabels": 0,
         "staticObjectiveState": {
-          "towerOwner=neutral": 5
+          "towerOwner=neutral": 6
         },
         "staticMarkerState": {
-          "offscreen:offscreen": 5
+          "offscreen:offscreen": 6
         }
       },
       "rainmaker": {
@@ -80,18 +80,18 @@
   "annotation_result": {
     "metrics": {
       "side_count": {
-        "correct": 52,
-        "total": 52,
+        "correct": 54,
+        "total": 54,
         "accuracy": 1.0
       },
       "count": {
-        "correct": 52,
-        "total": 52,
+        "correct": 54,
+        "total": 54,
         "accuracy": 1.0
       },
       "leader": {
-        "correct": 26,
-        "total": 26,
+        "correct": 27,
+        "total": 27,
         "accuracy": 1.0
       },
       "progress_direction": {
@@ -100,8 +100,8 @@
         "accuracy": null
       },
       "objective_state": {
-        "correct": 17,
-        "total": 17,
+        "correct": 18,
+        "total": 18,
         "accuracy": 1.0
       },
       "goal_state": {
@@ -110,8 +110,8 @@
         "accuracy": 1.0
       },
       "marker": {
-        "correct": 35,
-        "total": 35,
+        "correct": 36,
+        "total": 36,
         "accuracy": 1.0
       }
     },
@@ -120,18 +120,18 @@
   "sequence_result": {
     "metrics": {
       "progress_direction": {
-        "correct": 14,
-        "total": 14,
+        "correct": 15,
+        "total": 15,
         "accuracy": 1.0
       },
       "objective_state": {
-        "correct": 14,
-        "total": 14,
+        "correct": 15,
+        "total": 15,
         "accuracy": 1.0
       },
       "sequence_count": {
-        "correct": 44,
-        "total": 44,
+        "correct": 46,
+        "total": 46,
         "accuracy": 1.0
       }
     },
@@ -141,7 +141,7 @@
       "progressDirection": {
         "our_count_decreasing": 5,
         "stable": 5,
-        "enemy_count_decreasing": 4
+        "enemy_count_decreasing": 5
       },
       "objectiveState": {
         "zoneControl=our_control": 2,
@@ -150,8 +150,8 @@
         "goalState.our=open.enemy=closed": 1,
         "goalState.our=closed.enemy=open": 2,
         "goalState.our=closed.enemy=closed": 1,
+        "towerOwner=enemy": 2,
         "towerOwner=our": 1,
-        "towerOwner=enemy": 1,
         "towerOwner=neutral": 1,
         "rainmakerState=enemy_carrier": 1,
         "rainmakerState=our_carrier": 1,
@@ -203,18 +203,18 @@
     "tower_control": {
       "metrics": {
         "side_count": {
-          "correct": 12,
-          "total": 12,
+          "correct": 14,
+          "total": 14,
           "accuracy": 1.0
         },
         "count": {
-          "correct": 12,
-          "total": 12,
+          "correct": 14,
+          "total": 14,
           "accuracy": 1.0
         },
         "leader": {
-          "correct": 6,
-          "total": 6,
+          "correct": 7,
+          "total": 7,
           "accuracy": 1.0
         },
         "progress_direction": {
@@ -223,8 +223,8 @@
           "accuracy": null
         },
         "objective_state": {
-          "correct": 5,
-          "total": 5,
+          "correct": 6,
+          "total": 6,
           "accuracy": 1.0
         },
         "goal_state": {
@@ -233,8 +233,8 @@
           "accuracy": null
         },
         "marker": {
-          "correct": 5,
-          "total": 5,
+          "correct": 6,
+          "total": 6,
           "accuracy": 1.0
         }
       },
@@ -358,18 +358,18 @@
     "tower_control": {
       "metrics": {
         "progress_direction": {
-          "correct": 3,
-          "total": 3,
+          "correct": 4,
+          "total": 4,
           "accuracy": 1.0
         },
         "objective_state": {
-          "correct": 3,
-          "total": 3,
+          "correct": 4,
+          "total": 4,
           "accuracy": 1.0
         },
         "sequence_count": {
-          "correct": 12,
-          "total": 12,
+          "correct": 14,
+          "total": 14,
           "accuracy": 1.0
         }
       },
@@ -377,13 +377,13 @@
       "segments": 3,
       "sequenceCoverage": {
         "progressDirection": {
+          "enemy_count_decreasing": 2,
           "our_count_decreasing": 1,
-          "enemy_count_decreasing": 1,
           "stable": 1
         },
         "objectiveState": {
+          "towerOwner=enemy": 2,
           "towerOwner=our": 1,
-          "towerOwner=enemy": 1,
           "towerOwner=neutral": 1
         }
       }

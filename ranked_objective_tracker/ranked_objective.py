@@ -793,6 +793,22 @@ class RankedObjectiveDetector:
                 if reading.value is not None and score > group_best_score:
                     group_best = reading
                     group_best_score = score
+                edge_candidate = self._read_tower_edge_candidate(frame, side, name, roi, rect, reading)
+                if edge_candidate is not None:
+                    edge_reading, edge_roi = edge_candidate
+                    edge_score = count_candidate_score(edge_reading)
+                    candidates.append(
+                        {
+                            "name": f"{name}_edge",
+                            "roi": list(edge_roi),
+                            "reading": edge_reading.to_dict(),
+                            "score": round(float(edge_score), 4),
+                        }
+                    )
+                    near_score = edge_score >= group_best_score - 0.06
+                    if edge_reading.value is not None and (edge_score > group_best_score or near_score):
+                        group_best = edge_reading
+                        group_best_score = edge_score
                 if name == "standard_plate" and reading.value is not None and score >= 0.95 and reading.confidence >= 0.88:
                     group_best = reading
                     group_best_score = score
@@ -810,6 +826,42 @@ class RankedObjectiveDetector:
         if best is None:
             return NumberReading(None, 0.0), candidates
         return best, candidates
+
+    def _read_tower_edge_candidate(
+        self,
+        frame: np.ndarray,
+        side: SideName,
+        name: str,
+        roi: tuple[float, float, float, float],
+        crop_rect: tuple[int, int, int, int],
+        reading: NumberReading,
+    ) -> tuple[NumberReading, tuple[float, float, float, float]] | None:
+        if name != "tower" or reading.value is None or reading.rect is None or len(reading.text) != 1:
+            return None
+
+        frame_width = frame.shape[1]
+        edge_margin_px = max(12, int(round(frame_width * 0.008)))
+        if side == "left":
+            if crop_rect[2] - reading.rect[2] > edge_margin_px:
+                return None
+            edge_roi = (roi[0], roi[1], min(0.500, roi[2] + 0.005), roi[3])
+        else:
+            if reading.rect[0] - crop_rect[0] > edge_margin_px:
+                return None
+            edge_roi = (max(0.500, roi[0] - 0.005), roi[1], roi[2], roi[3])
+
+        if edge_roi == roi:
+            return None
+
+        crop, rect = crop_rel(frame, edge_roi)
+        edge_reading = self.digit_reader.read_number(crop, value_min=0, value_max=100, max_digits=3)
+        if edge_reading.value is None or len(edge_reading.text) <= len(reading.text):
+            return None
+        if edge_reading.confidence < max(0.82, reading.confidence * 0.80):
+            return None
+        edge_reading.rect = _offset_rect(edge_reading.rect, rect)
+        edge_reading.source = f"roi:{name}_edge"
+        return edge_reading, edge_roi
 
     def _read_search_count_candidate(self, frame: np.ndarray, side: SideName, rule: RankedRule) -> NumberReading:
         mode = "tower" if rule == "tower_control" else "standard"

@@ -38,6 +38,7 @@ class _TemplateVariant:
     weapon_class: str
     bgr: np.ndarray
     gray: np.ndarray
+    lab: np.ndarray
     edge: np.ndarray
     mask: np.ndarray
     max_dim: int
@@ -206,14 +207,16 @@ def _rotate_bound(bgr: np.ndarray, alpha: np.ndarray, angle: float) -> tuple[np.
     return rotated_bgr[y1:y2, x1:x2], rotated_alpha[y1:y2, x1:x2]
 
 
-def _masked_pearson(template: np.ndarray, patch: np.ndarray, mask: np.ndarray) -> float:
+def _masked_multichannel_pearson(template: np.ndarray, patch: np.ndarray, mask: np.ndarray) -> float:
     valid = mask > 30
     if int(valid.sum()) < 20:
         return 0.0
     lhs = template[valid].astype(np.float32)
     rhs = patch[valid].astype(np.float32)
-    lhs -= float(lhs.mean())
-    rhs -= float(rhs.mean())
+    lhs -= lhs.mean(axis=0, keepdims=True)
+    rhs -= rhs.mean(axis=0, keepdims=True)
+    lhs = lhs.ravel()
+    rhs = rhs.ravel()
     lhs_norm = float(np.linalg.norm(lhs))
     rhs_norm = float(np.linalg.norm(rhs))
     if lhs_norm < 1e-6 or rhs_norm < 1e-6:
@@ -230,6 +233,18 @@ def _edge_cosine(template_edge: np.ndarray, patch_edge: np.ndarray, template_nor
     if rhs_norm < 1e-6:
         return 0.0
     return float(np.dot(lhs.ravel(), rhs.ravel()) / (template_norm * rhs_norm))
+
+
+def _masked_match_template(image: np.ndarray, template: np.ndarray, mask: np.ndarray) -> tuple[float, tuple[int, int]]:
+    try:
+        result = cv2.matchTemplate(image, template, cv2.TM_CCORR_NORMED, mask=mask)
+    except cv2.error:
+        return 0.0, (0, 0)
+    result = np.nan_to_num(result, nan=-1.0, posinf=-1.0, neginf=-1.0)
+    _min_value, max_value, _min_location, max_location = cv2.minMaxLoc(result)
+    if not math.isfinite(max_value):
+        return 0.0, (0, 0)
+    return float(max(0.0, max_value)), (int(max_location[0]), int(max_location[1]))
 
 
 def _clamp01(value: float) -> float:
@@ -299,6 +314,7 @@ class WeaponIconMatcher:
                         continue
                     gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
                     gray = cv2.equalizeHist(gray)
+                    lab = cv2.cvtColor(bgr, cv2.COLOR_BGR2LAB)
                     edge = cv2.Canny(gray, 45, 145)
                     edge = cv2.bitwise_and(edge, edge, mask=mask_u8)
                     edge = cv2.dilate(edge, np.ones((2, 2), np.uint8))
@@ -311,6 +327,7 @@ class WeaponIconMatcher:
                             weapon_class=template.weapon_class,
                             bgr=bgr,
                             gray=gray,
+                            lab=lab,
                             edge=edge,
                             mask=mask_u8,
                             max_dim=int(max_dim),
@@ -321,44 +338,12 @@ class WeaponIconMatcher:
                     )
         return variants
 
-    @staticmethod
-    def _candidate_locations(
-        crop_w: int,
-        crop_h: int,
-        tpl_w: int,
-        tpl_h: int,
-    ) -> list[tuple[int, int]]:
-        center_x = (crop_w - tpl_w) * 0.5
-        center_y = (crop_h - tpl_h) * 0.5
-        offsets = (
-            (0.0, 0.0),
-            (-0.15, 0.0),
-            (0.15, 0.0),
-            (0.0, -0.12),
-            (0.0, 0.12),
-            (-0.12, -0.10),
-            (0.12, -0.10),
-            (-0.12, 0.10),
-            (0.12, 0.10),
-        )
-        locations: list[tuple[int, int]] = []
-        seen: set[tuple[int, int]] = set()
-        for off_x, off_y in offsets:
-            x = int(round(center_x + crop_w * off_x))
-            y = int(round(center_y + crop_h * off_y))
-            x = max(0, min(crop_w - tpl_w, x))
-            y = max(0, min(crop_h - tpl_h, y))
-            loc = (x, y)
-            if loc not in seen:
-                seen.add(loc)
-                locations.append(loc)
-        return locations
-
     def predict_crop(self, crop: np.ndarray, top_k: int = 5) -> list[MatchCandidate]:
         if crop.size == 0:
             return []
         gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
         gray = cv2.equalizeHist(gray)
+        lab = cv2.cvtColor(crop, cv2.COLOR_BGR2LAB)
         image_edge = cv2.Canny(gray, 45, 145)
         crop_h, crop_w = gray.shape[:2]
         crop_area = max(1, crop_h * crop_w)
@@ -369,47 +354,49 @@ class WeaponIconMatcher:
             tpl_h, tpl_w = variant.gray.shape[:2]
             if tpl_h > crop_h or tpl_w > crop_w:
                 continue
-            for x, y in self._candidate_locations(crop_w, crop_h, tpl_w, tpl_h):
-                patch = gray[y : y + tpl_h, x : x + tpl_w]
-                patch_edge = image_edge[y : y + tpl_h, x : x + tpl_w]
-                shape_score = _edge_cosine(variant.edge, patch_edge, variant.edge_norm)
-                if not math.isfinite(shape_score):
-                    continue
-                corr = max(0.0, _masked_pearson(variant.gray, patch, variant.mask))
-                size_sigma = max(8.0, target_dim * 0.35)
-                scale_prior = math.exp(-((variant.max_dim - target_dim) ** 2) / (2.0 * size_sigma * size_sigma))
-                match_cx = x + tpl_w * 0.5
-                match_cy = y + tpl_h * 0.5
-                dist = math.hypot((match_cx - crop_w * 0.5) / crop_w, (match_cy - crop_h * 0.50) / crop_h)
-                location_prior = 1.0 - min(1.0, dist / 0.72)
-                area_prior = min(1.0, variant.mask_area / max(1.0, crop_area * 0.045))
-                score = (
-                    0.36 * float(shape_score)
-                    + 0.42 * float(corr)
-                    + 0.12 * float(scale_prior)
-                    + 0.10 * float(location_prior)
-                )
-                score *= 0.82 + 0.18 * area_prior
-                score = _clamp01(score)
-                candidate = MatchCandidate(
-                    weapon=variant.name,
-                    weapon_class=variant.weapon_class,
-                    score=score,
-                    confidence=score,
-                    location=(int(x), int(y)),
-                    size=(int(tpl_w), int(tpl_h)),
-                    angle=variant.angle,
-                    components={
-                        "shape": float(shape_score),
-                        "gray_corr": float(corr),
-                        "scale_prior": float(scale_prior),
-                        "location_prior": float(location_prior),
-                        "area_prior": float(area_prior),
-                    },
-                )
-                previous = best_by_weapon.get(candidate.weapon)
-                if previous is None or candidate.score > previous.score:
-                    best_by_weapon[candidate.weapon] = candidate
+            gray_corr, (x, y) = _masked_match_template(gray, variant.gray, variant.mask)
+            patch_edge = image_edge[y : y + tpl_h, x : x + tpl_w]
+            patch_lab = lab[y : y + tpl_h, x : x + tpl_w]
+            shape_score = _edge_cosine(variant.edge, patch_edge, variant.edge_norm)
+            if not math.isfinite(shape_score):
+                continue
+            color_corr = max(0.0, _masked_multichannel_pearson(variant.lab, patch_lab, variant.mask))
+            size_sigma = max(8.0, target_dim * 0.35)
+            scale_prior = math.exp(-((variant.max_dim - target_dim) ** 2) / (2.0 * size_sigma * size_sigma))
+            match_cx = x + tpl_w * 0.5
+            match_cy = y + tpl_h * 0.5
+            dist = math.hypot((match_cx - crop_w * 0.5) / crop_w, (match_cy - crop_h * 0.50) / crop_h)
+            location_prior = 1.0 - min(1.0, dist / 0.72)
+            area_prior = min(1.0, variant.mask_area / max(1.0, crop_area * 0.045))
+            score = (
+                0.40 * float(gray_corr)
+                + 0.25 * float(color_corr)
+                + 0.15 * float(max(0.0, shape_score))
+                + 0.12 * float(scale_prior)
+                + 0.08 * float(location_prior)
+            )
+            score *= 0.82 + 0.18 * area_prior
+            score = _clamp01(score)
+            candidate = MatchCandidate(
+                weapon=variant.name,
+                weapon_class=variant.weapon_class,
+                score=score,
+                confidence=score,
+                location=(int(x), int(y)),
+                size=(int(tpl_w), int(tpl_h)),
+                angle=variant.angle,
+                components={
+                    "shape": float(shape_score),
+                    "gray_corr": float(gray_corr),
+                    "color_corr": float(color_corr),
+                    "scale_prior": float(scale_prior),
+                    "location_prior": float(location_prior),
+                    "area_prior": float(area_prior),
+                },
+            )
+            previous = best_by_weapon.get(candidate.weapon)
+            if previous is None or candidate.score > previous.score:
+                best_by_weapon[candidate.weapon] = candidate
 
         candidates = sorted(best_by_weapon.values(), key=lambda item: item.score, reverse=True)[: max(1, top_k)]
         if candidates:

@@ -1,0 +1,2034 @@
+[
+  {
+    "video": "/home/ryokuryu/splat_2/videos/2026-02-01 21-18-24.mp4",
+    "timestamp": 30.0,
+    "frame_index": 1800,
+    "output": "weapon_lamp_detect/output/sample_recognition_2matches/match1_2026-02-01_00030000ms.jpg",
+    "slots": [
+      {
+        "side": "left",
+        "index": 0,
+        "state": "alive",
+        "weapon": "Heavy Splatling",
+        "weapon_class": "splatling",
+        "confidence": 0.4057,
+        "score": 0.6962,
+        "candidates": [
+          {
+            "weapon": "Heavy Splatling",
+            "weapon_class": "splatling",
+            "score": 0.6962,
+            "confidence": 0.4057,
+            "location": [
+              60,
+              22
+            ],
+            "size": [
+              62,
+              34
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1994,
+              "gray_corr": 0.9367,
+              "color_corr": 0.5127,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6852,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Dualie Replicas",
+            "weapon_class": "dualies",
+            "score": 0.6954,
+            "confidence": 0.4052,
+            "location": [
+              13,
+              2
+            ],
+            "size": [
+              62,
+              56
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1831,
+              "gray_corr": 0.9892,
+              "color_corr": 0.4591,
+              "scale_prior": 0.9057,
+              "location_prior": 0.61,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "N-ZAP 85",
+            "weapon_class": "shooter",
+            "score": 0.6847,
+            "confidence": 0.399,
+            "location": [
+              20,
+              16
+            ],
+            "size": [
+              62,
+              33
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1498,
+              "gray_corr": 0.9478,
+              "color_corr": 0.4809,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6776,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Heavy Splatling Deco",
+            "weapon_class": "splatling",
+            "score": 0.677,
+            "confidence": 0.3945,
+            "location": [
+              34,
+              63
+            ],
+            "size": [
+              62,
+              44
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1377,
+              "gray_corr": 0.9186,
+              "color_corr": 0.5287,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6008,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Planetz Big Swig Roller",
+            "weapon_class": "roller",
+            "score": 0.6761,
+            "confidence": 0.394,
+            "location": [
+              9,
+              31
+            ],
+            "size": [
+              82,
+              60
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.188,
+              "gray_corr": 0.9168,
+              "color_corr": 0.4138,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8021,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "left",
+        "index": 1,
+        "state": "alive",
+        "weapon": "Painbrush",
+        "weapon_class": "brush",
+        "confidence": 0.4752,
+        "score": 0.766,
+        "candidates": [
+          {
+            "weapon": "Painbrush",
+            "weapon_class": "brush",
+            "score": 0.766,
+            "confidence": 0.4752,
+            "location": [
+              42,
+              24
+            ],
+            "size": [
+              39,
+              62
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.2608,
+              "gray_corr": 0.9583,
+              "color_corr": 0.6412,
+              "scale_prior": 0.9057,
+              "location_prior": 0.9324,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Octobrush",
+            "weapon_class": "brush",
+            "score": 0.7519,
+            "confidence": 0.4671,
+            "location": [
+              38,
+              15
+            ],
+            "size": [
+              38,
+              82
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.223,
+              "gray_corr": 0.9529,
+              "color_corr": 0.6121,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8848,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Splatana Replica",
+            "weapon_class": "splatana",
+            "score": 0.7489,
+            "confidence": 0.4653,
+            "location": [
+              37,
+              0
+            ],
+            "size": [
+              62,
+              54
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1584,
+              "gray_corr": 0.9766,
+              "color_corr": 0.6945,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6528,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Shot Replica",
+            "weapon_class": "shooter",
+            "score": 0.7482,
+            "confidence": 0.4649,
+            "location": [
+              34,
+              0
+            ],
+            "size": [
+              82,
+              52
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.1798,
+              "gray_corr": 0.9721,
+              "color_corr": 0.6732,
+              "scale_prior": 0.9461,
+              "location_prior": 0.6329,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Splatana Stamper",
+            "weapon_class": "splatana",
+            "score": 0.7408,
+            "confidence": 0.4606,
+            "location": [
+              12,
+              2
+            ],
+            "size": [
+              82,
+              72
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1631,
+              "gray_corr": 0.9404,
+              "color_corr": 0.6688,
+              "scale_prior": 0.9461,
+              "location_prior": 0.7435,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "left",
+        "index": 2,
+        "state": "alive",
+        "weapon": "Splash-o-matic",
+        "weapon_class": "shooter",
+        "confidence": 0.5938,
+        "score": 0.8229,
+        "candidates": [
+          {
+            "weapon": "Splash-o-matic",
+            "weapon_class": "shooter",
+            "score": 0.8229,
+            "confidence": 0.5938,
+            "location": [
+              39,
+              29
+            ],
+            "size": [
+              82,
+              53
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.3236,
+              "gray_corr": 0.9627,
+              "color_corr": 0.8267,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8639,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Splatana Replica",
+            "weapon_class": "splatana",
+            "score": 0.77,
+            "confidence": 0.5631,
+            "location": [
+              15,
+              0
+            ],
+            "size": [
+              62,
+              54
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1879,
+              "gray_corr": 0.962,
+              "color_corr": 0.8044,
+              "scale_prior": 0.9057,
+              "location_prior": 0.5902,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Painbrush",
+            "weapon_class": "brush",
+            "score": 0.762,
+            "confidence": 0.5584,
+            "location": [
+              84,
+              12
+            ],
+            "size": [
+              47,
+              62
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2299,
+              "gray_corr": 0.9756,
+              "color_corr": 0.736,
+              "scale_prior": 0.9057,
+              "location_prior": 0.557,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Inkbrush",
+            "weapon_class": "brush",
+            "score": 0.7581,
+            "confidence": 0.5562,
+            "location": [
+              47,
+              8
+            ],
+            "size": [
+              82,
+              80
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1541,
+              "gray_corr": 0.9698,
+              "color_corr": 0.6881,
+              "scale_prior": 0.9461,
+              "location_prior": 0.7691,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Octobrush",
+            "weapon_class": "brush",
+            "score": 0.7581,
+            "confidence": 0.5562,
+            "location": [
+              70,
+              5
+            ],
+            "size": [
+              61,
+              82
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1861,
+              "gray_corr": 0.9642,
+              "color_corr": 0.7197,
+              "scale_prior": 0.9461,
+              "location_prior": 0.6379,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "left",
+        "index": 3,
+        "state": "alive",
+        "weapon": "Dynamo Roller",
+        "weapon_class": "roller",
+        "confidence": 0.5213,
+        "score": 0.8119,
+        "candidates": [
+          {
+            "weapon": "Dynamo Roller",
+            "weapon_class": "roller",
+            "score": 0.8119,
+            "confidence": 0.5213,
+            "location": [
+              15,
+              18
+            ],
+            "size": [
+              82,
+              73
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2884,
+              "gray_corr": 0.9771,
+              "color_corr": 0.7738,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8858,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Flingza Roller",
+            "weapon_class": "roller",
+            "score": 0.789,
+            "confidence": 0.508,
+            "location": [
+              36,
+              24
+            ],
+            "size": [
+              62,
+              61
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2453,
+              "gray_corr": 0.9658,
+              "color_corr": 0.7111,
+              "scale_prior": 0.9057,
+              "location_prior": 0.9936,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Painbrush",
+            "weapon_class": "brush",
+            "score": 0.767,
+            "confidence": 0.4952,
+            "location": [
+              74,
+              19
+            ],
+            "size": [
+              39,
+              62
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.2473,
+              "gray_corr": 0.9738,
+              "color_corr": 0.6961,
+              "scale_prior": 0.9057,
+              "location_prior": 0.7206,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Octobrush",
+            "weapon_class": "brush",
+            "score": 0.7669,
+            "confidence": 0.4952,
+            "location": [
+              19,
+              19
+            ],
+            "size": [
+              38,
+              62
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.243,
+              "gray_corr": 0.9597,
+              "color_corr": 0.7289,
+              "scale_prior": 0.9057,
+              "location_prior": 0.695,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Inkbrush",
+            "weapon_class": "brush",
+            "score": 0.7493,
+            "confidence": 0.485,
+            "location": [
+              46,
+              0
+            ],
+            "size": [
+              40,
+              62
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.1991,
+              "gray_corr": 0.9773,
+              "color_corr": 0.654,
+              "scale_prior": 0.9057,
+              "location_prior": 0.704,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "right",
+        "index": 0,
+        "state": "alive",
+        "weapon": "Sploosh-o-matic",
+        "weapon_class": "shooter",
+        "confidence": 0.5912,
+        "score": 0.8379,
+        "candidates": [
+          {
+            "weapon": "Sploosh-o-matic",
+            "weapon_class": "shooter",
+            "score": 0.8379,
+            "confidence": 0.5912,
+            "location": [
+              35,
+              27
+            ],
+            "size": [
+              82,
+              53
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.3154,
+              "gray_corr": 0.9649,
+              "color_corr": 0.8745,
+              "scale_prior": 0.9461,
+              "location_prior": 0.9065,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Splash-o-matic",
+            "weapon_class": "shooter",
+            "score": 0.7901,
+            "confidence": 0.5634,
+            "location": [
+              30,
+              30
+            ],
+            "size": [
+              82,
+              53
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2497,
+              "gray_corr": 0.9457,
+              "color_corr": 0.7402,
+              "scale_prior": 0.9461,
+              "location_prior": 0.9475,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Splatana Stamper",
+            "weapon_class": "splatana",
+            "score": 0.7597,
+            "confidence": 0.5458,
+            "location": [
+              32,
+              15
+            ],
+            "size": [
+              60,
+              82
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.2656,
+              "gray_corr": 0.9308,
+              "color_corr": 0.6347,
+              "scale_prior": 0.9461,
+              "location_prior": 0.9421,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Painbrush",
+            "weapon_class": "brush",
+            "score": 0.7547,
+            "confidence": 0.5429,
+            "location": [
+              59,
+              1
+            ],
+            "size": [
+              72,
+              82
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1267,
+              "gray_corr": 0.9771,
+              "color_corr": 0.7107,
+              "scale_prior": 0.9461,
+              "location_prior": 0.6713,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Neo Sploosh-o-matic",
+            "weapon_class": "shooter",
+            "score": 0.7368,
+            "confidence": 0.5325,
+            "location": [
+              34,
+              27
+            ],
+            "size": [
+              82,
+              63
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.3171,
+              "gray_corr": 0.8966,
+              "color_corr": 0.5808,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8989,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "right",
+        "index": 1,
+        "state": "alive",
+        "weapon": "Heavy Splatling",
+        "weapon_class": "splatling",
+        "confidence": 0.5588,
+        "score": 0.8126,
+        "candidates": [
+          {
+            "weapon": "Heavy Splatling",
+            "weapon_class": "splatling",
+            "score": 0.8126,
+            "confidence": 0.5588,
+            "location": [
+              8,
+              34
+            ],
+            "size": [
+              82,
+              45
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.3582,
+              "gray_corr": 0.9417,
+              "color_corr": 0.8177,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8033,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Painbrush",
+            "weapon_class": "brush",
+            "score": 0.7729,
+            "confidence": 0.5358,
+            "location": [
+              47,
+              0
+            ],
+            "size": [
+              62,
+              82
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2169,
+              "gray_corr": 0.9668,
+              "color_corr": 0.7031,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8041,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Heavy Splatling Deco",
+            "weapon_class": "splatling",
+            "score": 0.7536,
+            "confidence": 0.5246,
+            "location": [
+              8,
+              34
+            ],
+            "size": [
+              82,
+              54
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.3056,
+              "gray_corr": 0.9066,
+              "color_corr": 0.6749,
+              "scale_prior": 0.9461,
+              "location_prior": 0.7861,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Flingza Roller",
+            "weapon_class": "roller",
+            "score": 0.7342,
+            "confidence": 0.5133,
+            "location": [
+              34,
+              0
+            ],
+            "size": [
+              80,
+              82
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.2181,
+              "gray_corr": 0.9223,
+              "color_corr": 0.6131,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8219,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Octobrush",
+            "weapon_class": "brush",
+            "score": 0.7342,
+            "confidence": 0.5133,
+            "location": [
+              50,
+              2
+            ],
+            "size": [
+              51,
+              82
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2283,
+              "gray_corr": 0.9428,
+              "color_corr": 0.5687,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8391,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "right",
+        "index": 2,
+        "state": "alive",
+        "weapon": "Painbrush",
+        "weapon_class": "brush",
+        "confidence": 0.4416,
+        "score": 0.7454,
+        "candidates": [
+          {
+            "weapon": "Painbrush",
+            "weapon_class": "brush",
+            "score": 0.7454,
+            "confidence": 0.4416,
+            "location": [
+              42,
+              18
+            ],
+            "size": [
+              39,
+              62
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.243,
+              "gray_corr": 0.959,
+              "color_corr": 0.5762,
+              "scale_prior": 0.9057,
+              "location_prior": 0.9076,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Flingza Roller",
+            "weapon_class": "roller",
+            "score": 0.7411,
+            "confidence": 0.4392,
+            "location": [
+              4,
+              24
+            ],
+            "size": [
+              62,
+              61
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2647,
+              "gray_corr": 0.9605,
+              "color_corr": 0.6221,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6629,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Splatana Replica",
+            "weapon_class": "splatana",
+            "score": 0.7366,
+            "confidence": 0.4365,
+            "location": [
+              30,
+              0
+            ],
+            "size": [
+              57,
+              62
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.1758,
+              "gray_corr": 0.9632,
+              "color_corr": 0.6444,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6887,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Octobrush",
+            "weapon_class": "brush",
+            "score": 0.7307,
+            "confidence": 0.4331,
+            "location": [
+              37,
+              7
+            ],
+            "size": [
+              38,
+              82
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.2595,
+              "gray_corr": 0.9515,
+              "color_corr": 0.5168,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8552,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Splat Brella",
+            "weapon_class": "brella",
+            "score": 0.7271,
+            "confidence": 0.431,
+            "location": [
+              52,
+              45
+            ],
+            "size": [
+              62,
+              49
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.199,
+              "gray_corr": 0.9395,
+              "color_corr": 0.6115,
+              "scale_prior": 0.9057,
+              "location_prior": 0.7486,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "right",
+        "index": 3,
+        "state": "alive",
+        "weapon": "Octobrush",
+        "weapon_class": "brush",
+        "confidence": 0.4782,
+        "score": 0.8114,
+        "candidates": [
+          {
+            "weapon": "Octobrush",
+            "weapon_class": "brush",
+            "score": 0.8114,
+            "confidence": 0.4782,
+            "location": [
+              59,
+              30
+            ],
+            "size": [
+              29,
+              62
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.1373,
+              "gray_corr": 0.9711,
+              "color_corr": 0.8906,
+              "scale_prior": 0.9057,
+              "location_prior": 0.8876,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Painbrush",
+            "weapon_class": "brush",
+            "score": 0.808,
+            "confidence": 0.4762,
+            "location": [
+              48,
+              24
+            ],
+            "size": [
+              51,
+              82
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.1721,
+              "gray_corr": 0.9769,
+              "color_corr": 0.8416,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8433,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Flingza Roller",
+            "weapon_class": "roller",
+            "score": 0.7811,
+            "confidence": 0.4606,
+            "location": [
+              44,
+              23
+            ],
+            "size": [
+              61,
+              62
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1482,
+              "gray_corr": 0.9667,
+              "color_corr": 0.7591,
+              "scale_prior": 0.9057,
+              "location_prior": 0.9223,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Inkbrush",
+            "weapon_class": "brush",
+            "score": 0.7665,
+            "confidence": 0.4521,
+            "location": [
+              53,
+              34
+            ],
+            "size": [
+              40,
+              62
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.0667,
+              "gray_corr": 0.9685,
+              "color_corr": 0.7709,
+              "scale_prior": 0.9057,
+              "location_prior": 0.8455,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Shot Replica",
+            "weapon_class": "shooter",
+            "score": 0.7565,
+            "confidence": 0.4463,
+            "location": [
+              35,
+              0
+            ],
+            "size": [
+              82,
+              48
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1305,
+              "gray_corr": 0.9798,
+              "color_corr": 0.7332,
+              "scale_prior": 0.9461,
+              "location_prior": 0.6031,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "video": "/home/ryokuryu/splat_2/videos/2026-02-06 22-39-39.mkv",
+    "timestamp": 30.0,
+    "frame_index": 1800,
+    "output": "weapon_lamp_detect/output/sample_recognition_2matches/match2_2026-02-06_00030000ms.jpg",
+    "slots": [
+      {
+        "side": "left",
+        "index": 0,
+        "state": "alive",
+        "weapon": "Order Shot Replica",
+        "weapon_class": "shooter",
+        "confidence": 0.4435,
+        "score": 0.7439,
+        "candidates": [
+          {
+            "weapon": "Order Shot Replica",
+            "weapon_class": "shooter",
+            "score": 0.7439,
+            "confidence": 0.4435,
+            "location": [
+              13,
+              27
+            ],
+            "size": [
+              62,
+              36
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.2641,
+              "gray_corr": 0.9855,
+              "color_corr": 0.5707,
+              "scale_prior": 0.9057,
+              "location_prior": 0.735,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Heavy Splatling",
+            "weapon_class": "splatling",
+            "score": 0.7385,
+            "confidence": 0.4403,
+            "location": [
+              29,
+              20
+            ],
+            "size": [
+              62,
+              38
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.2159,
+              "gray_corr": 0.9628,
+              "color_corr": 0.5952,
+              "scale_prior": 0.9057,
+              "location_prior": 0.7939,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Blaster Replica",
+            "weapon_class": "blaster",
+            "score": 0.7363,
+            "confidence": 0.4391,
+            "location": [
+              0,
+              10
+            ],
+            "size": [
+              62,
+              50
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1164,
+              "gray_corr": 0.9869,
+              "color_corr": 0.6843,
+              "scale_prior": 0.9057,
+              "location_prior": 0.554,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "N-ZAP 85",
+            "weapon_class": "shooter",
+            "score": 0.7328,
+            "confidence": 0.4371,
+            "location": [
+              0,
+              45
+            ],
+            "size": [
+              62,
+              43
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.1533,
+              "gray_corr": 0.9376,
+              "color_corr": 0.7145,
+              "scale_prior": 0.9057,
+              "location_prior": 0.5937,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "E-liter 4K Scope",
+            "weapon_class": "charger",
+            "score": 0.7196,
+            "confidence": 0.4294,
+            "location": [
+              3,
+              38
+            ],
+            "size": [
+              82,
+              40
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.2064,
+              "gray_corr": 0.9635,
+              "color_corr": 0.5171,
+              "scale_prior": 0.9461,
+              "location_prior": 0.7561,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "left",
+        "index": 1,
+        "state": "down",
+        "weapon": "Heavy Splatling",
+        "weapon_class": "splatling",
+        "confidence": 0.4205,
+        "score": 0.7169,
+        "candidates": [
+          {
+            "weapon": "Heavy Splatling",
+            "weapon_class": "splatling",
+            "score": 0.7169,
+            "confidence": 0.4205,
+            "location": [
+              46,
+              19
+            ],
+            "size": [
+              62,
+              34
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2033,
+              "gray_corr": 0.9474,
+              "color_corr": 0.5549,
+              "scale_prior": 0.9057,
+              "location_prior": 0.7509,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "E-liter 4K",
+            "weapon_class": "charger",
+            "score": 0.7148,
+            "confidence": 0.4193,
+            "location": [
+              68,
+              34
+            ],
+            "size": [
+              62,
+              30
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.2156,
+              "gray_corr": 0.9323,
+              "color_corr": 0.6223,
+              "scale_prior": 0.9057,
+              "location_prior": 0.677,
+              "area_prior": 0.932
+            }
+          },
+          {
+            "weapon": "Heavy Splatling Deco",
+            "weapon_class": "splatling",
+            "score": 0.6951,
+            "confidence": 0.4078,
+            "location": [
+              48,
+              19
+            ],
+            "size": [
+              62,
+              41
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2391,
+              "gray_corr": 0.909,
+              "color_corr": 0.4973,
+              "scale_prior": 0.9057,
+              "location_prior": 0.7823,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "H-3 Nozzlenose",
+            "weapon_class": "shooter",
+            "score": 0.6893,
+            "confidence": 0.4044,
+            "location": [
+              30,
+              24
+            ],
+            "size": [
+              62,
+              53
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.2999,
+              "gray_corr": 0.9313,
+              "color_corr": 0.3594,
+              "scale_prior": 0.9057,
+              "location_prior": 0.9155,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "E-liter 4K Scope",
+            "weapon_class": "charger",
+            "score": 0.6725,
+            "confidence": 0.3947,
+            "location": [
+              69,
+              39
+            ],
+            "size": [
+              62,
+              25
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.1892,
+              "gray_corr": 0.9369,
+              "color_corr": 0.5959,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6716,
+              "area_prior": 0.6733
+            }
+          }
+        ]
+      },
+      {
+        "side": "left",
+        "index": 2,
+        "state": "down",
+        "weapon": "Flingza Roller",
+        "weapon_class": "roller",
+        "confidence": 0.4651,
+        "score": 0.7718,
+        "candidates": [
+          {
+            "weapon": "Flingza Roller",
+            "weapon_class": "roller",
+            "score": 0.7718,
+            "confidence": 0.4651,
+            "location": [
+              37,
+              16
+            ],
+            "size": [
+              62,
+              61
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2351,
+              "gray_corr": 0.9425,
+              "color_corr": 0.7143,
+              "scale_prior": 0.9057,
+              "location_prior": 0.903,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Painbrush",
+            "weapon_class": "brush",
+            "score": 0.7639,
+            "confidence": 0.4605,
+            "location": [
+              87,
+              28
+            ],
+            "size": [
+              47,
+              62
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2075,
+              "gray_corr": 0.9374,
+              "color_corr": 0.8221,
+              "scale_prior": 0.9057,
+              "location_prior": 0.5446,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Aerospray MG",
+            "weapon_class": "shooter",
+            "score": 0.734,
+            "confidence": 0.4432,
+            "location": [
+              16,
+              11
+            ],
+            "size": [
+              62,
+              55
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2354,
+              "gray_corr": 0.929,
+              "color_corr": 0.6457,
+              "scale_prior": 0.9057,
+              "location_prior": 0.7124,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Inkbrush",
+            "weapon_class": "brush",
+            "score": 0.7312,
+            "confidence": 0.4415,
+            "location": [
+              72,
+              2
+            ],
+            "size": [
+              62,
+              60
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1979,
+              "gray_corr": 0.963,
+              "color_corr": 0.6603,
+              "scale_prior": 0.9057,
+              "location_prior": 0.5317,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Octobrush",
+            "weapon_class": "brush",
+            "score": 0.7286,
+            "confidence": 0.44,
+            "location": [
+              96,
+              24
+            ],
+            "size": [
+              38,
+              82
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.1814,
+              "gray_corr": 0.903,
+              "color_corr": 0.7521,
+              "scale_prior": 0.9461,
+              "location_prior": 0.4828,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "left",
+        "index": 3,
+        "state": "alive",
+        "weapon": "Carbon Roller",
+        "weapon_class": "roller",
+        "confidence": 0.5571,
+        "score": 0.8327,
+        "candidates": [
+          {
+            "weapon": "Carbon Roller",
+            "weapon_class": "roller",
+            "score": 0.8327,
+            "confidence": 0.5571,
+            "location": [
+              15,
+              16
+            ],
+            "size": [
+              82,
+              74
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2625,
+              "gray_corr": 0.9793,
+              "color_corr": 0.8689,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8853,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Flingza Roller",
+            "weapon_class": "roller",
+            "score": 0.799,
+            "confidence": 0.5375,
+            "location": [
+              36,
+              23
+            ],
+            "size": [
+              62,
+              61
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.1595,
+              "gray_corr": 0.9759,
+              "color_corr": 0.786,
+              "scale_prior": 0.9057,
+              "location_prior": 0.9936,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Carbon Roller Deco",
+            "weapon_class": "roller",
+            "score": 0.7712,
+            "confidence": 0.5214,
+            "location": [
+              15,
+              16
+            ],
+            "size": [
+              82,
+              74
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2551,
+              "gray_corr": 0.9435,
+              "color_corr": 0.6847,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8853,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Carbon Roller ANG-L",
+            "weapon_class": "roller",
+            "score": 0.7538,
+            "confidence": 0.5113,
+            "location": [
+              14,
+              16
+            ],
+            "size": [
+              82,
+              75
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2948,
+              "gray_corr": 0.9272,
+              "color_corr": 0.6206,
+              "scale_prior": 0.9461,
+              "location_prior": 0.8755,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Splat Roller",
+            "weapon_class": "roller",
+            "score": 0.7501,
+            "confidence": 0.5092,
+            "location": [
+              36,
+              27
+            ],
+            "size": [
+              62,
+              52
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2053,
+              "gray_corr": 0.946,
+              "color_corr": 0.6128,
+              "scale_prior": 0.9057,
+              "location_prior": 0.9871,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "right",
+        "index": 0,
+        "state": "alive",
+        "weapon": "Rapid Blaster Pro",
+        "weapon_class": "blaster",
+        "confidence": 0.6493,
+        "score": 0.8383,
+        "candidates": [
+          {
+            "weapon": "Rapid Blaster Pro",
+            "weapon_class": "blaster",
+            "score": 0.8383,
+            "confidence": 0.6493,
+            "location": [
+              31,
+              25
+            ],
+            "size": [
+              82,
+              51
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.3513,
+              "gray_corr": 0.9782,
+              "color_corr": 0.825,
+              "scale_prior": 0.9461,
+              "location_prior": 0.9314,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Rapid Blaster Pro Deco",
+            "weapon_class": "blaster",
+            "score": 0.7641,
+            "confidence": 0.6063,
+            "location": [
+              31,
+              25
+            ],
+            "size": [
+              82,
+              60
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.3342,
+              "gray_corr": 0.9503,
+              "color_corr": 0.5785,
+              "scale_prior": 0.9461,
+              "location_prior": 0.9466,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Shot Replica",
+            "weapon_class": "shooter",
+            "score": 0.7546,
+            "confidence": 0.6008,
+            "location": [
+              45,
+              12
+            ],
+            "size": [
+              62,
+              39
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2338,
+              "gray_corr": 0.9822,
+              "color_corr": 0.6491,
+              "scale_prior": 0.9057,
+              "location_prior": 0.696,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Inkbrush",
+            "weapon_class": "brush",
+            "score": 0.7433,
+            "confidence": 0.5942,
+            "location": [
+              22,
+              21
+            ],
+            "size": [
+              62,
+              60
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1994,
+              "gray_corr": 0.9605,
+              "color_corr": 0.6099,
+              "scale_prior": 0.9057,
+              "location_prior": 0.8499,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Rapid Blaster",
+            "weapon_class": "blaster",
+            "score": 0.74,
+            "confidence": 0.5923,
+            "location": [
+              37,
+              30
+            ],
+            "size": [
+              62,
+              49
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.3254,
+              "gray_corr": 0.9239,
+              "color_corr": 0.5357,
+              "scale_prior": 0.9057,
+              "location_prior": 0.9878,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "right",
+        "index": 1,
+        "state": "down",
+        "weapon": "Painbrush",
+        "weapon_class": "brush",
+        "confidence": 0.4481,
+        "score": 0.7672,
+        "candidates": [
+          {
+            "weapon": "Painbrush",
+            "weapon_class": "brush",
+            "score": 0.7672,
+            "confidence": 0.4481,
+            "location": [
+              71,
+              35
+            ],
+            "size": [
+              54,
+              62
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1962,
+              "gray_corr": 0.9686,
+              "color_corr": 0.7564,
+              "scale_prior": 0.9057,
+              "location_prior": 0.657,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Ballpoint Splatling",
+            "weapon_class": "splatling",
+            "score": 0.7658,
+            "confidence": 0.4472,
+            "location": [
+              57,
+              19
+            ],
+            "size": [
+              62,
+              28
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2794,
+              "gray_corr": 0.9542,
+              "color_corr": 0.7226,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6614,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Octobrush",
+            "weapon_class": "brush",
+            "score": 0.7656,
+            "confidence": 0.4471,
+            "location": [
+              70,
+              37
+            ],
+            "size": [
+              46,
+              62
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1773,
+              "gray_corr": 0.9569,
+              "color_corr": 0.7701,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6876,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Inkbrush",
+            "weapon_class": "brush",
+            "score": 0.7511,
+            "confidence": 0.4387,
+            "location": [
+              52,
+              1
+            ],
+            "size": [
+              52,
+              62
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.1695,
+              "gray_corr": 0.9595,
+              "color_corr": 0.7089,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6992,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Splatana Replica",
+            "weapon_class": "splatana",
+            "score": 0.75,
+            "confidence": 0.438,
+            "location": [
+              90,
+              6
+            ],
+            "size": [
+              46,
+              62
+            ],
+            "angle": 8.0,
+            "components": {
+              "shape": 0.1975,
+              "gray_corr": 0.9821,
+              "color_corr": 0.7181,
+              "scale_prior": 0.9057,
+              "location_prior": 0.4911,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "right",
+        "index": 2,
+        "state": "alive",
+        "weapon": "Octobrush",
+        "weapon_class": "brush",
+        "confidence": 0.454,
+        "score": 0.7515,
+        "candidates": [
+          {
+            "weapon": "Octobrush",
+            "weapon_class": "brush",
+            "score": 0.7515,
+            "confidence": 0.454,
+            "location": [
+              58,
+              45
+            ],
+            "size": [
+              38,
+              62
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.1392,
+              "gray_corr": 0.9335,
+              "color_corr": 0.7694,
+              "scale_prior": 0.9057,
+              "location_prior": 0.7025,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Splatana Replica",
+            "weapon_class": "splatana",
+            "score": 0.7433,
+            "confidence": 0.4492,
+            "location": [
+              59,
+              0
+            ],
+            "size": [
+              76,
+              82
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.1745,
+              "gray_corr": 0.9559,
+              "color_corr": 0.6738,
+              "scale_prior": 0.9461,
+              "location_prior": 0.6599,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Ballpoint Splatling",
+            "weapon_class": "splatling",
+            "score": 0.7315,
+            "confidence": 0.4424,
+            "location": [
+              64,
+              5
+            ],
+            "size": [
+              62,
+              24
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.2871,
+              "gray_corr": 0.9386,
+              "color_corr": 0.6734,
+              "scale_prior": 0.9057,
+              "location_prior": 0.4501,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Heavy Splatling",
+            "weapon_class": "splatling",
+            "score": 0.7278,
+            "confidence": 0.4402,
+            "location": [
+              37,
+              10
+            ],
+            "size": [
+              62,
+              34
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2831,
+              "gray_corr": 0.9292,
+              "color_corr": 0.6108,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6528,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Blaster Replica",
+            "weapon_class": "blaster",
+            "score": 0.7259,
+            "confidence": 0.4392,
+            "location": [
+              72,
+              2
+            ],
+            "size": [
+              62,
+              50
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.2028,
+              "gray_corr": 0.9832,
+              "color_corr": 0.6137,
+              "scale_prior": 0.9057,
+              "location_prior": 0.5017,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      },
+      {
+        "side": "right",
+        "index": 3,
+        "state": "alive",
+        "weapon": "Order Splatana Replica",
+        "weapon_class": "splatana",
+        "confidence": 0.4539,
+        "score": 0.7698,
+        "candidates": [
+          {
+            "weapon": "Order Splatana Replica",
+            "weapon_class": "splatana",
+            "score": 0.7698,
+            "confidence": 0.4539,
+            "location": [
+              59,
+              18
+            ],
+            "size": [
+              57,
+              62
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.1931,
+              "gray_corr": 0.967,
+              "color_corr": 0.7325,
+              "scale_prior": 0.9057,
+              "location_prior": 0.778,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Order Blaster Replica",
+            "weapon_class": "blaster",
+            "score": 0.7665,
+            "confidence": 0.4519,
+            "location": [
+              52,
+              8
+            ],
+            "size": [
+              82,
+              66
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.1708,
+              "gray_corr": 0.9396,
+              "color_corr": 0.7876,
+              "scale_prior": 0.9461,
+              "location_prior": 0.6829,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Aerospray MG",
+            "weapon_class": "shooter",
+            "score": 0.7538,
+            "confidence": 0.4446,
+            "location": [
+              63,
+              27
+            ],
+            "size": [
+              62,
+              49
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.2058,
+              "gray_corr": 0.9514,
+              "color_corr": 0.705,
+              "scale_prior": 0.9057,
+              "location_prior": 0.7183,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Heavy Splatling",
+            "weapon_class": "splatling",
+            "score": 0.7416,
+            "confidence": 0.4375,
+            "location": [
+              44,
+              0
+            ],
+            "size": [
+              62,
+              34
+            ],
+            "angle": -8.0,
+            "components": {
+              "shape": 0.2471,
+              "gray_corr": 0.9566,
+              "color_corr": 0.6873,
+              "scale_prior": 0.9057,
+              "location_prior": 0.517,
+              "area_prior": 1.0
+            }
+          },
+          {
+            "weapon": "Ballpoint Splatling",
+            "weapon_class": "splatling",
+            "score": 0.7305,
+            "confidence": 0.4311,
+            "location": [
+              54,
+              21
+            ],
+            "size": [
+              62,
+              28
+            ],
+            "angle": 0.0,
+            "components": {
+              "shape": 0.2526,
+              "gray_corr": 0.9276,
+              "color_corr": 0.6301,
+              "scale_prior": 0.9057,
+              "location_prior": 0.6926,
+              "area_prior": 1.0
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -70,6 +70,25 @@ def get_slot_special(slot: Any) -> bool | None:
     return getattr(slot, "special_ready", None)
 
 
+def score_summary(ready_scores: list[float], not_ready_scores: list[float]) -> dict[str, int | float | None]:
+    ready_min = min(ready_scores) if ready_scores else None
+    ready_mean = sum(ready_scores) / len(ready_scores) if ready_scores else None
+    not_ready_max = max(not_ready_scores) if not_ready_scores else None
+    not_ready_mean = sum(not_ready_scores) / len(not_ready_scores) if not_ready_scores else None
+    margin = None
+    if ready_min is not None and not_ready_max is not None:
+        margin = ready_min - not_ready_max
+    return {
+        "ready_count": len(ready_scores),
+        "not_ready_count": len(not_ready_scores),
+        "ready_min": None if ready_min is None else round(float(ready_min), 4),
+        "ready_mean": None if ready_mean is None else round(float(ready_mean), 4),
+        "not_ready_max": None if not_ready_max is None else round(float(not_ready_max), 4),
+        "not_ready_mean": None if not_ready_mean is None else round(float(not_ready_mean), 4),
+        "margin": None if margin is None else round(float(margin), 4),
+    }
+
+
 def evaluate(
     annotations: list[dict[str, Any]],
     annotation_path: Path,
@@ -86,6 +105,8 @@ def evaluate(
         "enemy_special": Metric(),
     }
     mistakes: list[dict[str, Any]] = []
+    enemy_special_ready_scores: list[float] = []
+    enemy_special_not_ready_scores: list[float] = []
 
     image_root = annotation_path.parent
     if debug_dir is not None:
@@ -154,6 +175,11 @@ def evaluate(
                 if expected_ready is None:
                     continue
                 predicted_ready = get_slot_special(predicted_enemy.slots[index])
+                special_score = float(getattr(predicted_enemy.slots[index], "special_score", 0.0))
+                if expected_ready:
+                    enemy_special_ready_scores.append(special_score)
+                else:
+                    enemy_special_not_ready_scores.append(special_score)
                 metrics["enemy_special"].total += 1
                 if expected_ready == predicted_ready:
                     metrics["enemy_special"].correct += 1
@@ -179,6 +205,9 @@ def evaluate(
     return {
         "samples": len(annotations),
         "metrics": {name: metric.to_dict() for name, metric in metrics.items()},
+        "diagnostics": {
+            "enemy_special_score": score_summary(enemy_special_ready_scores, enemy_special_not_ready_scores),
+        },
         "mistakes": mistakes,
     }
 

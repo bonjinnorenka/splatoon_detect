@@ -1,12 +1,12 @@
 {
-  "annotation_samples": 29,
+  "annotation_samples": 30,
   "evaluated_splits": [
     "eval"
   ],
   "coverage": {
-    "evaluatedAnnotationSamples": 18,
+    "evaluatedAnnotationSamples": 19,
     "bySplit": {
-      "eval": 18
+      "eval": 19
     },
     "byRule": {
       "splat_zones": {
@@ -26,19 +26,19 @@
         }
       },
       "tower_control": {
-        "annotations": 5,
-        "counterSamples": 4,
-        "sideCountLabels": 8,
-        "counterLabels": 12,
-        "objectiveLabels": 3,
+        "annotations": 6,
+        "counterSamples": 5,
+        "sideCountLabels": 10,
+        "counterLabels": 15,
+        "objectiveLabels": 4,
         "goalStateLabels": 0,
-        "markerLabels": 3,
+        "markerLabels": 4,
         "visibleMarkerLabels": 0,
         "staticObjectiveState": {
-          "towerOwner=neutral": 3
+          "towerOwner=neutral": 4
         },
         "staticMarkerState": {
-          "offscreen:offscreen": 3
+          "offscreen:offscreen": 4
         }
       },
       "rainmaker": {
@@ -81,19 +81,19 @@
   "annotation_result": {
     "metrics": {
       "side_count": {
-        "correct": 27,
-        "total": 30,
-        "accuracy": 0.9
+        "correct": 29,
+        "total": 32,
+        "accuracy": 0.90625
       },
       "count": {
-        "correct": 27,
-        "total": 30,
-        "accuracy": 0.9
+        "correct": 29,
+        "total": 32,
+        "accuracy": 0.90625
       },
       "leader": {
-        "correct": 14,
-        "total": 15,
-        "accuracy": 0.9333333333333333
+        "correct": 15,
+        "total": 16,
+        "accuracy": 0.9375
       },
       "progress_direction": {
         "correct": 0,
@@ -101,8 +101,8 @@
         "accuracy": null
       },
       "objective_state": {
-        "correct": 9,
-        "total": 9,
+        "correct": 10,
+        "total": 10,
         "accuracy": 1.0
       },
       "goal_state": {
@@ -111,8 +111,8 @@
         "accuracy": 1.0
       },
       "marker": {
-        "correct": 21,
-        "total": 21,
+        "correct": 22,
+        "total": 22,
         "accuracy": 1.0
       }
     },
@@ -174,9 +174,9 @@
         "accuracy": 1.0
       },
       "sequence_count": {
-        "correct": 21,
-        "total": 24,
-        "accuracy": 0.875
+        "correct": 23,
+        "total": 26,
+        "accuracy": 0.8846153846153846
       }
     },
     "mistakes": [
@@ -259,18 +259,18 @@
     "tower_control": {
       "metrics": {
         "side_count": {
-          "correct": 7,
-          "total": 8,
-          "accuracy": 0.875
+          "correct": 9,
+          "total": 10,
+          "accuracy": 0.9
         },
         "count": {
-          "correct": 7,
-          "total": 8,
-          "accuracy": 0.875
+          "correct": 9,
+          "total": 10,
+          "accuracy": 0.9
         },
         "leader": {
-          "correct": 4,
-          "total": 4,
+          "correct": 5,
+          "total": 5,
           "accuracy": 1.0
         },
         "progress_direction": {
@@ -279,8 +279,8 @@
           "accuracy": null
         },
         "objective_state": {
-          "correct": 3,
-          "total": 3,
+          "correct": 4,
+          "total": 4,
           "accuracy": 1.0
         },
         "goal_state": {
@@ -289,8 +289,8 @@
           "accuracy": null
         },
         "marker": {
-          "correct": 3,
-          "total": 3,
+          "correct": 4,
+          "total": 4,
           "accuracy": 1.0
         }
       },
@@ -465,9 +465,9 @@
           "accuracy": 1.0
         },
         "sequence_count": {
-          "correct": 7,
-          "total": 8,
-          "accuracy": 0.875
+          "correct": 9,
+          "total": 10,
+          "accuracy": 0.9
         }
       },
       "mistakes": [

@@ -17,6 +17,8 @@ python weapon_lamp_detect/detect_video.py "../videos/2026-02-06 22-39-39.mkv" \
 
 出力は各フレーム8スロット分の候補を含むJSONL。`weapon` は個別武器名、`weapon_class` は `shooter` / `roller` / `charger` などのカテゴリ。
 
+枠位置の確認用に `--debug-dir` を付けると、実フレーム上のクロップ枠と推定ラベルを書き出す。現状の固定枠は大きく外れてはいないが、スロット内の武器位置は左右・alive/downでずれるため、照合側では枠内をマスク付きテンプレート探索している。
+
 ## 精度評価
 
 現状の既存評価データには alive/down のラベルしかなく、実フレームの武器名ラベルはない。そのため、実動画での真の武器名精度はまだ測れない。
@@ -36,19 +38,41 @@ python weapon_lamp_detect/evaluate_synthetic.py \
 今回の測定値:
 
 - 疑似データ: 181件 (`samples-per-weapon=1`, `down-fraction=0.25`, seed=7)
-- 個別武器名 top-1: 6/181 = 3.31%
-- 個別武器名 top-5: 18/181 = 9.94%
-- 武器カテゴリ top-1: 30/181 = 16.57%
-- 武器カテゴリ top-5: 89/181 = 49.17%
-- aliveのみのカテゴリ top-1: 26/135 = 19.26%
-- downのみのカテゴリ top-1: 4/46 = 8.70%
+- 個別武器名 top-1: 44/181 = 24.31%
+- 個別武器名 top-5: 71/181 = 39.23%
+- 武器カテゴリ top-1: 57/181 = 31.49%
+- 武器カテゴリ top-5: 110/181 = 60.77%
+- aliveのみの個別武器名 top-1: 40/135 = 29.63%
+- aliveのみのカテゴリ top-1: 52/135 = 38.52%
+- downのみの個別武器名 top-1: 4/46 = 8.70%
+- downのみのカテゴリ top-1: 5/46 = 10.87%
 
-この数値から見ると、現状は候補提示の試作としては動くが、武器特定器としてはまだ実用精度ではない。
+この数値から見ると、枠内の探索と色スコア追加で改善はしたが、武器特定器としてはまだ実フレームの教師ラベルで調整する必要がある。特にdown時はX重畳で武器が隠れるため、画像だけからの武器名推定はかなり厳しい。
+
+## 実フレームのラベル収集
+
+実動画での武器名精度を測るためのローカルラベラーを用意している。動画からイカランプのスロット画像を切り出し、ブラウザで武器名を選んで保存する。
+
+```bash
+python weapon_lamp_detect/label_weapon_samples.py "../videos/2026-02-06 22-39-39.mkv" \
+  --start 30 --end 180 --sample-interval 10 \
+  --max-slots 96
+```
+
+起動後に表示される `http://127.0.0.1:8765/` を開く。ラベルは `weapon_lamp_detect/data/labeling_sessions/session_*/labels_current.json` と `labels.jsonl` に保存される。down状態も含めたい場合だけ `--include-down` を付ける。
+
+ラベル済みセッションは次で評価する。
+
+```bash
+python weapon_lamp_detect/evaluate_labeled.py \
+  weapon_lamp_detect/data/labeling_sessions/session_YYYYMMDD_HHMMSS
+```
 
 ## 実装メモ
 
 - `sample_data/Main Weapons/*.png` のアルファをテンプレートマスクとして使う。
-- テンプレートを複数スケール・少量回転で展開し、イカランプクロップ上のエッジ一致とグレースケール相関を組み合わせてスコア化する。
+- テンプレートを複数スケール・少量回転で展開し、イカランプクロップ上でマスク付き `matchTemplate` を使って枠内を探索する。
+- グレースケール一致だけだと無彩色のOrder系テンプレートに吸われやすいため、探索位置のLab色相関とエッジ一致も組み合わせてスコア化する。
 - スロット位置は既存イカランプ検出と同じ固定HUD座標を使うが、`squid_lamp_detect` 側のファイルは変更しない。
 - `detect_video.py` は可能なら `squid_lamp_detect` を読み込み、alive/down/unknown のスロット状態も併記する。
 

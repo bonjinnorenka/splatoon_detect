@@ -501,11 +501,11 @@ def _special_badge_score(slot: np.ndarray, color: InkColor) -> float:
         icon_fraction = max(white_fraction, saturated_fraction)
         shape_score = min(1.0, min(w, h) / max(1, min(region_w, region_h) * 0.32))
         score = (
-            0.30 * size_score
-            + 0.25 * bottomness
-            + 0.20 * compactness
-            + 0.15 * min(1.0, icon_fraction * 1.4)
-            + 0.10 * shape_score
+            0.27 * size_score
+            + 0.40 * bottomness
+            + 0.14 * compactness
+            + 0.07 * min(1.0, icon_fraction * 1.4)
+            + 0.12 * shape_score
         )
         best_score = max(best_score, score)
 
@@ -535,11 +535,26 @@ def classify_slot(slot: np.ndarray, index: int, color: InkColor, special_allowed
     if diagonal_score >= 0.34 and min(density_a, density_b) >= 0.55:
         down_score = max(down_score, 0.72)
 
+    special_score = _special_badge_score(slot, color) if special_allowed else 0.0
+
     # Strong team-colored lamp pixels usually mean the weapon is visible and no X overlay is present.
     if color_fraction >= 0.28 and down_score < 0.85:
         down_score *= 0.72
+    if color_fraction >= 0.40 and diagonal_score < 0.12 and down_score < 0.85:
+        down_score *= 0.55
     if color_fraction >= 0.45 and down_score < 0.96:
         down_score *= 0.50
+    if color_fraction >= 0.28 and diagonal_score < 0.035 and down_score >= 0.85:
+        down_score *= 0.45
+
+    if (
+        down_score < 0.62
+        and component_ratio >= 0.20
+        and component_extent >= 0.40
+        and special_score >= 0.80
+        and _outside_density >= 0.24
+    ):
+        down_score = max(down_score, 0.68)
 
     down_score = float(max(0.0, min(1.0, down_score)))
     if down_score >= 0.62:
@@ -548,9 +563,8 @@ def classify_slot(slot: np.ndarray, index: int, color: InkColor, special_allowed
         return SlotReading(index, "unknown", 1.0 - abs(0.535 - down_score), down_score, color_fraction)
 
     alive_confidence = max(0.45, min(0.95, 1.0 - down_score))
-    if color_fraction < 0.04 and component_ratio < 0.05:
+    if color_fraction < 0.04 and component_ratio < 0.05 and special_score < 0.40:
         return SlotReading(index, "unknown", 0.35, down_score, color_fraction)
-    special_score = _special_badge_score(slot, color) if special_allowed else 0.0
     special_ready = special_score >= 0.67
     special_confidence = special_score if special_ready else max(0.50, 1.0 - special_score)
     return SlotReading(
