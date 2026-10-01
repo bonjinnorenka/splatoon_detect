@@ -315,6 +315,68 @@ python weapon_lamp_detect/view_errors.py \
 
 今回の改善比較は、既存matcherの同side見本制限を保つbaselineと、左右の見本を共有する方式。±15%のサイズ探索もtraining開始画像で比較するが、training-onlyの開始3枚・武器別macro accuracyで選ぶ。進行中の数字で設定を採用しない。結果は [開始時点の評価報告](reports/opening_20261001.md) を参照。
 
+### 改善版：開始見本・局所コントラスト・GO白飛び（2026-10-02）
+
+現在の推奨比較は `evaluate_opening_hybrid.py`。上で生成した開始5秒datasetと、追加データの固定分割を再利用する。新しい依存・CNN・GPUは不要。既存matcherのデフォルトと人力GTは変更しない。
+
+- 試合途中からの従来見本に、**training試合の最初の2枚**の開始見本を併用。
+- 従来のインク除去照合75%＋武器の色付き輪郭を残す局所コントラスト照合25%。派生武器やボールド専用のルールではない。
+- 同side見本を優先するが、反対sideを完全除外せずscoreに0.03のペナルティ。
+- GO白飛びをcropの低彩度・高輝度率とcontrastから測り、開始窓内のscore平均に品質weightを使う。後のframeで補充せず、全slotを分母に残す。
+
+これらの設定は、元training17試合の**1試合を丸ごと見本から除いたLOMO確認**（80slot・20武器、他trainingに見本があるもの）で選択した。確認画像は開始+3/+4秒、開始見本は他training試合の+0/+1秒。途中画像は過去の見本として再利用するだけで、評価・実運用の判定には使わない。未見本の武器をLOMO設定確認から外すことと、評価分母から外すことは別で、評価側は欠損・読めないslotを残す。
+
+以下は、この作業環境の固定snapshotを使う再現例。前段の追加データ生成と開始dataset生成が必要。新しい試行には別outputを指定する。
+
+```bash
+source ../bin/activate
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_opening_hybrid.py freeze \
+  weapon_lamp_detect/data/poc_obs_20261001_added \
+  weapon_lamp_detect/data/poc_opening_20261001/dataset \
+  --output weapon_lamp_detect/data/poc_opening_hybrid_run --workers 8
+
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_opening_hybrid.py run \
+  weapon_lamp_detect/data/poc_opening_hybrid_run --kind independent --workers 8
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_opening_hybrid.py run \
+  weapon_lamp_detect/data/poc_opening_hybrid_run --kind full_training --workers 8
+
+python -m weapon_lamp_detect.analyze_opening_improvements \
+  weapon_lamp_detect/data/poc_opening_hybrid_run/independent
+python -m weapon_lamp_detect.analyze_opening_improvements \
+  weapon_lamp_detect/data/poc_opening_hybrid_run/full_training
+
+# 各serverは別terminalで起動する。
+python weapon_lamp_detect/view_errors.py \
+  weapon_lamp_detect/data/poc_opening_hybrid_run/independent --port 8771
+python weapon_lamp_detect/view_errors.py \
+  weapon_lamp_detect/data/poc_opening_hybrid_run/full_training --port 8772
+```
+
+Viewerには動画filter、判定に使った開始画像、白飛び率と品質weight、従来の背景除去入力、補助の局所コントラスト入力を表示する。局所画像は符号付き輝度差を表示用に `128 + 2×差` として可視化し、中間灰色が差ゼロ。推論にはfloatの差を使う。`comparison.md` / `paired_analysis.json` は同じmatch-slotの改善・悪化と武器別結果、`audit/` は原因確認のために選んだ標本（ランダム標本ではない）。`match_predictions.json` は評価対象slotの参考出力のみで、正解ラベルではない。
+
+さらに全データの見本量を使った補助検証もできる。53試合を1試合ずつ**丸ごと見本から除外**し、残りの見本でその試合の開始5秒だけを評価する。全58候補の309slotを評価し、見本がなくなった武器も分母に残す。ただし設定選択用の17試合も含む補助cross-validationであり、上の13/26の独立分割や新規録画の精度にすり替えない。
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_opening_cv.py \
+  weapon_lamp_detect/data/poc_opening_hybrid_run \
+  --output weapon_lamp_detect/data/poc_opening_hybrid_run/cross_validation --workers 8
+python -m weapon_lamp_detect.analyze_opening_improvements \
+  weapon_lamp_detect/data/poc_opening_hybrid_run/cross_validation
+python weapon_lamp_detect/view_errors.py \
+  weapon_lamp_detect/data/poc_opening_hybrid_run/cross_validation --port 8773
+```
+
+背景除去だけ・開始見本だけの切り分けを再現する場合は、`evaluate_improved_opening.py` / `evaluate_opening_bank.py` に同じ `freeze SOURCE DATASET --output NEW_OUTPUT --workers 8`、`run NEW_OUTPUT --kind independent` / `full_training` を指定する。これらは改善しなかった条件も保存するための参考実験で、評価結果で選び直すツールではない。[改善の測定報告](reports/opening_improvement_20261002.md) に採用理由・残る誤判定・保証できない範囲を記載する。
+
+テスト：
+
+```bash
+python -m unittest weapon_lamp_detect.test_poc weapon_lamp_detect.test_added_data \
+  weapon_lamp_detect.test_alignment weapon_lamp_detect.test_opening \
+  weapon_lamp_detect.test_improved_opening weapon_lamp_detect.test_opening_bank \
+  weapon_lamp_detect.test_hybrid_opening -q
+```
+
 ## 参考実験：cropの位置・サイズ補正と近似武器の照合比較（進行中の改善は保留）
 
 既存の固定crop・ラベル・評価結果は変更せず、`adaptive_crop.py` で元OBSから別datasetに再切り出す。武器名や推論結果は位置決めに使わない。各slotの最初の信頼できるaliveイカランプ輪郭を基準に、位置と均一scaleを補正する。輪郭が背景インクとつながるなど不確かな場合は元の枠へ戻す。補正失敗を主評価から除外して精度を上げる設計ではない。

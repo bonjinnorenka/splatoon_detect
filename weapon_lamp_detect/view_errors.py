@@ -58,10 +58,11 @@ class ErrorHandler(BaseHTTPRequestHandler):
             if url.path == "/":
                 return self.send((HERE / "error_viewer.html").read_bytes(), "text/html; charset=utf-8")
             if url.path == "/api/report":
-                return self.send({"report": self.server.report, "tags": TAGS, "weapon_names": self.server.weapon_names})
+                return self.send({"report": self.server.report, "tags": TAGS, "weapon_names": self.server.weapon_names,
+                                  "videos": self.server.metadata.get("videos",{})})
             if url.path == "/api/errors":
                 rows = self.server.rows
-                for key in ("method", "expected", "predicted", "state", "scope"):
+                for key in ("method", "expected", "predicted", "state", "scope", "video_id"):
                     if q.get(key):
                         rows = [r for r in rows if r[key] == q[key]]
                 if q.get("all") != "1":
@@ -101,7 +102,21 @@ class ErrorHandler(BaseHTTPRequestHandler):
                 if q.get("processed") == "1":
                     if context or not row["method"].endswith(("_region", "_foreground")):
                         raise ValueError("この方式の前処理画像はありません")
-                    if row["method"].startswith("obs_detail"):
+                    preprocessor=self.server.report.get("preprocessors",{}).get(row["method"],"legacy")
+                    if q.get("feature")=="local":
+                        preprocessor=self.server.report.get("secondary_preprocessors",{}).get(row["method"])
+                        if not preprocessor:
+                            raise ValueError("この方式の局所照合画像はありません")
+                    if preprocessor!="legacy":
+                        from weapon_lamp_detect.opening_matcher import CONFIGURATIONS, features, processed_region
+                        frame=processed_region(frame,preprocessor)
+                        if CONFIGURATIONS[preprocessor]["processing"]=="local":
+                            import cv2
+                            import numpy as np
+                            gray,_,_=features(frame,True)
+                            # Signed high-pass luminance: 0 shown as neutral gray.
+                            frame=cv2.cvtColor(np.clip(128+2*gray,0,255).astype(np.uint8),cv2.COLOR_GRAY2BGR)
+                    elif row["method"].startswith("obs_detail"):
                         from weapon_lamp_detect.detail_matcher import detail_region
                         frame=detail_region(frame)
                     else:

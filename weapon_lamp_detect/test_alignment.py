@@ -153,17 +153,39 @@ class AlignmentTests(unittest.TestCase):
                  'decision_frames':[{'crop':'crop.png','context':'context.jpg','rect':[100,20,200,120]}]}
             (dataset/'samples.jsonl').write_text(json.dumps(row)+'\n')
             (root/'predictions.jsonl').write_text(json.dumps(row)+'\n')
-            atomic_json(root/'report.json',{'dataset':str(dataset),'methods':{}})
+            atomic_json(root/'report.json',{'dataset':str(dataset),'methods':{},
+                       'secondary_preprocessors':{'obs_detail_foreground':'local_core'}})
             server=ErrorServer(('127.0.0.1',0),root)
             thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
             try:
                 prefix=f'http://127.0.0.1:{server.server_port}/api/image?id=obs_detail_foreground:a'
-                for query in ('&processed=1','&original=1','&context=1&hud=1','&decision_frame=0','&decision_frame=0&processed=1'):
+                for query in ('&processed=1','&original=1','&context=1&hud=1','&decision_frame=0','&decision_frame=0&processed=1','&processed=1&feature=local'):
                     with urlopen(prefix+query,timeout=5) as response:
                         decoded=cv2.imdecode(np.frombuffer(response.read(),np.uint8),cv2.IMREAD_COLOR)
                         self.assertIsNotNone(decoded)
                         if 'processed' in query:
                             self.assertEqual(decoded.shape[:2],(56,106))
+            finally:
+                server.shutdown();server.server_close();thread.join()
+
+    def test_viewer_filters_video_without_merging_different_recordings(self):
+        with tempfile.TemporaryDirectory(prefix='weapon-video-filter-') as name:
+            root=Path(name);dataset=root/'dataset';dataset.mkdir()
+            atomic_json(dataset/'dataset.json',{'videos':{'v1':{'path':'録画 1.mkv'},'v2':{'path':'録画 2.mkv'}}})
+            rows=[{'sample_id':v,'video_id':v,'method':'obs_test_foreground','correct':False,'margin':.1}
+                  for v in ('v1','v2')]
+            text=''.join(json.dumps(r)+'\n' for r in rows)
+            (dataset/'samples.jsonl').write_text(text);(root/'predictions.jsonl').write_text(text)
+            atomic_json(root/'report.json',{'dataset':str(dataset),'methods':{}})
+            server=ErrorServer(('127.0.0.1',0),root)
+            thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
+            try:
+                with urlopen(f'http://127.0.0.1:{server.server_port}/api/errors?video_id=v2',timeout=5) as response:
+                    result=json.loads(response.read())
+                    self.assertEqual(result['total'],1)
+                    self.assertEqual(result['rows'][0]['video_id'],'v2')
+                with urlopen(f'http://127.0.0.1:{server.server_port}/api/report',timeout=5) as response:
+                    self.assertEqual(set(json.loads(response.read())['videos']),{'v1','v2'})
             finally:
                 server.shutdown();server.server_close();thread.join()
 
