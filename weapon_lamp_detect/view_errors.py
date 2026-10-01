@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from weapon_lamp_detect.build_dataset import cv2_read, load_dataset
 from weapon_lamp_detect.match_data import Catalog, HERE, atomic_json, frame_at, image_bytes, read_json
 
-TAGS = ("variant", "similar_shape", "order", "x_overlay", "blur", "hud_shift", "color", "special_overlay", "state_error", "label_error")
+TAGS = ("variant", "similar_shape", "order", "x_overlay", "blur", "hud_shift", "crop_scale", "crop_truncated", "badge_overlay", "color", "special_overlay", "state_error", "label_error")
 
 
 class ErrorServer(ThreadingHTTPServer):
@@ -75,8 +75,18 @@ class ErrorHandler(BaseHTTPRequestHandler):
                 return self.send({"total": len(rows), "rows": result})
             if url.path == "/api/image":
                 row = self.server.by_id[q["id"]]
+                if "decision_frame" in q:
+                    index=int(q["decision_frame"])
+                    frames=row.get("decision_frames",[])
+                    if not 0<=index<len(frames):
+                        raise ValueError("invalid decision frame")
+                    row={**row,**frames[index]}
                 context = q.get("context") == "1"
                 rel = row.get("context" if context else "crop")
+                if q.get("original") == "1":
+                    if context or "original_rect" not in row or not rel:
+                        raise ValueError("補正前cropがありません")
+                    rel="original_"+rel
                 if rel:
                     path = (self.server.dataset / rel).resolve()
                     if self.server.dataset.resolve() not in path.parents:
@@ -91,8 +101,23 @@ class ErrorHandler(BaseHTTPRequestHandler):
                 if q.get("processed") == "1":
                     if context or not row["method"].endswith(("_region", "_foreground")):
                         raise ValueError("この方式の前処理画像はありません")
-                    from weapon_lamp_detect.region_matcher import weapon_region
-                    frame = weapon_region(frame, row["method"].endswith("_foreground"))
+                    if row["method"].startswith("obs_detail"):
+                        from weapon_lamp_detect.detail_matcher import detail_region
+                        frame=detail_region(frame)
+                    else:
+                        from weapon_lamp_detect.region_matcher import weapon_region
+                        frame = weapon_region(frame, row["method"].endswith("_foreground"))
+                if q.get("hud") == "1":
+                    if not context:
+                        raise ValueError("HUD表示にはcontext=1が必要です")
+                    import cv2
+                    frame=frame.copy()
+                    if row.get("original_rect"):
+                        x1,y1,x2,y2=row["original_rect"]
+                        cv2.rectangle(frame,(x1,y1),(x2,y2),(0,255,255),2)
+                    x1,y1,x2,y2=row["rect"]
+                    cv2.rectangle(frame,(x1,y1),(x2,y2),(255,255,0),2)
+                    frame=frame[:max(y2+15,round(frame.shape[0]*.16))]
                 return self.send(image_bytes(frame), "image/jpeg")
             self.send({"error": "not found"}, status=404)
         except (KeyError, ValueError, OSError) as exc:

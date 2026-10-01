@@ -3,6 +3,8 @@
 試合単位の人力ラベリング → 疎なcrop dataset → 公式画像方式(A) / 実OBS median方式(B) → 状態別・試合別評価 → 誤判定レビューのCPU用ツール。
 CNN・GPU・新しいWebフレームワークは使用しない。既存の `WeaponIconMatcher`、`crop_slot`、動画iterator、`start_detect` HOG extractor / SVM JSON、`SquidLampDetector` を再利用している。他detectorは変更しない。
 
+現在の運用目的は **試合開始直後のHUD数枚で8武器を一度だけ識別し、その結果を試合中ずっと保持すること**。進行中のHUD縮小・移動への追従や途中frameの精度は要件ではない。主評価は下記「試合開始時点だけの評価」を使う。従来の全区間dataset・alive別・10frame集約は履歴/汎用実験用であり、この運用の合格指標にはしない。
+
 ## 1. 必要環境・virtualenv
 
 Python 3.10以上、OpenCV、NumPy、scikit-learn（既存start detectorの依存）。UIはPython標準のHTTP server + HTML/JavaScript。すべて以降のコマンドはリポジトリルート `private` から実行する。
@@ -275,11 +277,118 @@ python weapon_lamp_detect/view_errors.py \
 
 全量runは `full_additional_training/comparison/` に別保存し、前の13/26評価を変更しない。[今回の結論](data/poc_obs_20261001_added/comparison/assessment.md) に両方の条件・改善と悪化をまとめる。
 
+## 試合開始時点だけの評価（現在の優先フロー）
+
+既存の確定GT snapshotから、元OBSの最初の安定HUDを探して**5秒間だけ**1秒間隔で8slotをcropする。開始検出の紹介画面時刻とHUD開始は区別し、既存timer OCRで5:00/3:00の開始付近・既存HUD detectorで連続2frameを確認、1秒だけ表示を待つ。自動検出が成立しない場合は登録済みHUD offsetへfallbackし、その試合を黙って除外しない。検出offset・timer・fallback・全timestampをmetadataに保存する。
+
+```bash
+python weapon_lamp_detect/build_opening_dataset.py \
+  weapon_lamp_detect/data/poc_obs_20261001_added/dataset \
+  --output weapon_lamp_detect/data/poc_opening_run/dataset \
+  --window 5 --sample-interval 1 --workers 4
+
+# 設定選択もtraining試合の開始画像だけ。従来のtemplate sourceは保持。
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_opening.py freeze \
+  weapon_lamp_detect/data/poc_obs_20261001_added \
+  weapon_lamp_detect/data/poc_opening_run/dataset \
+  --output weapon_lamp_detect/data/poc_opening_run/experiment --workers 8
+
+# 追加13試合template / 26試合評価。旧評価も別videoで集計。
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_opening.py run \
+  weapon_lamp_detect/data/poc_opening_run/experiment --kind independent --workers 8
+
+# 追加39試合をすべてtemplateに使用 / 旧10試合だけで評価。
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_opening.py run \
+  weapon_lamp_detect/data/poc_opening_run/experiment --kind full_training --workers 8
+
+python weapon_lamp_detect/view_errors.py \
+  weapon_lamp_detect/data/poc_opening_run/experiment/full_training --port 8769
+python weapon_lamp_detect/view_errors.py \
+  weapon_lamp_detect/data/poc_opening_run/experiment/independent --port 8770
+```
+
+開始時点の**先頭1/3/5枚**を比較する。「最初の3枚のaliveを、途中まで探し続ける」集約ではない。自動stateは弓などの武器形状をdownと誤ることがあるため、開幕の全人力確定slotを主評価に残し、自動stateで正解slotを捨てない。state別のraw frame集計は別途保存する。template sourceと同じ元frameは推論せず、後のframeで穴埋めしない。cross-match / 同一match別timestampも分離する。
+
+`comparison.md` は1試合1slotを単位とする先頭1/3/5枚のtop-1/3/5と武器別accuracy/support。`frame_predictions.jsonl` は開幕frame単位、`predictions.jsonl` は集約後の試合slot単位、`report.json` / `analysis.json` は混同・margin・詳細指標。Viewerの「判定に使った開始フレーム」で実際の1/3/5枚を確認できる。
+
+`match_predictions.json` は開始3枚で推定した**評価対象slot**の武器を試合中保持するための参考出力。人力GTではなく、ラベラーの保存内容を上書きしない。58候補のclosed-set評価であり、未収集武器に対するUnknown閾値や全105/181武器の本番推論を保証する出力ではない。
+
+今回の改善比較は、既存matcherの同side見本制限を保つbaselineと、左右の見本を共有する方式。±15%のサイズ探索もtraining開始画像で比較するが、training-onlyの開始3枚・武器別macro accuracyで選ぶ。進行中の数字で設定を採用しない。結果は [開始時点の評価報告](reports/opening_20261001.md) を参照。
+
+## 参考実験：cropの位置・サイズ補正と近似武器の照合比較（進行中の改善は保留）
+
+既存の固定crop・ラベル・評価結果は変更せず、`adaptive_crop.py` で元OBSから別datasetに再切り出す。武器名や推論結果は位置決めに使わない。各slotの最初の信頼できるaliveイカランプ輪郭を基準に、位置と均一scaleを補正する。輪郭が背景インクとつながるなど不確かな場合は元の枠へ戻す。補正失敗を主評価から除外して精度を上げる設計ではない。
+
+```bash
+cd /home/ryokuryu/splat_2/private
+source ../bin/activate
+
+python weapon_lamp_detect/adaptive_crop.py \
+  weapon_lamp_detect/data/poc_obs_20261001_added/dataset \
+  --output weapon_lamp_detect/data/poc_alignment_run/dataset --workers 4
+
+# 旧training4試合＋追加training13試合だけで設定を確認・固定。
+# 同一template source frameを使わない確認cropのmacro accuracyで
+# detail median / 個別exemplarを選ぶ。評価集合で選び直さない。
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_alignment.py freeze \
+  weapon_lamp_detect/data/poc_obs_20261001_added \
+  weapon_lamp_detect/data/poc_alignment_run/dataset \
+  --output weapon_lamp_detect/data/poc_alignment_run/experiment --workers 8
+
+# 追加13試合template / 26試合評価。元の候補58武器・sample ID・stateを固定。
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_alignment.py run \
+  weapon_lamp_detect/data/poc_alignment_run/experiment --kind independent --workers 8
+
+# 追加39試合全部template / 旧評価集合だけ。上と混同しない。
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_alignment.py run \
+  weapon_lamp_detect/data/poc_alignment_run/experiment --kind full_training --workers 8
+
+python weapon_lamp_detect/analyze_alignment.py \
+  weapon_lamp_detect/data/poc_alignment_run/experiment/independent
+python weapon_lamp_detect/analyze_alignment.py \
+  weapon_lamp_detect/data/poc_alignment_run/experiment/full_training
+
+python weapon_lamp_detect/view_errors.py \
+  weapon_lamp_detect/data/poc_alignment_run/experiment/full_training --port 8770
+```
+
+PowerShellでは環境変数の前置きの代わりに `$env:OPENBLAS_NUM_THREADS="1"; $env:OMP_NUM_THREADS="1"` を設定してから `python ...` を実行する。パス引数に空白がある場合は引用符で囲む。
+
+比較方式は `obs_baseline_foreground`（保存済みの元予測）、`obs_registered_foreground`（枠補正のみ）、`obs_detail_foreground`（枠補正＋照合改善）。照合改善は下部表示を避ける106×56領域、狭い色相範囲の背景除去、境界を残すmask、±6px/0.90・1.00・1.10倍の探索。全武器に同じ処理を使い、ボールド／シャープ専用の決め打ちはしない。
+
+`comparison.md` に全武器の改善・悪化、`analysis.json` に1/3/5/10frame・位置サイズ変化別の集計、`audit_*.jpg` に原因確認用標本を出す。Viewerは補正前crop・実際の照合入力・元の枠と補正枠を重ねたHUDを表示し、`crop_scale` / `crop_truncated` / `badge_overlay` などの人力確認タグを保存できる。自動の「大きなgeometry変化」は、crop不良の人力正解とは扱わない。
+
+既に閲覧した評価集合での探索的比較であり、新規の未観察動画による最終検証ではない。学習用crop不足の武器についてはtraining側の確認ができないこともある。登録GT、既存detector、ラベラーの手動crop設定は変更しない。元の固定方式は引き続き利用可能。
+
+### 固定cropを保護したサイズ探索・左右template共有
+
+輪郭補正は背景インクに影響され、2026-10-01の旧評価では悪化したため、標準方式へ置き換えていない。次の比較では元cropの画素と枠を完全に保持し、照合内部の0.85/1.00/1.15倍の探索と、左右の見本を共有する方式を切り分ける。既存方式は同じsideの見本がある武器について反対sideの見本を使わないため、追加見本の偏りが影響することがある。
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_flexible.py freeze \
+  weapon_lamp_detect/data/poc_obs_20261001_added \
+  --output weapon_lamp_detect/data/poc_flexible_run --workers 8
+
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_flexible.py run \
+  weapon_lamp_detect/data/poc_flexible_run --kind independent --workers 8
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python weapon_lamp_detect/evaluate_flexible.py run \
+  weapon_lamp_detect/data/poc_flexible_run --kind full_training --workers 8
+
+python weapon_lamp_detect/view_errors.py \
+  weapon_lamp_detect/data/poc_flexible_run/full_training --port 8769
+```
+
+training試合のtemplateとして直接使っていないcrop最大3枚/slotで、macro top-1→micro top-1の順に設定を固定する。この確認は同一training試合内であり、他プレイヤーのtemplate frameと同時刻のcropを含む場合がある。独立精度とは扱わない。独立評価には既存の試合・source frame単位の分離検証をそのまま適用する。
+
+`obs_baseline_foreground`、`obs_flexible_foreground`（trainingで固定した設定）、`obs_detail_fixed_foreground`（枠を動かさない下部領域削減）を同じsampleで比較。`comparison.md` と `analysis.json` に全武器の悪化を含む結果、1/3/5/10frame、top-1/3/5、混同・marginを保存する。ボールド／シャープだけの専用ルール、評価後の設定選び直しは行わない。
+
 ## 検証
 
 ```bash
 python -m unittest weapon_lamp_detect.test_poc -v
 python -m unittest weapon_lamp_detect.test_added_data -v
+python -m unittest weapon_lamp_detect.test_alignment -v
+python -m unittest weapon_lamp_detect.test_opening -v
 ```
 
 人工動画で保存/resume、疎sampling、state別収集、A/B比較、同一match分離、リーク拒否、multi-frame集計を検証する。既存pickleとのscore一致も検証するが、pickle保存時のsklearnバージョンと異なる環境ではwarningが出る。通常の開始検出はJSON経由なのでこのpickleをロードしない。
