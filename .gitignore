@@ -44,6 +44,11 @@ ENV/
 debug_timer_samples/
 start_detect/result/
 start_detect/node_modules/
+weapon_lamp_detect/data/obs_session/
+weapon_lamp_detect/data/poc_*/
+weapon_lamp_detect/data/**/history/
+weapon_lamp_detect/data/**/resume.json
+weapon_lamp_detect/data/**/*.tmp
 
 # Image files (but keep training data)
 # *.png

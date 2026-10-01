@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>試合単位 武器ラベラー</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui;background:#141820;color:#e9eef4}body{margin:12px}button,input,select,textarea{font:inherit;padding:6px;background:#202937;color:inherit;border:1px solid #64748b;border-radius:4px}button{cursor:pointer}button:disabled{opacity:.5}label{display:inline-block;margin:4px}header,.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}main{display:grid;grid-template-columns:240px 1fr;gap:12px;margin-top:12px}aside{max-height:90vh;overflow:auto}#matches button{display:block;width:100%;text-align:left;margin:4px 0}#matches .active{border:2px solid #4dabf7}#frame{width:100%;max-width:960px}#hud{width:100%;image-rendering:pixelated}#slots{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:8px}.slot{padding:8px;border:1px solid #64748b;border-radius:6px}.slot.active{border:2px solid #4dabf7}.slot img{width:100%;height:140px;object-fit:contain;image-rendering:pixelated}.slot input{box-sizing:border-box;width:100%}.candidates button{display:block;font-size:12px;width:100%;text-align:left}.muted{color:#b0c0d4;font-size:13px}#status{white-space:pre-wrap;color:#ffe082}textarea{width:90%}#seek{flex:1;min-width:200px}@media(max-width:1000px){main{grid-template-columns:1fr}#slots{grid-template-columns:repeat(2,1fr)}}
+</style>
+<style>.weapon-error{display:block;color:#ff9a9a;font-size:13px;min-height:1em}.slot input[aria-invalid="true"]{border:2px solid #ff7373}</style>
+<header><strong>試合単位 武器ラベラー</strong><input id="path" placeholder="動画 / フォルダのパス（空白・日本語可）" size="40"><button id="addVideo">動画追加</button><span id="session" class="muted"></span></header>
+<main><aside><label>動画<select id="videos"></select></label><div class="row"><button id="scan">開始候補を自動検出</button></div><label>検出間隔(s)<input id="scanInterval" type="number" value="0.5" min="0.1" step="0.1" size="4"></label><p id="job" class="muted"></p><button id="manual">現在位置を開始とする試合を追加</button><div id="matches"></div></aside>
+<section><div class="row"><button id="prev">前の試合(P)</button><button id="next">次の試合(N)</button><button id="save">保存・人力確定(S)</button><button id="undo">Undo</button><button id="reject">誤候補を除外</button><button id="restore">ブラウザ下書きを復元</button></div>
+<p id="status" role="status"></p>
+<div class="row"><button data-step="-5">−5s</button><button data-step="-1">−1s</button><button data-frames="-1">−1frame</button><button id="play">再生(Space)</button><button data-frames="1">＋1frame</button><button data-step="1">＋1s</button><button data-step="5">＋5s</button><input id="seek" type="range" min="0" step="0.001"><input id="time" type="number" min="0" step="0.1" size="8"><button id="go">Seek</button><span id="frameInfo"></span></div>
+<div class="row"><label>区間開始／ステージ紹介(s)<input id="start" type="number" step="0.001"></label><button id="setStart">現在位置→開始</button><label>HUD待ち(s)<input id="hudOffset" type="number" min="0" step="1" value="20" style="width:70px"></label><button id="hudSeek">開始＋HUD待ちへ移動</button><label>終了(s)<input id="end" type="number" step="0.001"></label><button id="setEnd">現在位置→終了</button><label>味方側<select id="ally"><option value="right">right</option><option value="left">left</option></select></label><button id="reference">現在位置→reference(R)</button><span id="refInfo" class="muted"></span></div>
+<label><input id="bounds" type="checkbox">開始・終了が同一試合を囲む区間であることを人力確認した</label>
+<p class="muted">start_detectはステージ紹介の候補です。イカランプが表示される15〜20秒後を見るため、HUD待ちの初期値は20秒です。紹介を区間開始に保持して構いません。開始を実プレイ位置に変更した場合はHUD待ちを0にできます。終了の初期値は次の紹介候補／動画末尾なので必ず修正してください。alive/downは自動推定です。</p>
+<img id="frame" alt="現在のフレーム"><h3>上部HUD拡大（黄色枠がcrop）</h3><img id="hud" alt="上部HUD"><div class="row"><button id="infer">現在フレームのtop-5候補を表示</button><button id="copyGeometry">前試合のcrop補正を引継ぎ</button><button id="resetGeometry">修正済み標準cropへ戻す</button><span id="inferInfo" class="muted"></span></div>
+<p class="muted">cropが武器を切る場合は各スロットのX/Y/幅/高さを補正してください（動画幅・高さに対する0〜1の比率）。試合全体に適用し、datasetにも保存します。</p>
+<p id="catalogInfo" class="muted"></p><div id="slots"></div><datalist id="weaponList"></datalist><label>試合メモ（HUDずれ、遮蔽、特殊編成など）<textarea id="notes" rows="2"></textarea></label>
+<p class="muted">キーボード：←/→ ±1frame、Shift+←/→ ±5秒、Space 確認用プレビュー再生/停止（音声なし）、1〜8 スロット選択、Enter 入力確定→次スロット、Tab/Shift+Tab 次/前スロット、S 保存・試合確定、N/P 次/前試合、U Unknown、O Occluded、X Skip、R reference。文字入力中はEnter/Tabのみ有効。Escで入力欄を離れる。各編集は自動保存されます。</p>
+</section></main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id), keys=['left0','left1','left2','left3','right0','right1','right2','right3'];
+let state={}, current=null, selected=0, frameIndex=0, frameData=null, dirty=false, saveTimer, playTimer, frameEpoch=0, inferEpoch=0;
+let queue=Promise.resolve();
+const clone=x=>JSON.parse(JSON.stringify(x));
+function status(text){$('status').textContent=text}
+async function api(path,data){const r=await fetch(path,data===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const result=await r.json();if(!r.ok)throw Error(result.error||r.statusText);return result}
+function guard(fn){return (...args)=>Promise.resolve().then(()=>fn(...args)).catch(e=>status(e.message))}
+function video(){return state.videos.find(v=>v.video_id===$('videos').value)}
+function backup(m){localStorage.setItem('weapon-match:'+m.match_id,JSON.stringify(m))}
+function weaponEntry(text){return state.weapons.find(w=>w.name===text||w.display_name===text)}
+function validateWeapons(target){const errors=[];for(const [i,key]of keys.entries()){
+  const slot=target.slots[key],invalid=slot.status==='labeled'&&!weaponEntry(String(slot.weapon||'').trim());
+  const message=invalid?`${key}: 無効な武器名「${slot.weapon||'未入力'}」。JSONの候補から選択してください。`:'';
+  if(target===current){$('weapon'+i)?.setAttribute('aria-invalid',String(invalid));$('weapon'+i)?.setCustomValidity(message);if($('weaponError'+i))$('weaponError'+i).textContent=message}
+  if(invalid)errors.push(message)
+}if(errors.length)throw Error('保存していません。'+errors.join('\n'))}
+function edit(){if(!current)return;current.confirmed=false;dirty=true;for(const [i,key]of keys.entries())if($('reviewed'+i))$('reviewed'+i).textContent=current.slots[key].reviewed?' 人力入力済み':' 未入力';backup(current);clearTimeout(saveTimer);saveTimer=setTimeout(()=>persist(false).catch(e=>status('自動保存失敗: '+e.message)),650)}
+function persist(confirm=false){clearTimeout(saveTimer);const target=current;if(!target)return queue;return queue=queue.catch(()=>{}).then(async()=>{
+  validateWeapons(target);
+  if(confirm){target.confirmed=true;target.rejected=false}
+  const snapshot=clone(target);const sent=JSON.stringify(snapshot);backup(snapshot);
+  try{const saved=await api('/api/save',snapshot);target.revision=saved.revision;target.updated_at=saved.updated_at;target.created_at=saved.created_at;
+    const normalized=clone(target);normalized.revision=snapshot.revision;normalized.updated_at=snapshot.updated_at;normalized.created_at=snapshot.created_at;
+    if(JSON.stringify(normalized)===sent){Object.assign(target,saved);if(current===target)dirty=false;localStorage.removeItem('weapon-match:'+target.match_id)}
+    state.matches=state.matches.filter(m=>m.match_id!==saved.match_id).concat([clone(saved)]).sort((a,b)=>a.start_timestamp-b.start_timestamp);renderList();status(confirm?'保存・確定しました':'下書きを自動保存しました');
+  }catch(e){target.confirmed=false;backup(target);throw e}
+})}
+function renderList(){const list=$('matches');list.replaceChildren();for(const m of (state.matches||[]).filter(m=>m.video_id===$('videos').value)){
+  const b=document.createElement('button');b.textContent=`${m.start_timestamp.toFixed(1)}s ${m.rejected?'除外':m.confirmed?'✓確定':'未確定'} / ${Object.values(m.slots).filter(s=>s.reviewed).length}/8`;
+  b.className=current?.match_id===m.match_id?'active':'';b.onclick=guard(()=>selectMatch(m.match_id));list.appendChild(b)
+}}
+async function selectMatch(id){stop();if(current&&dirty)await persist();const m=state.matches.find(m=>m.match_id===id);if(!m)return;current=clone(m);dirty=false;$('videos').value=m.video_id;
+  $('start').value=m.start_timestamp;$('end').value=m.end_timestamp;$('ally').value=m.ally_side;$('bounds').checked=m.boundaries_confirmed;$('notes').value=m.notes;
+  $('hudOffset').value=m.hud_offset_seconds??state.hud_offset_default??20;
+  $('refInfo').textContent=`reference ${m.reference_timestamp.toFixed(3)}s / frame ${m.reference_frame_index}`;renderList();renderSlots();await showFrame(m.reference_frame_index);
+  await api('/api/resume',{match_id:id});if(localStorage.getItem('weapon-match:'+id))status('未保存のブラウザ下書きがあります。「ブラウザ下書きを復元」で確認できます');else status(m.confirmed?'確定済み試合（編集可能）':'8武器と区間を確認して保存してください')
+}
+function renderSlots(){const el=$('slots');el.replaceChildren();keys.forEach((key,i)=>{
+  const panel=document.createElement('div');panel.className='slot';panel.id='slot'+i;
+  const title=document.createElement('strong');title.textContent=`${i+1}: ${key}`;panel.appendChild(title);
+  const label=document.createElement('span');label.id='state'+i;panel.appendChild(label);
+  const img=document.createElement('img');img.id='crop'+i;img.alt=key+' crop';panel.appendChild(img);
+  const geometry=document.createElement('div');geometry.className='row';
+  for(const [j,name]of ['X','Y','幅','高'].entries()){const label=document.createElement('label');label.textContent=name;const field=document.createElement('input');field.id='geometry'+i+'_'+j;field.type='number';field.step='.001';field.style.width='65px';field.min=j<2?'0':'.005';field.max=j<2?'1':j===2?'.25':'.4';field.onchange=guard(async()=>{if(!current)throw Error('試合を選択してください');const values=[0,1,2,3].map(k=>Number($('geometry'+i+'_'+k).value));current.geometry||={};current.geometry[key]=values;edit();await showFrame(frameIndex)});label.appendChild(field);geometry.appendChild(label)}panel.appendChild(geometry);
+  const input=document.createElement('input');input.id='weapon'+i;input.setAttribute('list','weaponList');input.placeholder='武器名を検索（例：スプラシューター）';input.autocomplete='off';
+  const slot=current?.slots[key];input.value=slot?.weapon?(state.weapons.find(w=>w.name===slot.weapon)?.display_name||slot.weapon):'';
+  input.setAttribute('aria-describedby','weaponError'+i);
+  input.onfocus=()=>{selected=i;markSelection()};input.oninput=()=>{if(!current)return;const text=input.value.trim();const entry=weaponEntry(text);current.slots[key]={weapon:entry?.name||text||null,status:text?'labeled':'unknown',reviewed:!!entry};$('status'+i).value=text?'labeled':'unknown';edit();try{validateWeapons(current)}catch(e){status(e.message)}};panel.appendChild(input);
+  const warning=document.createElement('span');warning.id='weaponError'+i;warning.className='weapon-error';warning.setAttribute('aria-live','polite');panel.appendChild(warning);
+  const select=document.createElement('select');select.id='status'+i;const empty=document.createElement('option');empty.value='';empty.textContent='未入力';empty.disabled=true;select.appendChild(empty);for(const s of ['labeled','unknown','occluded','skip']){const o=document.createElement('option');o.value=s;o.textContent=s;select.appendChild(o)}select.value=slot?.reviewed?slot.status:'';
+  select.onchange=()=>{selected=i;setStatus(select.value)};panel.appendChild(select);
+  const flag=document.createElement('span');flag.id='reviewed'+i;flag.className='muted';flag.textContent=slot?.reviewed?' 人力入力済み':' 未入力';panel.appendChild(flag);
+  const candidates=document.createElement('div');candidates.className='candidates';candidates.id='candidates'+i;panel.appendChild(candidates);el.appendChild(panel)
+});markSelection();if(frameData)applyImages(frameData);if(current)try{validateWeapons(current)}catch(e){status(e.message)}}
+function markSelection(){keys.forEach((_,i)=>$('slot'+i)?.classList.toggle('active',selected===i))}
+function focusSlot(i){selected=(i+8)%8;markSelection();$('weapon'+selected).focus();$('weapon'+selected).select()}
+function setStatus(s){if(!current)return;const key=keys[selected];current.slots[key].status=s;current.slots[key].reviewed=s!=='labeled'||!!weaponEntry(String(current.slots[key].weapon||'').trim());if(s!=='labeled'){current.slots[key].weapon=null;$('weapon'+selected).value=''}$('status'+selected).value=s;edit();markSelection();try{validateWeapons(current)}catch(e){status(e.message)}}
+function applyImages(data){for(const [i,slot] of data.slots.entries()){$('crop'+i).src=slot.image;$('state'+i).textContent=' / '+slot.state;const [x1,y1,x2,y2]=slot.rect;const v=video();const values=[(x1+x2)/2/v.width,(y1+y2)/2/v.height,(x2-x1)/v.width,(y2-y1)/v.height];for(const [j,n]of values.entries())$('geometry'+i+'_'+j).value=n.toFixed(6)}}
+async function showFrame(index){const v=video();if(!v)return;frameIndex=Math.max(0,Math.min(v.frame_count-1,Math.round(index)));const epoch=++frameEpoch;inferEpoch++;
+  const data=await api('/api/frame?'+new URLSearchParams({video_id:v.video_id,frame_index:frameIndex,ally_side:$('ally').value,geometry:JSON.stringify(current?.geometry||{})}));if(epoch!==frameEpoch)return;
+  frameData=data;frameIndex=data.frame_index;$('frame').src=data.frame;$('hud').src=data.hud;$('seek').max=v.duration;$('seek').value=data.timestamp;$('time').value=data.timestamp.toFixed(3);$('frameInfo').textContent=`${data.timestamp.toFixed(3)}s / frame ${data.frame_index} / HUD ${data.hud_state}`;
+  keys.forEach((_,i)=>$('candidates'+i)?.replaceChildren());$('inferInfo').textContent='';applyImages(data)
+}
+function step(seconds=0,frames=0){return showFrame(frameIndex+seconds*video().fps+frames)}
+function stop(){clearTimeout(playTimer);playTimer=null;$('play').textContent='再生(Space)'}
+function play(){if(playTimer){stop();return}$('play').textContent='停止(Space)';async function tick(){if(frameIndex>=video().frame_count-1){stop();return}const begin=performance.now();await step(.5);if(playTimer)playTimer=setTimeout(guard(tick),Math.max(0,500-(performance.now()-begin)))}playTimer=setTimeout(guard(tick),0)}
+async function navigate(delta){const rows=state.matches.filter(m=>m.video_id===$('videos').value).sort((a,b)=>a.start_timestamp-b.start_timestamp);let i=rows.findIndex(m=>m.match_id===current?.match_id);await selectMatch(rows[Math.max(0,Math.min(rows.length-1,i+delta))]?.match_id)}
+async function refresh(){const next=await api('/api/state');state={...state,...next};$('session').textContent=state.session_dir;
+  const previous=$('videos').value;$('videos').replaceChildren();for(const v of state.videos){const o=document.createElement('option');o.value=v.video_id;o.textContent=v.path.split(/[\\/]/).pop();$('videos').appendChild(o)}if(state.videos.some(v=>v.video_id===previous))$('videos').value=previous;
+  $('catalogInfo').textContent=`武器名一覧：${state.catalog_path}（${state.weapons.length}件）。日本語の武器名を選択してください。カテゴリ名はラベルではありません。`;
+  $('weaponList').replaceChildren();for(const w of state.weapons){const o=document.createElement('option');o.value=w.display_name;o.label=w.display_name+(w.official_template?'':' / 公式画像なし');$('weaponList').appendChild(o)}renderList();updateJob()
+}
+function updateJob(){const j=state.jobs?.[$('videos').value];$('job').textContent=j?`${j.status} ${Math.round((j.fraction||0)*100)}% ${j.error||''}`:''}
+$('addVideo').onclick=guard(async()=>{await api('/api/videos',{path:$('path').value});await refresh();if(!current&&video())await showFrame(0)});
+$('videos').onchange=guard(async()=>{stop();if(dirty)await persist();current=null;renderSlots();renderList();updateJob();const rows=state.matches.filter(m=>m.video_id===$('videos').value);if(rows.length)await selectMatch(rows[0].match_id);else await showFrame(0)});
+$('scan').onclick=guard(async()=>{if(!video())throw Error('動画を追加してください');await api('/api/scan',{video_id:video().video_id,interval:Number($('scanInterval').value)});await refresh()});
+$('manual').onclick=guard(async()=>{if(dirty)await persist();const m=await api('/api/manual',{video_id:video().video_id,timestamp:frameIndex/video().fps});await refresh();await selectMatch(m.match_id)});
+$('prev').onclick=guard(()=>navigate(-1));$('next').onclick=guard(()=>navigate(1));$('save').onclick=guard(()=>persist(true));$('play').onclick=guard(play);
+$('undo').onclick=guard(async()=>{clearTimeout(saveTimer);await queue.catch(()=>{});if(!current)return;const m=await api('/api/undo',{match_id:current.match_id});dirty=false;localStorage.removeItem('weapon-match:'+m.match_id);await refresh();await selectMatch(m.match_id)});
+$('reject').onclick=guard(async()=>{if(!current)return;current.rejected=true;edit();await persist();await navigate(1)});
+$('restore').onclick=guard(async()=>{if(!current)return;const saved=localStorage.getItem('weapon-match:'+current.match_id);if(!saved)throw Error('ブラウザ下書きはありません');const restored=JSON.parse(saved);restored.revision=current.revision;current=restored;edit();await persist();await refresh();await selectMatch(current.match_id)});
+$('go').onclick=guard(()=>showFrame(Number($('time').value)*video().fps));$('seek').onchange=guard(()=>showFrame(Number($('seek').value)*video().fps));
+document.querySelectorAll('[data-step]').forEach(b=>b.onclick=guard(()=>step(Number(b.dataset.step))));document.querySelectorAll('[data-frames]').forEach(b=>b.onclick=guard(()=>step(0,Number(b.dataset.frames))));
+function boundaries(){if(!current)return;current.start_timestamp=Number($('start').value);current.end_timestamp=Number($('end').value);current.boundaries_confirmed=false;$('bounds').checked=false;edit()}
+$('start').onchange=boundaries;$('end').onchange=boundaries;$('setStart').onclick=()=>{$('start').value=(frameIndex/video().fps).toFixed(6);boundaries()};$('setEnd').onclick=()=>{$('end').value=(frameIndex/video().fps).toFixed(6);boundaries()};
+$('bounds').onchange=()=>{if(current){current.boundaries_confirmed=$('bounds').checked;edit()}};$('ally').onchange=guard(async()=>{if(current){current.ally_side=$('ally').value;edit()}await showFrame(frameIndex)});
+$('notes').oninput=()=>{if(current){current.notes=$('notes').value;edit()}};
+$('hudOffset').onchange=()=>{if(current){current.hud_offset_seconds=Number($('hudOffset').value);edit()}};
+$('hudSeek').onclick=guard(async()=>{if(!current)return;const v=video(),t=Math.min(current.end_timestamp-1/v.fps,current.start_timestamp+Number($('hudOffset').value));await showFrame(t*v.fps)});
+$('reference').onclick=()=>{if(!current||!frameData)return;current.reference_timestamp=frameData.timestamp;current.reference_frame_index=frameData.frame_index;current.reference_source='manual';$('refInfo').textContent=`reference ${frameData.timestamp.toFixed(3)}s / frame ${frameData.frame_index}`;edit()};
+$('copyGeometry').onclick=guard(async()=>{if(!current)return;const prior=state.matches.filter(m=>m.video_id===current.video_id&&m.start_timestamp<current.start_timestamp).sort((a,b)=>b.start_timestamp-a.start_timestamp)[0];if(!prior)throw Error('前試合がありません');current.geometry=clone(prior.geometry||{});edit();await showFrame(frameIndex)});
+$('resetGeometry').onclick=guard(async()=>{if(!current)return;current.geometry={};edit();await showFrame(frameIndex)});
+$('infer').onclick=guard(async()=>{const index=frameIndex,v=video(),epoch=++inferEpoch;$('inferInfo').textContent='推論中…';const result=await api('/api/candidates?'+new URLSearchParams({video_id:v.video_id,frame_index:index,ally_side:$('ally').value,geometry:JSON.stringify(current?.geometry||{})}));if(epoch!==inferEpoch)return;
+  $('inferInfo').textContent='人間がクリック / 入力した武器だけ保存されます';for(const [i,slot]of result.slots.entries()){const panel=$('candidates'+i);panel.replaceChildren();for(const c of slot.candidates){const b=document.createElement('button');const w=state.weapons.find(w=>w.name===c.weapon);b.textContent=`${w?.display_name||c.weapon} ${c.score.toFixed(3)}${w?'':' / 武器名一覧に未登録'}`;b.disabled=!w;if(!w)b.title='参照用の推論結果です。ラベルはJSONに登録された武器名から選択してください。';b.onclick=()=>{focusSlot(i);$('weapon'+i).value=w.display_name;$('weapon'+i).dispatchEvent(new Event('input'))};panel.appendChild(b)}}
+});
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;const input=['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName);if(e.key==='Escape'){e.target.blur();return}if(input){if(e.target.id.startsWith('weapon')&&(e.key==='Enter'||e.key==='Tab')){e.preventDefault();const text=e.target.value.trim();if(text&&!weaponEntry(text)){try{validateWeapons(current)}catch(error){status(error.message)}e.target.reportValidity();return}focusSlot(selected+(e.shiftKey?-1:1))}return}
+  if(['ArrowLeft','ArrowRight',' '].includes(e.key)||/^[1-8]$/.test(e.key)||e.key.toLowerCase()==='s')e.preventDefault();
+  guard(async()=>{
+  if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();await step(e.shiftKey?(e.key==='ArrowRight'?5:-5):0,e.shiftKey?0:(e.key==='ArrowRight'?1:-1))}
+  else if(e.key===' '){e.preventDefault();play()}else if(/^[1-8]$/.test(e.key)){e.preventDefault();focusSlot(Number(e.key)-1)}
+  else if(e.key.toLowerCase()==='s'){e.preventDefault();await persist(true)}else if(e.key.toLowerCase()==='n')await navigate(1);else if(e.key.toLowerCase()==='p')await navigate(-1);else if(e.key.toLowerCase()==='u')setStatus('unknown');else if(e.key.toLowerCase()==='o')setStatus('occluded');else if(e.key.toLowerCase()==='x')setStatus('skip');else if(e.key.toLowerCase()==='r')$('reference').click()
+  })();
+});
+window.addEventListener('beforeunload',e=>{if(dirty){backup(current);e.preventDefault();e.returnValue=''}});
+guard(async()=>{await refresh();const id=state.resume?.match_id||state.matches.find(m=>!m.confirmed&&!m.rejected)?.match_id||state.matches[0]?.match_id;if(id)await selectMatch(id);else {renderSlots();if(video())await showFrame(0)}setInterval(guard(async()=>{const next=await api('/api/state');state.jobs=next.jobs;state.matches=next.matches;renderList();updateJob()}),4000)})();
+</script></html>

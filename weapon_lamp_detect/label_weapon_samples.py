@@ -471,6 +471,11 @@ class LabelServer(ThreadingHTTPServer):
 
 
 def main() -> None:
+    if "--match-mode" in sys.argv:
+        sys.argv.remove("--match-mode")
+        from label_matches import main as match_main
+        match_main()
+        return
     parser = argparse.ArgumentParser(description="Build and serve a local weapon-lamp labeling session.")
     parser.add_argument("videos", nargs="*", type=Path)
     parser.add_argument("--session-dir", type=Path, default=None)
