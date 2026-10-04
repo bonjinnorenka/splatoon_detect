@@ -91,13 +91,21 @@ class OpeningTests(unittest.TestCase):
             match={'match_id':'m','video_id':'v','confirmed':True,'rejected':False,'start_timestamp':2.,
                    'end_timestamp':40.,'hud_offset_seconds':20.,'ally_side':'right','revision':1,
                    'geometry':default_geometry(),'slots':{f'{s}{i}':{'status':'labeled','weapon':'Splattershot'} for s in ('left','right') for i in range(4)}}
-            atomic_json(source/'dataset.json',{'videos':{'v':{'path':'synthetic.avi','fps':10,'width':480,'height':270}},'matches':[match]})
+            atomic_json(source/'dataset.json',{'videos':{'v':{'path':'synthetic.avi','fps':10,'width':480,'height':270}},'matches':[match],
+                                             'samples_per_match':{'m':8},'max_frames_per_match':1,
+                                             'effective_start_offsets':{'m':20.},'excluded':{'label_occluded':8}})
             (source/'samples.jsonl').write_text('')
             original=(source/'dataset.json').read_bytes()
             with patch('weapon_lamp_detect.build_opening_dataset.verify_sources'),patch('weapon_lamp_detect.build_opening_dataset.squid_detector',return_value=detector),patch('weapon_lamp_detect.build_opening_dataset.cv2.VideoCapture',return_value=Capture()),patch('weapon_lamp_detect.build_opening_dataset.calibrated_slot',return_value=SimpleNamespace(state='alive',special_score=0.)):
                 metadata=prepare(source,root/'opening',5.,1.,1)
             rows=[json.loads(l) for l in (root/'opening/samples.jsonl').read_text().splitlines()]
             self.assertEqual(len(rows),40)
+            self.assertEqual(metadata['samples_per_match'],{'m':40})
+            self.assertEqual(metadata['max_frames_per_match'],5)
+            self.assertEqual(metadata['effective_start_offsets'],{'m':14.})
+            self.assertEqual(metadata['excluded'],{})
+            self.assertEqual(metadata['source_dataset_config']['samples_per_match'],{'m':8})
+            self.assertEqual(metadata['source_dataset_config']['max_frames_per_match'],1)
             self.assertEqual({r['opening_frame_ordinal'] for r in rows},{0,1,2,3,4})
             self.assertEqual(max(r['seconds_after_opening'] for r in rows),4)
             self.assertTrue(all(16<=r['timestamp']<=20 for r in rows))

@@ -6,7 +6,7 @@ import hashlib
 import json
 import math
 import sys
-from collections import defaultdict
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -110,7 +110,21 @@ def prepare(dataset,output,window=5.,interval=1.,workers=4):
     for r in rows:
         r['weapon_class']=catalog.entries[r['weapon_label']]['weapon_class']
     (output/'samples.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False,allow_nan=False)+'\n' for r in rows),encoding='utf-8')
+    # Seed extraction settings/counts are not the new opening export's settings.
+    # Keep their provenance separately and count the frames actually exported.
+    seed_keys=('sampling_interval','start_offset','end_offset','effective_start_offsets',
+               'max_samples','max_frames_per_match','samples_per_match','excluded')
+    excluded=Counter()
+    for match,(_,record) in zip(matches,results):
+        for label in match['slots'].values():
+            if label['status']!='labeled':
+                excluded['label_'+label['status']]+=len(record['frames'])
     metadata={**metadata,'created_at':now(),'source_dataset':str(dataset),'samples':len(rows),
+              'source_dataset_config':{k:metadata[k] for k in seed_keys if k in metadata},
+              'samples_per_match':dict(Counter(r['match_id'] for r in rows)),
+              'max_frames_per_match':max((len(record['frames']) for _,record in results),default=0),
+              'start_offset':None,'end_offset':0.,'max_samples':0,'excluded':dict(excluded),
+              'effective_start_offsets':{record['match_id']:record['opening_offset_from_intro'] for _,record in results},
               'source_dataset_sha256':hashlib.sha256((dataset/'samples.jsonl').read_bytes()).hexdigest(),
               'opening_window_seconds':window,'sampling_interval':interval,'crop_export':True,
               'opening_detection':dict((record['match_id'],record) for _,record in results),
