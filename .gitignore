@@ -49,6 +49,8 @@ weapon_lamp_detect/data/poc_*/
 weapon_lamp_detect/data/**/history/
 weapon_lamp_detect/data/**/resume.json
 weapon_lamp_detect/data/**/*.tmp
+live_weapon_collect/data/
+weapon_label_review/data/
 
 # Image files (but keep training data)
 # *.png

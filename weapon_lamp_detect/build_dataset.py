@@ -52,6 +52,17 @@ def cv2_read(path):
 
 
 def verify_sources(metadata):
+    # Live collection has persisted opening PNGs rather than an invented video.
+    # Keep the existing video check unchanged and verify every source PNG hash.
+    if metadata.get("source_kind") == "image_sequences":
+        import hashlib
+        sources = metadata.get("image_sources")
+        if not isinstance(sources, dict) or not sources:
+            raise ValueError("保存PNGのsource manifestがありません")
+        for source in sources.values():
+            path = Path(source["path"])
+            if hashlib.sha256(path.read_bytes()).hexdigest() != source["sha256"]:
+                raise ValueError(f"保存PNGが作成時と異なります: {path}")
     for video_id, video in metadata["videos"].items():
         actual = video_metadata(video["path"])
         if actual["video_id"] != video_id:
