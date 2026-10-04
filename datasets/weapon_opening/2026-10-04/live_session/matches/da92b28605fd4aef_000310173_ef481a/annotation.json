@@ -1,0 +1,113 @@
+{
+  "match_id": "da92b28605fd4aef_000310173_ef481a",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "N-ZAP 89",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left1": {
+      "weapon": "Custom Blaster",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "blaster"
+    },
+    "left2": {
+      "weapon": "Splattershot Jr.",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left3": {
+      "weapon": "Glitterz L-3 Nozzlenose",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right0": {
+      "weapon": "Tentatek Splattershot",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right1": {
+      "weapon": "Bloblobber",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "slosher"
+    },
+    "right2": {
+      "weapon": "Sploosh-o-matic",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right3": {
+      "weapon": "Splat Dualies",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 10,
+  "created_at": "2026-10-03T07:14:04+00:00",
+  "updated_at": "2026-10-03T07:18:01+00:00"
+}

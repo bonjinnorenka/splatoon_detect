@@ -1,0 +1,113 @@
+{
+  "match_id": "da92b28605fd4aef_000535354_4c632d",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Custom Explosher",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "slosher"
+    },
+    "left1": {
+      "weapon": "Colorz Aerospray",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left2": {
+      "weapon": "E-liter 4K",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "charger"
+    },
+    "left3": {
+      "weapon": "Heavy Splatling Deco",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "splatling"
+    },
+    "right0": {
+      "weapon": "Splash-o-matic GCK-O",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right1": {
+      "weapon": "Slosher",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "slosher"
+    },
+    "right2": {
+      "weapon": "Aerospray RG",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right3": {
+      "weapon": "Splat Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 10,
+  "created_at": "2026-10-03T08:16:37+00:00",
+  "updated_at": "2026-10-03T08:20:09+00:00"
+}

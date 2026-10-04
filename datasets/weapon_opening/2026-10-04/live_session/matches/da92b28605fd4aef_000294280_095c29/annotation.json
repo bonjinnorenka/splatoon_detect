@@ -1,0 +1,113 @@
+{
+  "match_id": "da92b28605fd4aef_000294280_095c29",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "L-3 Nozzlenose",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left1": {
+      "weapon": "Tentatek Splattershot",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left2": {
+      "weapon": "Aerospray MG",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left3": {
+      "weapon": "Splatterscope",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "charger"
+    },
+    "right0": {
+      "weapon": "Custom Splattershot Jr",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right1": {
+      "weapon": "Neo Sploosh-o-matic",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right2": {
+      "weapon": "Planetz Big Swig Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "right3": {
+      "weapon": "Splattershot Jr.",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 10,
+  "created_at": "2026-10-03T07:09:40+00:00",
+  "updated_at": "2026-10-03T07:13:44+00:00"
+}

@@ -1,0 +1,518 @@
+{
+  "schema_version": 1,
+  "match_id": "da92b28605fd4aef_000649934_1d73f2",
+  "session_id": "da92b28605fd4aef",
+  "source_kind": "camera",
+  "source": "0",
+  "device": {
+    "requested": {
+      "source": "0",
+      "backend": "dshow",
+      "replay": false,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30.0,
+      "scan_interval": 0.5,
+      "frames": 5,
+      "interval": 1,
+      "hud_delay_min": 8,
+      "fallback_offset": 20,
+      "hud_timeout": 35,
+      "cooldown": 60,
+      "reset_frames": 4,
+      "fourcc": ""
+    },
+    "backend": "DSHOW",
+    "reported_fps": 30.00003000003,
+    "replay_effective_fps": null,
+    "reported_width": 1920,
+    "reported_height": 1080,
+    "fourcc": 844715353,
+    "timing": "monotonic elapsed since capture open",
+    "frame_index_definition": "successful camera read counter (not device hardware frame number)"
+  },
+  "created_at": "2026-10-03T08:48:26+00:00",
+  "updated_at": "2026-10-03T08:48:30+00:00",
+  "status": "complete",
+  "trigger": "manual_current_frame",
+  "intro_timestamp": null,
+  "opening_timestamp": 10831.674892600015,
+  "opening_frame_index": 649934,
+  "resolution": {
+    "width": 1920,
+    "height": 1080
+  },
+  "sampling_interval": 1,
+  "target_frames": 5,
+  "frames": [
+    {
+      "path": "frames/00.png",
+      "sha256": "be57570aeba00d33f7b3c05eb208fab5d88895df9c42eac1f57eda7b120103d0",
+      "ordinal": 0,
+      "timestamp": 10831.674892600015,
+      "frame_index": 649934,
+      "captured_at": "2026-10-03T08:48:26+00:00",
+      "seconds_after_opening": 0.0,
+      "hud_state": "match",
+      "slots": {
+        "left0": {
+          "index": 0,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.1403,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "left1": {
+          "index": 1,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.1271,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "left2": {
+          "index": 2,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.1249,
+          "special_ready": false,
+          "special_confidence": 0.5,
+          "special_score": 0.5195
+        },
+        "left3": {
+          "index": 3,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0853,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "right0": {
+          "index": 0,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0869,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "right1": {
+          "index": 1,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0345,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "right2": {
+          "index": 2,
+          "state": "unknown",
+          "confidence": 0.35,
+          "down_score": 0.0,
+          "color_fraction": 0.0212,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right3": {
+          "index": 3,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0688,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        }
+      },
+      "remaining_seconds": 179
+    },
+    {
+      "path": "frames/01.png",
+      "sha256": "56e67531eb7030ee3e264a0a1b28b3e1d4f8b89ddad148da16c835e13c8972b6",
+      "ordinal": 1,
+      "timestamp": 10832.68868990001,
+      "frame_index": 649995,
+      "captured_at": "2026-10-03T08:48:27+00:00",
+      "seconds_after_opening": 1.0137972999946214,
+      "hud_state": "match",
+      "slots": {
+        "left0": {
+          "index": 0,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.5958,
+          "special_ready": false,
+          "special_confidence": 0.6854,
+          "special_score": 0.3146
+        },
+        "left1": {
+          "index": 1,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.4977,
+          "special_ready": true,
+          "special_confidence": 0.8192,
+          "special_score": 0.8192
+        },
+        "left2": {
+          "index": 2,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.5968,
+          "special_ready": false,
+          "special_confidence": 0.5,
+          "special_score": 0.5698
+        },
+        "left3": {
+          "index": 3,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.5165,
+          "special_ready": true,
+          "special_confidence": 0.7898,
+          "special_score": 0.7898
+        },
+        "right0": {
+          "index": 0,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.6924,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "right1": {
+          "index": 1,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.6019,
+          "special_ready": true,
+          "special_confidence": 0.7125,
+          "special_score": 0.7125
+        },
+        "right2": {
+          "index": 2,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.5577,
+          "special_ready": true,
+          "special_confidence": 0.7097,
+          "special_score": 0.7097
+        },
+        "right3": {
+          "index": 3,
+          "state": "alive",
+          "confidence": 0.7336,
+          "down_score": 0.2664,
+          "color_fraction": 0.5212,
+          "special_ready": false,
+          "special_confidence": 0.5,
+          "special_score": 0.5551
+        }
+      },
+      "remaining_seconds": 178
+    },
+    {
+      "path": "frames/02.png",
+      "sha256": "347cb0645d8f6c45e09c0ce91993ead854d6568869dfb5ecae05a87276acb620",
+      "ordinal": 2,
+      "timestamp": 10833.70375060002,
+      "frame_index": 650056,
+      "captured_at": "2026-10-03T08:48:28+00:00",
+      "seconds_after_opening": 2.0288580000051297,
+      "hud_state": "match",
+      "slots": {
+        "left0": {
+          "index": 0,
+          "state": "down",
+          "confidence": 0.74,
+          "down_score": 0.74,
+          "color_fraction": 0.1938,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left1": {
+          "index": 1,
+          "state": "down",
+          "confidence": 0.74,
+          "down_score": 0.74,
+          "color_fraction": 0.0744,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left2": {
+          "index": 2,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0832,
+          "special_ready": false,
+          "special_confidence": 0.5,
+          "special_score": 0.5285
+        },
+        "left3": {
+          "index": 3,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.1356,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "right0": {
+          "index": 0,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0072,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "right1": {
+          "index": 1,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.057,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "right2": {
+          "index": 2,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0078,
+          "special_ready": true,
+          "special_confidence": 0.7115,
+          "special_score": 0.7115
+        },
+        "right3": {
+          "index": 3,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.136,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        }
+      },
+      "remaining_seconds": 177
+    },
+    {
+      "path": "frames/03.png",
+      "sha256": "c916ea2fc56e5c408093389d68204c157ef9a29eb015ede2bb0bca1f008783c4",
+      "ordinal": 3,
+      "timestamp": 10834.718656600016,
+      "frame_index": 650116,
+      "captured_at": "2026-10-03T08:48:29+00:00",
+      "seconds_after_opening": 3.043764000001829,
+      "hud_state": "match",
+      "slots": {
+        "left0": {
+          "index": 0,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0257,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "left1": {
+          "index": 1,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0788,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "left2": {
+          "index": 2,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0233,
+          "special_ready": false,
+          "special_confidence": 0.5,
+          "special_score": 0.5733
+        },
+        "left3": {
+          "index": 3,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.1089,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "right0": {
+          "index": 0,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.2576,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "right1": {
+          "index": 1,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.3284,
+          "special_ready": false,
+          "special_confidence": 0.5,
+          "special_score": 0.6172
+        },
+        "right2": {
+          "index": 2,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.2584,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "right3": {
+          "index": 3,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.2563,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        }
+      },
+      "remaining_seconds": 176
+    },
+    {
+      "path": "frames/04.png",
+      "sha256": "d6dc3db20484820368f7a29022df39b3068893bcae2bbc5018476b5a4bd751d1",
+      "ordinal": 4,
+      "timestamp": 10835.739153700008,
+      "frame_index": 650178,
+      "captured_at": "2026-10-03T08:48:30+00:00",
+      "seconds_after_opening": 4.064261099993018,
+      "hud_state": "match",
+      "slots": {
+        "left0": {
+          "index": 0,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0053,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "left1": {
+          "index": 1,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0398,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "left2": {
+          "index": 2,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.0075,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "left3": {
+          "index": 3,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.1185,
+          "special_ready": true,
+          "special_confidence": 0.7301,
+          "special_score": 0.7301
+        },
+        "right0": {
+          "index": 0,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.8127,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        },
+        "right1": {
+          "index": 1,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.7339,
+          "special_ready": true,
+          "special_confidence": 0.7125,
+          "special_score": 0.7125
+        },
+        "right2": {
+          "index": 2,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.7614,
+          "special_ready": true,
+          "special_confidence": 0.7077,
+          "special_score": 0.7077
+        },
+        "right3": {
+          "index": 3,
+          "state": "alive",
+          "confidence": 0.95,
+          "down_score": 0.0,
+          "color_fraction": 0.7722,
+          "special_ready": false,
+          "special_confidence": 1.0,
+          "special_score": 0.0
+        }
+      },
+      "remaining_seconds": 175
+    }
+  ],
+  "warnings": [
+    "手動収集です。開始直後HUDか人間が確認してください"
+  ],
+  "needs_review": true
+}

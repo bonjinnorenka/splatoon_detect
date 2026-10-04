@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "match_id": "9d8251c4de244b37_000019656_9edb6d",
+  "session_id": "9d8251c4de244b37",
+  "source_kind": "camera",
+  "source": "0",
+  "device": {
+    "requested": {
+      "source": "0",
+      "backend": "dshow",
+      "replay": false,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30.0,
+      "scan_interval": 0.5,
+      "frames": 5,
+      "interval": 1,
+      "hud_delay_min": 8,
+      "hud_timeout": 35,
+      "cooldown": 60,
+      "reset_frames": 4,
+      "fourcc": ""
+    },
+    "backend": "DSHOW",
+    "reported_fps": 30.00003000003,
+    "replay_effective_fps": null,
+    "reported_width": 1920,
+    "reported_height": 1080,
+    "fourcc": 844715353,
+    "timing": "monotonic elapsed since capture open",
+    "frame_index_definition": "successful camera read counter (not device hardware frame number)"
+  },
+  "created_at": "2026-10-02T07:34:10+00:00",
+  "updated_at": "2026-10-02T07:34:14+00:00",
+  "status": "complete",
+  "trigger": "manual_current_frame",
+  "intro_timestamp": null,
+  "opening_timestamp": 327.61632280000777,
+  "opening_frame_index": 19656,
+  "resolution": {
+    "width": 1920,
+    "height": 1080
+  },
+  "sampling_interval": 1,
+  "target_frames": 5,
+  "frames": [
+    {
+      "path": "frames/00.png",
+      "sha256": "0ad50ee60d70b521d229cee670d3033442f25998097e58b7fa939224132dfbbb",
+      "ordinal": 0,
+      "timestamp": 327.61632280000777,
+      "frame_index": 19656,
+      "captured_at": "2026-10-02T07:34:10+00:00",
+      "seconds_after_opening": 0.0,
+      "hud_state": "non_match",
+      "slots": {
+        "left0": {
+          "index": 0,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left1": {
+          "index": 1,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left2": {
+          "index": 2,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left3": {
+          "index": 3,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right0": {
+          "index": 0,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right1": {
+          "index": 1,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right2": {
+          "index": 2,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right3": {
+          "index": 3,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        }
+      },
+      "remaining_seconds": null
+    },
+    {
+      "path": "frames/01.png",
+      "sha256": "1f386f9c55a7fcbf39e28d885ca57e441170ed188e749a037edd941b354f384b",
+      "ordinal": 1,
+      "timestamp": 328.6322848999989,
+      "frame_index": 19717,
+      "captured_at": "2026-10-02T07:34:11+00:00",
+      "seconds_after_opening": 1.0159620999911567,
+      "hud_state": "non_match",
+      "slots": {
+        "left0": {
+          "index": 0,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left1": {
+          "index": 1,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left2": {
+          "index": 2,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left3": {
+          "index": 3,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right0": {
+          "index": 0,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right1": {
+          "index": 1,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right2": {
+          "index": 2,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right3": {
+          "index": 3,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        }
+      },
+      "remaining_seconds": null
+    },
+    {
+      "path": "frames/02.png",
+      "sha256": "624b0e1ec6fbf4f2362bdc013536dd17f6f5a67390ad6caf01da71c07a76e854",
+      "ordinal": 2,
+      "timestamp": 329.63234589999774,
+      "frame_index": 19777,
+      "captured_at": "2026-10-02T07:34:12+00:00",
+      "seconds_after_opening": 2.0160230999899795,
+      "hud_state": "non_match",
+      "slots": {
+        "left0": {
+          "index": 0,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left1": {
+          "index": 1,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left2": {
+          "index": 2,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left3": {
+          "index": 3,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right0": {
+          "index": 0,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right1": {
+          "index": 1,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right2": {
+          "index": 2,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right3": {
+          "index": 3,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        }
+      },
+      "remaining_seconds": null
+    },
+    {
+      "path": "frames/03.png",
+      "sha256": "0466e2a488927fb651b1e98ce4ecd6d08ccd314374496369c3631edbd8bfe17e",
+      "ordinal": 3,
+      "timestamp": 330.66090729999996,
+      "frame_index": 19839,
+      "captured_at": "2026-10-02T07:34:13+00:00",
+      "seconds_after_opening": 3.0445844999921974,
+      "hud_state": "non_match",
+      "slots": {
+        "left0": {
+          "index": 0,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left1": {
+          "index": 1,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left2": {
+          "index": 2,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left3": {
+          "index": 3,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right0": {
+          "index": 0,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right1": {
+          "index": 1,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right2": {
+          "index": 2,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right3": {
+          "index": 3,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        }
+      },
+      "remaining_seconds": null
+    },
+    {
+      "path": "frames/04.png",
+      "sha256": "bb29839045e5e4e31158f1427c22e472888c36c6427168c9cd161bcfa7ed598c",
+      "ordinal": 4,
+      "timestamp": 331.66385000001173,
+      "frame_index": 19899,
+      "captured_at": "2026-10-02T07:34:14+00:00",
+      "seconds_after_opening": 4.0475272000039695,
+      "hud_state": "non_match",
+      "slots": {
+        "left0": {
+          "index": 0,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left1": {
+          "index": 1,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left2": {
+          "index": 2,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "left3": {
+          "index": 3,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right0": {
+          "index": 0,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right1": {
+          "index": 1,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right2": {
+          "index": 2,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        },
+        "right3": {
+          "index": 3,
+          "state": "unknown",
+          "confidence": 0.0,
+          "down_score": 0.0,
+          "color_fraction": 0.0,
+          "special_ready": null,
+          "special_confidence": 0.0,
+          "special_score": 0.0
+        }
+      },
+      "remaining_seconds": null
+    }
+  ],
+  "warnings": [
+    "手動収集です。開始直後HUDか人間が確認してください"
+  ]
+}

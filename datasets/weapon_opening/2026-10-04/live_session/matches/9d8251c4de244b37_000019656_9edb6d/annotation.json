@@ -1,0 +1,105 @@
+{
+  "match_id": "9d8251c4de244b37_000019656_9edb6d",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": false,
+  "rejected": true,
+  "opening_reviewed": false,
+  "slots": {
+    "left0": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "left1": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "left2": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "left3": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "right0": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "right1": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "right2": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "right3": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 2,
+  "created_at": "2026-10-02T07:34:10+00:00",
+  "updated_at": "2026-10-02T08:49:41+00:00"
+}

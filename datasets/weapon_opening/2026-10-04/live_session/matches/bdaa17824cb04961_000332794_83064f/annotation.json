@@ -1,0 +1,113 @@
+{
+  "match_id": "bdaa17824cb04961_000332794_83064f",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Tenta Brella CRE-M",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brella"
+    },
+    "left1": {
+      "weapon": "Dark Tetra Dualies",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    },
+    "left2": {
+      "weapon": "Aerospray RG",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left3": {
+      "weapon": "Splat Dualies",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    },
+    "right0": {
+      "weapon": "Enperry Splat Dualies",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    },
+    "right1": {
+      "weapon": "Splat Brella",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brella"
+    },
+    "right2": {
+      "weapon": "Sorella Brella",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brella"
+    },
+    "right3": {
+      "weapon": "Undercover Brella",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brella"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 14,
+  "created_at": "2026-10-02T09:51:36+00:00",
+  "updated_at": "2026-10-02T09:56:50+00:00"
+}

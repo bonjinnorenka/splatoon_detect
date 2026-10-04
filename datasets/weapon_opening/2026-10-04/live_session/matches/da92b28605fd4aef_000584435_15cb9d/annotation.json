@@ -1,0 +1,113 @@
+{
+  "match_id": "da92b28605fd4aef_000584435_15cb9d",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Aerospray MG",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left1": {
+      "weapon": "Custom Splattershot Jr",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left2": {
+      "weapon": "Dapple Dualies Nouveau",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    },
+    "left3": {
+      "weapon": "Slosher Deco",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "slosher"
+    },
+    "right0": {
+      "weapon": "Splattershot Jr.",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right1": {
+      "weapon": "Flingza Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "right2": {
+      "weapon": "Aerospray RG",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right3": {
+      "weapon": "Neo Splash-o-matic",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 13,
+  "created_at": "2026-10-03T08:30:15+00:00",
+  "updated_at": "2026-10-03T08:33:56+00:00"
+}

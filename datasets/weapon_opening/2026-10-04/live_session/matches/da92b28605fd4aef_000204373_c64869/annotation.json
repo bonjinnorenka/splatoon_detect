@@ -1,0 +1,113 @@
+{
+  "match_id": "da92b28605fd4aef_000204373_c64869",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Undercover Brella",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brella"
+    },
+    "left1": {
+      "weapon": "Undercover Sorella Brella",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brella"
+    },
+    "left2": {
+      "weapon": "Splat Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "left3": {
+      "weapon": "Carbon Roller Deco",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "right0": {
+      "weapon": "Splash-o-matic GCK-O",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right1": {
+      "weapon": "Nautilus 79",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "splatling"
+    },
+    "right2": {
+      "weapon": "N-ZAP 85",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right3": {
+      "weapon": "52 Gal",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 9,
+  "created_at": "2026-10-03T06:44:41+00:00",
+  "updated_at": "2026-10-03T06:52:45+00:00"
+}

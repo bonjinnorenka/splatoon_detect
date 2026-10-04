@@ -1,0 +1,113 @@
+{
+  "match_id": "5ffc9f005c2d4ddf_000007320_6b2b06",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Heavy Edit Splatling Nouveau",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "splatling"
+    },
+    "left1": {
+      "weapon": "ZF Splat Charger",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "charger"
+    },
+    "left2": {
+      "weapon": "N-ZAP 89",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left3": {
+      "weapon": "Splattershot Jr.",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right0": {
+      "weapon": "Tri-Stringer",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "stringer"
+    },
+    "right1": {
+      "weapon": "Tentatek Splattershot",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right2": {
+      "weapon": "Dapple Dualies Nouveau",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    },
+    "right3": {
+      "weapon": "Douser Dualies FF",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 11,
+  "created_at": "2026-10-03T02:39:37+00:00",
+  "updated_at": "2026-10-03T02:43:34+00:00"
+}

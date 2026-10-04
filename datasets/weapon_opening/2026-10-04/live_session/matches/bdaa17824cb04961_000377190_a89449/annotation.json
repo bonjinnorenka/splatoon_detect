@@ -1,0 +1,113 @@
+{
+  "match_id": "bdaa17824cb04961_000377190_a89449",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "L-3 Nozzlenose D",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left1": {
+      "weapon": "Mint Decavitator",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "splatana"
+    },
+    "left2": {
+      "weapon": "H3リールガンSNAK",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left3": {
+      "weapon": "Splat Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "right0": {
+      "weapon": "E-liter 4K",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "charger"
+    },
+    "right1": {
+      "weapon": "Tri-Stringer",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "stringer"
+    },
+    "right2": {
+      "weapon": "REEF-LUX 450 MIL-K",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "stringer"
+    },
+    "right3": {
+      "weapon": "Aerospray MG",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 8,
+  "created_at": "2026-10-02T10:03:56+00:00",
+  "updated_at": "2026-10-02T10:09:07+00:00"
+}
