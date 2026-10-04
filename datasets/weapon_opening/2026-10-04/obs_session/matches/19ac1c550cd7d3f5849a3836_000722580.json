@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "match_id": "19ac1c550cd7d3f5849a3836_000722580",
+  "video_id": "19ac1c550cd7d3f5849a3836",
+  "video_path": "/home/ryokuryu/splat_2/videos/2026-07-22 21-21-21.mkv",
+  "video_metadata": {
+    "video_id": "19ac1c550cd7d3f5849a3836",
+    "path": "/home/ryokuryu/splat_2/videos/2026-07-22 21-21-21.mkv",
+    "size": 22554028128,
+    "mtime_ns": 1784737709785578000,
+    "duration": 14825.7,
+    "fps": 60.0,
+    "frame_count": 889542,
+    "width": 1920,
+    "height": 1080,
+    "identity_method": "sha256(size + first/middle/last 64KiB)"
+  },
+  "start_timestamp": 12043,
+  "end_timestamp": 12311.5,
+  "reference_timestamp": 12063,
+  "reference_frame_index": 723780,
+  "reference_source": "initial_hud_offset",
+  "ally_side": "right",
+  "start_source": "hog_svm",
+  "start_candidate": {
+    "timestamp": 12043,
+    "frame_index": 722580,
+    "is_start": true,
+    "score": 0.31800374479165283,
+    "probability": 0.25568300595418486
+  },
+  "start_event": "stage_intro",
+  "hud_offset_seconds": 20,
+  "crop_profile": "obs_1080p_lamps_v2",
+  "boundaries_confirmed": true,
+  "confirmed": true,
+  "rejected": false,
+  "slots": {
+    "left0": {
+      "weapon": "Glooga Dualies",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "left1": {
+      "weapon": "N-ZAP 85",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "left2": {
+      "weapon": "Dread Wringer",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "left3": {
+      "weapon": "52 Gal",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right0": {
+      "weapon": "52 Gal",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right1": {
+      "weapon": "Aerospray MG",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right2": {
+      "weapon": "Carbon Roller ANG-L",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right3": {
+      "weapon": "Splattershot",
+      "status": "labeled",
+      "reviewed": true
+    }
+  },
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "notes": "",
+  "created_at": "2026-10-01T10:36:10+00:00",
+  "updated_at": "2026-10-01T12:23:04+00:00",
+  "revision": 13
+}

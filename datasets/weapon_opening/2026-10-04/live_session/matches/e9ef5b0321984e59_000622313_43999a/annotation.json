@@ -1,0 +1,113 @@
+{
+  "match_id": "e9ef5b0321984e59_000622313_43999a",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Big Swig Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "left1": {
+      "weapon": "N-ZAP 89",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left2": {
+      "weapon": "Tenta Sorella Brella",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brella"
+    },
+    "left3": {
+      "weapon": "E-liter 4K",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "charger"
+    },
+    "right0": {
+      "weapon": "Classic Squiffer",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "charger"
+    },
+    "right1": {
+      "weapon": "E-liter 4K",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "charger"
+    },
+    "right2": {
+      "weapon": "Splat Dualies",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    },
+    "right3": {
+      "weapon": "Tenta Brella",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brella"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 9,
+  "created_at": "2026-10-04T06:27:48+00:00",
+  "updated_at": "2026-10-04T06:31:14+00:00"
+}

@@ -1,0 +1,113 @@
+{
+  "match_id": "da92b28605fd4aef_001578642_edeaf2",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Splattershot Nova",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left1": {
+      "weapon": "Big Swig Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "left2": {
+      "weapon": "Rapid Blaster Pro Deco",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "blaster"
+    },
+    "left3": {
+      "weapon": "Rapid Blaster Pro Deco",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "blaster"
+    },
+    "right0": {
+      "weapon": "_Splat Charger",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "charger"
+    },
+    "right1": {
+      "weapon": "Torrentz Hydra Splatling",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "splatling"
+    },
+    "right2": {
+      "weapon": "Order Shot Replica",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right3": {
+      "weapon": "Order Shot Replica",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 8,
+  "created_at": "2026-10-03T13:06:25+00:00",
+  "updated_at": "2026-10-03T13:11:11+00:00"
+}

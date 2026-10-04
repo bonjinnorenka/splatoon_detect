@@ -1,0 +1,113 @@
+{
+  "match_id": "da92b28605fd4aef_001842244_ea713b",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Light Tetra Dualies",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    },
+    "left1": {
+      "weapon": "Dapple Dualies Nouveau",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    },
+    "left2": {
+      "weapon": "Tri-Slosher",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "slosher"
+    },
+    "left3": {
+      "weapon": "Krak-On Splat Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "right0": {
+      "weapon": "スパッタリーOWL",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    },
+    "right1": {
+      "weapon": "REEF-LUX 450 MIL-K",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "stringer"
+    },
+    "right2": {
+      "weapon": "Splattershot",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right3": {
+      "weapon": "Aerospray RG",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 12,
+  "created_at": "2026-10-03T14:19:38+00:00",
+  "updated_at": "2026-10-03T14:23:07+00:00"
+}

@@ -1,0 +1,113 @@
+{
+  "match_id": "e9ef5b0321984e59_000366213_1ce21c",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Aerospray RG",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left1": {
+      "weapon": "Painbrush BRN-Z",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brush"
+    },
+    "left2": {
+      "weapon": "Sploosh-o-matic",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left3": {
+      "weapon": "Tentatek Splattershot",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right0": {
+      "weapon": "Explosher",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "slosher"
+    },
+    "right1": {
+      "weapon": "Splattershot",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right2": {
+      "weapon": "Gold Dynamo Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "right3": {
+      "weapon": "スプラスコープFRST",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "charger"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 11,
+  "created_at": "2026-10-04T05:16:40+00:00",
+  "updated_at": "2026-10-04T05:20:24+00:00"
+}

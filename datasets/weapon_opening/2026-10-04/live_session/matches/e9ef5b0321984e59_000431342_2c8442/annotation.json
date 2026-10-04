@@ -1,0 +1,113 @@
+{
+  "match_id": "e9ef5b0321984e59_000431342_2c8442",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Neo Sploosh-o-matic",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left1": {
+      "weapon": "Inkbrush",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brush"
+    },
+    "left2": {
+      "weapon": "Inkline Tri-Stringer",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "stringer"
+    },
+    "left3": {
+      "weapon": "Luna Blaster",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "blaster"
+    },
+    "right0": {
+      "weapon": "Splat Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "right1": {
+      "weapon": "Splattershot Pro",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right2": {
+      "weapon": "Dapple Dualies Nouveau",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    },
+    "right3": {
+      "weapon": "Aerospray RG",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 10,
+  "created_at": "2026-10-04T05:34:45+00:00",
+  "updated_at": "2026-10-04T05:38:25+00:00"
+}

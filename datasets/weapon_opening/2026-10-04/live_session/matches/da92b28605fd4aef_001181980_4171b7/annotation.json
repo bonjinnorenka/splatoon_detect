@@ -1,0 +1,113 @@
+{
+  "match_id": "da92b28605fd4aef_001181980_4171b7",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Splash-o-matic GCK-O",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left1": {
+      "weapon": "Splat Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "left2": {
+      "weapon": "Big Swig Roller Express",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    },
+    "left3": {
+      "weapon": "Cometz Octobrush",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brush"
+    },
+    "right0": {
+      "weapon": "Douser Dualies FF",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "dualies"
+    },
+    "right1": {
+      "weapon": "Custom Blaster",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "blaster"
+    },
+    "right2": {
+      "weapon": "N-ZAP 89",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right3": {
+      "weapon": "Gold Dynamo Roller",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "roller"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 11,
+  "created_at": "2026-10-03T11:16:16+00:00",
+  "updated_at": "2026-10-04T02:36:13+00:00"
+}

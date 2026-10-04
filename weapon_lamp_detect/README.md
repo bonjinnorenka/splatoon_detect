@@ -1,5 +1,7 @@
 # Splatoon 3 OBS HUD武器識別 PoC
 
+収集済みの元PNG・試合ラベル・武器一覧は [2026-10-04の開始HUDデータ](../datasets/weapon_opening/2026-10-04/README.md) に保存しています。再集計・crop展開のコマンドと、未収集武器の一覧も同READMEにあります。
+
 試合単位の人力ラベリング → 疎なcrop dataset → 公式画像方式(A) / 実OBS median方式(B) → 状態別・試合別評価 → 誤判定レビューのCPU用ツール。
 CNN・GPU・新しいWebフレームワークは使用しない。既存の `WeaponIconMatcher`、`crop_slot`、動画iterator、`start_detect` HOG extractor / SVM JSON、`SquidLampDetector` を再利用している。他detectorは変更しない。
 

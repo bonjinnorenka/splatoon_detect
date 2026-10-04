@@ -1,0 +1,113 @@
+{
+  "match_id": "e9ef5b0321984e59_000221419_e5bb76",
+  "ally_side": "right",
+  "reference_ordinal": 0,
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "confirmed": true,
+  "rejected": false,
+  "opening_reviewed": true,
+  "slots": {
+    "left0": {
+      "weapon": "Sloshing Machine",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "slosher"
+    },
+    "left1": {
+      "weapon": "Aerospray MG",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "left2": {
+      "weapon": "Custom Range Blaster",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "blaster"
+    },
+    "left3": {
+      "weapon": "Custom Hydra Splatling",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "splatling"
+    },
+    "right0": {
+      "weapon": "Neo Sploosh-o-matic",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right1": {
+      "weapon": "Aerospray RG",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "shooter"
+    },
+    "right2": {
+      "weapon": "Custom E-liter 4K Scope",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "charger"
+    },
+    "right3": {
+      "weapon": "Painbrush",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brush"
+    }
+  },
+  "notes": "",
+  "schema_version": 1,
+  "revision": 11,
+  "created_at": "2026-10-04T04:36:27+00:00",
+  "updated_at": "2026-10-04T04:39:59+00:00"
+}

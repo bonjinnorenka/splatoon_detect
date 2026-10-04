@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "match_id": "73292737653559f7de997d46_000305100",
+  "video_id": "73292737653559f7de997d46",
+  "video_path": "/home/ryokuryu/splat_2/videos/2026-02-01 21-18-24.mp4",
+  "video_metadata": {
+    "video_id": "73292737653559f7de997d46",
+    "path": "/home/ryokuryu/splat_2/videos/2026-02-01 21-18-24.mp4",
+    "size": 16648801661,
+    "mtime_ns": 1769956539818832700,
+    "duration": 8234.233333333334,
+    "fps": 60.0,
+    "frame_count": 494054,
+    "width": 1920,
+    "height": 1080,
+    "identity_method": "sha256(size + first/middle/last 64KiB)"
+  },
+  "start_timestamp": 5085,
+  "end_timestamp": 5508,
+  "reference_timestamp": 5105,
+  "reference_frame_index": 306300,
+  "ally_side": "right",
+  "start_source": "hog_svm",
+  "start_candidate": {
+    "timestamp": 5085,
+    "frame_index": 305100,
+    "is_start": true,
+    "score": 0.2442697556389084,
+    "probability": 0.20141792818041937
+  },
+  "boundaries_confirmed": true,
+  "confirmed": true,
+  "rejected": false,
+  "slots": {
+    "left0": {
+      "weapon": "Painbrush",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "left1": {
+      "weapon": "Splattershot Pro",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "left2": {
+      "weapon": "Classic Squiffer",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "left3": {
+      "weapon": "Splattershot Pro FRZ-N",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right0": {
+      "weapon": "Hero Shot Replica",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right1": {
+      "weapon": "Rapid Blaster Pro Deco",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right2": {
+      "weapon": "Glooga Dualies",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right3": {
+      "weapon": "Dualie Squelchers",
+      "status": "labeled",
+      "reviewed": true
+    }
+  },
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "notes": "",
+  "created_at": "2026-10-01T07:09:27+00:00",
+  "updated_at": "2026-10-01T08:34:12+00:00",
+  "revision": 13,
+  "reference_source": "initial_hud_offset",
+  "start_event": "stage_intro",
+  "hud_offset_seconds": 20,
+  "crop_profile": "obs_1080p_lamps_v2"
+}

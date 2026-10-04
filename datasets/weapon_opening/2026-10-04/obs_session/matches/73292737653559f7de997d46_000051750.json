@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "match_id": "73292737653559f7de997d46_000051750",
+  "video_id": "73292737653559f7de997d46",
+  "video_path": "/home/ryokuryu/splat_2/videos/2026-02-01 21-18-24.mp4",
+  "video_metadata": {
+    "video_id": "73292737653559f7de997d46",
+    "path": "/home/ryokuryu/splat_2/videos/2026-02-01 21-18-24.mp4",
+    "size": 16648801661,
+    "mtime_ns": 1769956539818832700,
+    "duration": 8234.233333333334,
+    "fps": 60.0,
+    "frame_count": 494054,
+    "width": 1920,
+    "height": 1080,
+    "identity_method": "sha256(size + first/middle/last 64KiB)"
+  },
+  "start_timestamp": 862.5,
+  "end_timestamp": 1042.5,
+  "reference_timestamp": 882.5,
+  "reference_frame_index": 52950,
+  "ally_side": "right",
+  "start_source": "manual",
+  "start_candidate": null,
+  "boundaries_confirmed": false,
+  "confirmed": false,
+  "rejected": true,
+  "slots": {
+    "left0": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "left1": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "left2": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "left3": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "right0": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "right1": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "right2": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    },
+    "right3": {
+      "weapon": null,
+      "status": "unknown",
+      "reviewed": false
+    }
+  },
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "notes": "",
+  "created_at": "2026-10-01T07:09:58+00:00",
+  "updated_at": "2026-10-01T08:17:41+00:00",
+  "revision": 3,
+  "reference_source": "initial_hud_offset",
+  "start_event": "manual_boundary",
+  "hud_offset_seconds": 20,
+  "crop_profile": "obs_1080p_lamps_v2"
+}

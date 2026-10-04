@@ -1,0 +1,26 @@
+{
+  "73292737653559f7de997d46": {
+    "video_id": "73292737653559f7de997d46",
+    "path": "/home/ryokuryu/splat_2/videos/2026-02-01 21-18-24.mp4",
+    "size": 16648801661,
+    "mtime_ns": 1769956539818832700,
+    "duration": 8234.233333333334,
+    "fps": 60.0,
+    "frame_count": 494054,
+    "width": 1920,
+    "height": 1080,
+    "identity_method": "sha256(size + first/middle/last 64KiB)"
+  },
+  "19ac1c550cd7d3f5849a3836": {
+    "video_id": "19ac1c550cd7d3f5849a3836",
+    "path": "/home/ryokuryu/splat_2/videos/2026-07-22 21-21-21.mkv",
+    "size": 22554028128,
+    "mtime_ns": 1784737709785578000,
+    "duration": 14825.7,
+    "fps": 60.0,
+    "frame_count": 889542,
+    "width": 1920,
+    "height": 1080,
+    "identity_method": "sha256(size + first/middle/last 64KiB)"
+  }
+}

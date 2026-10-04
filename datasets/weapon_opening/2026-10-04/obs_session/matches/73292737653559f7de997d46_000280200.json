@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "match_id": "73292737653559f7de997d46_000280200",
+  "video_id": "73292737653559f7de997d46",
+  "video_path": "/home/ryokuryu/splat_2/videos/2026-02-01 21-18-24.mp4",
+  "video_metadata": {
+    "video_id": "73292737653559f7de997d46",
+    "path": "/home/ryokuryu/splat_2/videos/2026-02-01 21-18-24.mp4",
+    "size": 16648801661,
+    "mtime_ns": 1769956539818832700,
+    "duration": 8234.233333333334,
+    "fps": 60.0,
+    "frame_count": 494054,
+    "width": 1920,
+    "height": 1080,
+    "identity_method": "sha256(size + first/middle/last 64KiB)"
+  },
+  "start_timestamp": 4670,
+  "end_timestamp": 5085,
+  "reference_timestamp": 4690,
+  "reference_frame_index": 281400,
+  "ally_side": "right",
+  "start_source": "hog_svm",
+  "start_candidate": {
+    "timestamp": 4670,
+    "frame_index": 280200,
+    "is_start": true,
+    "score": 0.20391172903454358,
+    "probability": 0.17558570898759068
+  },
+  "boundaries_confirmed": true,
+  "confirmed": true,
+  "rejected": false,
+  "slots": {
+    "left0": {
+      "weapon": "Tri-Slosher",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "left1": {
+      "weapon": "REEF-LUX 450 MIL-K",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "left2": {
+      "weapon": "Inkbrush Nouveau",
+      "status": "labeled",
+      "reviewed": true,
+      "weapon_class": "brush"
+    },
+    "left3": {
+      "weapon": "Dynamo Roller",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right0": {
+      "weapon": "Dynamo Roller",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right1": {
+      "weapon": "REEF-LUX 450 MIL-K",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right2": {
+      "weapon": "Mint Decavitator",
+      "status": "labeled",
+      "reviewed": true
+    },
+    "right3": {
+      "weapon": "Splattershot",
+      "status": "labeled",
+      "reviewed": true
+    }
+  },
+  "geometry": {
+    "left0": [
+      0.294,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left1": [
+      0.341,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left2": [
+      0.388,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "left3": [
+      0.435,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right0": [
+      0.565,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right1": [
+      0.612,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right2": [
+      0.659,
+      0.067,
+      0.052,
+      0.092
+    ],
+    "right3": [
+      0.706,
+      0.067,
+      0.052,
+      0.092
+    ]
+  },
+  "notes": "",
+  "created_at": "2026-10-01T07:09:27+00:00",
+  "updated_at": "2026-10-04T06:58:50+00:00",
+  "revision": 13,
+  "reference_source": "initial_hud_offset",
+  "start_event": "stage_intro",
+  "hud_offset_seconds": 20,
+  "crop_profile": "obs_1080p_lamps_v2"
+}
