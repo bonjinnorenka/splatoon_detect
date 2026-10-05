@@ -1,0 +1,22 @@
+{
+  "epochs": 60,
+  "batch_size": 96,
+  "threads": 8,
+  "seed": 20261004,
+  "patience": 15,
+  "optimizer": "AdamW",
+  "learning_rate": 0.002,
+  "weight_decay": 0.0003,
+  "label_smoothing": 0.04,
+  "sampling": "uniform weapon -> match -> slot; quality-weighted frame within slot",
+  "selection": "validation quality-weighted first-5-frame macro accuracy, then micro, then lower log loss",
+  "test_used_for_selection": false,
+  "device": "cpu",
+  "pretrained": false,
+  "parameters": 414669,
+  "algorithm_sha256": {
+    "model.py": "33a29b78887cacd8aa93680325ac4737cea0e92c94fe77fb6e85a5b71e6d2799",
+    "train.py": "9b273266f34665f4d627221324fcbd9ec3ff2394121bd44310455a8d63586f83",
+    "data.py": "8c4ea8c81a8218881789b8037d443eb7308a5a842f6388d224ac6ed046ed068b"
+  }
+}

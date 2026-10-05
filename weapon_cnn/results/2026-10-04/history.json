@@ -1,0 +1,849 @@
+{
+  "status": "complete",
+  "best_epoch": 58,
+  "elapsed_seconds": 368.14154435599994,
+  "test_evaluated": false,
+  "epochs": [
+    {
+      "epoch": 1,
+      "train_loss": 4.858026945082288,
+      "validation": {
+        "single_frame_top1": 0.015476190476190477,
+        "quality_5frame_top1": 0.017857142857142856,
+        "quality_5frame_macro": 0.022727272727272728,
+        "log_loss": 5.195298194885254,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.002,
+      "seconds": 6.153235299999778
+    },
+    {
+      "epoch": 2,
+      "train_loss": 3.6244317047671175,
+      "validation": {
+        "single_frame_top1": 0.10595238095238095,
+        "quality_5frame_top1": 0.10714285714285714,
+        "quality_5frame_macro": 0.13484848484848486,
+        "log_loss": 4.126826763153076,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.001998684353364391,
+      "seconds": 6.181496368999888
+    },
+    {
+      "epoch": 3,
+      "train_loss": 2.184827298003358,
+      "validation": {
+        "single_frame_top1": 0.25952380952380955,
+        "quality_5frame_top1": 0.2619047619047619,
+        "quality_5frame_macro": 0.28683712121212124,
+        "log_loss": 2.6932175159454346,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0019947410195535423,
+      "seconds": 6.215221362000193
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.34495972764293,
+      "validation": {
+        "single_frame_top1": 0.625,
+        "quality_5frame_top1": 0.6607142857142857,
+        "quality_5frame_macro": 0.6740800865800866,
+        "log_loss": 1.391958236694336,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.001988180806971332,
+      "seconds": 6.135224510000171
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.9611686923287132,
+      "validation": {
+        "single_frame_top1": 0.8095238095238095,
+        "quality_5frame_top1": 0.8511904761904762,
+        "quality_5frame_macro": 0.8094426406926406,
+        "log_loss": 0.9097551703453064,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0019790216967044533,
+      "seconds": 6.1488491690001865
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.8145683993656251,
+      "validation": {
+        "single_frame_top1": 0.8547619047619047,
+        "quality_5frame_top1": 0.8869047619047619,
+        "quality_5frame_macro": 0.8446338383838384,
+        "log_loss": 0.7460561394691467,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0019672887932375054,
+      "seconds": 6.556685167000069
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.7316352024149143,
+      "validation": {
+        "single_frame_top1": 0.8714285714285714,
+        "quality_5frame_top1": 0.9047619047619048,
+        "quality_5frame_macro": 0.8522727272727273,
+        "log_loss": 0.5811695456504822,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0019530142556433475,
+      "seconds": 6.220345604000158
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.6675163915294442,
+      "validation": {
+        "single_frame_top1": 0.905952380952381,
+        "quality_5frame_top1": 0.9404761904761905,
+        "quality_5frame_macro": 0.9090909090909091,
+        "log_loss": 0.4650036692619324,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0019362372094373136,
+      "seconds": 6.323684856999989
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.6331030180149043,
+      "validation": {
+        "single_frame_top1": 0.8952380952380953,
+        "quality_5frame_top1": 0.9285714285714286,
+        "quality_5frame_macro": 0.8954545454545454,
+        "log_loss": 0.41156449913978577,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0019170036393368968,
+      "seconds": 6.5485381449998386
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.6038059656164421,
+      "validation": {
+        "single_frame_top1": 0.9369047619047619,
+        "quality_5frame_top1": 0.9761904761904762,
+        "quality_5frame_macro": 0.9545454545454546,
+        "log_loss": 0.376890629529953,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.001895366263220833,
+      "seconds": 6.315296532000048
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.5853044599681706,
+      "validation": {
+        "single_frame_top1": 0.9416666666666667,
+        "quality_5frame_top1": 0.9642857142857143,
+        "quality_5frame_macro": 0.9431818181818182,
+        "log_loss": 0.35661375522613525,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0018713843876330613,
+      "seconds": 6.2772950200001105
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.5731328569891723,
+      "validation": {
+        "single_frame_top1": 0.9333333333333333,
+        "quality_5frame_top1": 0.9523809523809523,
+        "quality_5frame_macro": 0.9295454545454546,
+        "log_loss": 0.36260759830474854,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.001845123745227607,
+      "seconds": 6.278605599000002
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.5856510602919202,
+      "validation": {
+        "single_frame_top1": 0.9345238095238095,
+        "quality_5frame_top1": 0.9702380952380952,
+        "quality_5frame_macro": 0.9545454545454546,
+        "log_loss": 0.33998167514801025,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0018166563145999494,
+      "seconds": 6.141402222000124
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.5525407562450487,
+      "validation": {
+        "single_frame_top1": 0.9392857142857143,
+        "quality_5frame_top1": 0.9702380952380952,
+        "quality_5frame_macro": 0.9579545454545454,
+        "log_loss": 0.32285308837890625,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.001786060122998692,
+      "seconds": 5.856578305999847
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.5405615375524107,
+      "validation": {
+        "single_frame_top1": 0.9392857142857143,
+        "quality_5frame_top1": 0.9702380952380952,
+        "quality_5frame_macro": 0.9488636363636364,
+        "log_loss": 0.30082225799560547,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0017534190324582984,
+      "seconds": 6.422195741999985
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.5346059089246619,
+      "validation": {
+        "single_frame_top1": 0.9452380952380952,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.9715909090909091,
+        "log_loss": 0.2893054783344269,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0017188225099390856,
+      "seconds": 6.242689855000208
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.5197620641322658,
+      "validation": {
+        "single_frame_top1": 0.9464285714285714,
+        "quality_5frame_top1": 0.9761904761904762,
+        "quality_5frame_macro": 0.9636363636363636,
+        "log_loss": 0.34151726961135864,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.001682365382104504,
+      "seconds": 6.031544615999792
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.5334872557192433,
+      "validation": {
+        "single_frame_top1": 0.9428571428571428,
+        "quality_5frame_top1": 0.9642857142857143,
+        "quality_5frame_macro": 0.946590909090909,
+        "log_loss": 0.3228015601634979,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.001644147575407844,
+      "seconds": 6.35224150699969
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.5144107073600748,
+      "validation": {
+        "single_frame_top1": 0.9416666666666667,
+        "quality_5frame_top1": 0.9642857142857143,
+        "quality_5frame_macro": 0.946590909090909,
+        "log_loss": 0.32084113359451294,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0016042738422007742,
+      "seconds": 6.153955924000002
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.5031945714702853,
+      "validation": {
+        "single_frame_top1": 0.9488095238095238,
+        "quality_5frame_top1": 0.9761904761904762,
+        "quality_5frame_macro": 0.9636363636363636,
+        "log_loss": 0.2804175615310669,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.001562853473614426,
+      "seconds": 6.252065036000204
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.5157165287598166,
+      "validation": {
+        "single_frame_top1": 0.9511904761904761,
+        "quality_5frame_top1": 0.9761904761904762,
+        "quality_5frame_macro": 0.9636363636363636,
+        "log_loss": 0.28621014952659607,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0015199999999999999,
+      "seconds": 6.226196329999766
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.5047027284448797,
+      "validation": {
+        "single_frame_top1": 0.95,
+        "quality_5frame_top1": 0.9761904761904762,
+        "quality_5frame_macro": 0.9636363636363636,
+        "log_loss": 0.27624833583831787,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0014758308797499647,
+      "seconds": 6.347574554999937
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.5085375921182155,
+      "validation": {
+        "single_frame_top1": 0.9452380952380952,
+        "quality_5frame_top1": 0.9702380952380952,
+        "quality_5frame_macro": 0.9579545454545454,
+        "log_loss": 0.31360924243927,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0014304671773527683,
+      "seconds": 6.154350508999869
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.49230559633039145,
+      "validation": {
+        "single_frame_top1": 0.95,
+        "quality_5frame_top1": 0.9761904761904762,
+        "quality_5frame_macro": 0.9636363636363636,
+        "log_loss": 0.2947797179222107,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0013840332315634884,
+      "seconds": 6.150348174000101
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.4980801543189776,
+      "validation": {
+        "single_frame_top1": 0.95,
+        "quality_5frame_top1": 0.9702380952380952,
+        "quality_5frame_macro": 0.9522727272727273,
+        "log_loss": 0.27509719133377075,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0013366563145999495,
+      "seconds": 5.986133537999649
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.48367620140369394,
+      "validation": {
+        "single_frame_top1": 0.9523809523809523,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.975,
+        "log_loss": 0.27957621216773987,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.00128846628329842,
+      "seconds": 6.073650899999848
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.4823425653029461,
+      "validation": {
+        "single_frame_top1": 0.9547619047619048,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.975,
+        "log_loss": 0.25995758175849915,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0012395952231850488,
+      "seconds": 6.138009260999752
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.5023892754968774,
+      "validation": {
+        "single_frame_top1": 0.9535714285714286,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.975,
+        "log_loss": 0.26099300384521484,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0011901770864386216,
+      "seconds": 5.873930109999947
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.4836852555814612,
+      "validation": {
+        "single_frame_top1": 0.9535714285714286,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.975,
+        "log_loss": 0.2557338774204254,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0011403473247369473,
+      "seconds": 5.8272280880000835
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.4796991592103785,
+      "validation": {
+        "single_frame_top1": 0.955952380952381,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.265470951795578,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.001090242517993226,
+      "seconds": 5.976117406999947
+    },
+    {
+      "epoch": 31,
+      "train_loss": 0.4696669293688489,
+      "validation": {
+        "single_frame_top1": 0.955952380952381,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.975,
+        "log_loss": 0.26867225766181946,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0010400000000000003,
+      "seconds": 6.298581197000203
+    },
+    {
+      "epoch": 32,
+      "train_loss": 0.4711502350548866,
+      "validation": {
+        "single_frame_top1": 0.9535714285714286,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.975,
+        "log_loss": 0.25430142879486084,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0009897574820067743,
+      "seconds": 6.083960236999701
+    },
+    {
+      "epoch": 33,
+      "train_loss": 0.46893587023959754,
+      "validation": {
+        "single_frame_top1": 0.9571428571428572,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.2545434236526489,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0009396526752630531,
+      "seconds": 5.767123010999967
+    },
+    {
+      "epoch": 34,
+      "train_loss": 0.468663241248405,
+      "validation": {
+        "single_frame_top1": 0.955952380952381,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.975,
+        "log_loss": 0.2566520571708679,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0008898229135613786,
+      "seconds": 6.166904014000011
+    },
+    {
+      "epoch": 35,
+      "train_loss": 0.4697024591004472,
+      "validation": {
+        "single_frame_top1": 0.9607142857142857,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.24971440434455872,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0008404047768149512,
+      "seconds": 6.04569455400042
+    },
+    {
+      "epoch": 36,
+      "train_loss": 0.4687230103091097,
+      "validation": {
+        "single_frame_top1": 0.9595238095238096,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.2614448666572571,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0007915337167015804,
+      "seconds": 6.214368572999774
+    },
+    {
+      "epoch": 37,
+      "train_loss": 0.46240319055617407,
+      "validation": {
+        "single_frame_top1": 0.9583333333333334,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.260620653629303,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0007433436854000508,
+      "seconds": 6.187353772999813
+    },
+    {
+      "epoch": 38,
+      "train_loss": 0.4563510178413816,
+      "validation": {
+        "single_frame_top1": 0.9547619047619048,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.975,
+        "log_loss": 0.24780605733394623,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0006959667684365119,
+      "seconds": 6.067073445999995
+    },
+    {
+      "epoch": 39,
+      "train_loss": 0.45806480327652205,
+      "validation": {
+        "single_frame_top1": 0.9607142857142857,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.24439847469329834,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0006495328226472321,
+      "seconds": 5.899767592999979
+    },
+    {
+      "epoch": 40,
+      "train_loss": 0.4594024143546322,
+      "validation": {
+        "single_frame_top1": 0.9607142857142857,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.24189598858356476,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0006041691202500352,
+      "seconds": 6.082693713000026
+    },
+    {
+      "epoch": 41,
+      "train_loss": 0.45874525195813576,
+      "validation": {
+        "single_frame_top1": 0.9547619047619048,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.975,
+        "log_loss": 0.2695475220680237,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0005600000000000003,
+      "seconds": 6.000152142999923
+    },
+    {
+      "epoch": 42,
+      "train_loss": 0.45556277898114333,
+      "validation": {
+        "single_frame_top1": 0.9583333333333334,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.25187066197395325,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0005171465263855744,
+      "seconds": 6.349441052000202
+    },
+    {
+      "epoch": 43,
+      "train_loss": 0.45271782426090984,
+      "validation": {
+        "single_frame_top1": 0.9571428571428572,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.2652832269668579,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.00047572615779922593,
+      "seconds": 6.1366567390000455
+    },
+    {
+      "epoch": 44,
+      "train_loss": 0.4517490115148017,
+      "validation": {
+        "single_frame_top1": 0.9571428571428572,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.2620559334754944,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0004358524245921563,
+      "seconds": 6.066481836999628
+    },
+    {
+      "epoch": 45,
+      "train_loss": 0.45667858665639705,
+      "validation": {
+        "single_frame_top1": 0.9535714285714286,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.975,
+        "log_loss": 0.24598479270935059,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0003976346178954965,
+      "seconds": 6.046543518999897
+    },
+    {
+      "epoch": 46,
+      "train_loss": 0.45253721639265154,
+      "validation": {
+        "single_frame_top1": 0.9607142857142857,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.2445800006389618,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0003611774900609145,
+      "seconds": 5.953131461999874
+    },
+    {
+      "epoch": 47,
+      "train_loss": 0.45337995508606227,
+      "validation": {
+        "single_frame_top1": 0.9595238095238096,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.24634337425231934,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0003265809675417018,
+      "seconds": 6.026318404999984
+    },
+    {
+      "epoch": 48,
+      "train_loss": 0.447222600244193,
+      "validation": {
+        "single_frame_top1": 0.9583333333333334,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.2452387809753418,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.000293939877001308,
+      "seconds": 6.1921930079997765
+    },
+    {
+      "epoch": 49,
+      "train_loss": 0.450357279905804,
+      "validation": {
+        "single_frame_top1": 0.9583333333333334,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.24521560966968536,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0002633436854000506,
+      "seconds": 6.152116750000005
+    },
+    {
+      "epoch": 50,
+      "train_loss": 0.44717714793164565,
+      "validation": {
+        "single_frame_top1": 0.955952380952381,
+        "quality_5frame_top1": 0.9821428571428571,
+        "quality_5frame_macro": 0.975,
+        "log_loss": 0.24840141832828522,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.00023487625477239303,
+      "seconds": 6.253645885999958
+    },
+    {
+      "epoch": 51,
+      "train_loss": 0.4508765414384831,
+      "validation": {
+        "single_frame_top1": 0.9595238095238096,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.24660080671310425,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0002086156123669389,
+      "seconds": 6.055381039999702
+    },
+    {
+      "epoch": 52,
+      "train_loss": 0.44557252458827173,
+      "validation": {
+        "single_frame_top1": 0.9595238095238096,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.2517394721508026,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.000184633736779167,
+      "seconds": 5.950569538000309
+    },
+    {
+      "epoch": 53,
+      "train_loss": 0.4514680009162492,
+      "validation": {
+        "single_frame_top1": 0.9583333333333334,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.24987603724002838,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.0001629963606631031,
+      "seconds": 6.182926291000058
+    },
+    {
+      "epoch": 54,
+      "train_loss": 0.4478174953049322,
+      "validation": {
+        "single_frame_top1": 0.9595238095238096,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.2438569962978363,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.00014376279056268636,
+      "seconds": 6.050884034000319
+    },
+    {
+      "epoch": 55,
+      "train_loss": 0.45194212089885366,
+      "validation": {
+        "single_frame_top1": 0.9583333333333334,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.2413361370563507,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.00012698574435665263,
+      "seconds": 5.901814478000233
+    },
+    {
+      "epoch": 56,
+      "train_loss": 0.44390212793960643,
+      "validation": {
+        "single_frame_top1": 0.9571428571428572,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.24670885503292084,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.00011271120676249443,
+      "seconds": 5.907858288999705
+    },
+    {
+      "epoch": 57,
+      "train_loss": 0.44501504853837787,
+      "validation": {
+        "single_frame_top1": 0.9595238095238096,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.24531716108322144,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 0.00010097830329554655,
+      "seconds": 6.201482727999974
+    },
+    {
+      "epoch": 58,
+      "train_loss": 0.44992474697958784,
+      "validation": {
+        "single_frame_top1": 0.9595238095238096,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.23884372413158417,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 9.181919302866786e-05,
+      "seconds": 5.9653939679997166
+    },
+    {
+      "epoch": 59,
+      "train_loss": 0.4438945890357631,
+      "validation": {
+        "single_frame_top1": 0.9607142857142857,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.24161703884601593,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 8.525898044645754e-05,
+      "seconds": 5.9675346009998975
+    },
+    {
+      "epoch": 60,
+      "train_loss": 0.44264992357185023,
+      "validation": {
+        "single_frame_top1": 0.9595238095238096,
+        "quality_5frame_top1": 0.9880952380952381,
+        "quality_5frame_macro": 0.9863636363636363,
+        "log_loss": 0.24551323056221008,
+        "match_slots": 168,
+        "weapons": 88
+      },
+      "learning_rate": 8.131564663560913e-05,
+      "seconds": 5.90280255000016
+    }
+  ],
+  "checkpoint_sha256": "7ca39d3eb2e81d900643274699be1c33326f14452a791c8c145bcb05ad8c6f7f"
+}

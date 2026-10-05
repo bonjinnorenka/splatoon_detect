@@ -1,0 +1,170 @@
+﻿武器名,weapon,test_match_slots,correct,top1,top3,top5,train_matches,validation_matches,test_matches
+.52ガロン,52 Gal,9,9,1.0,1.0,1.0,41,4,7
+.52ガロンデコ,52 Gal Deco,1,1,1.0,1.0,1.0,2,0,1
+.96ガロン,96 Gal,1,1,1.0,1.0,1.0,2,0,1
+.96ガロンデコ,96 Gal Deco,1,1,1.0,1.0,1.0,2,0,1
+プロモデラーMG,Aerospray MG,22,22,1.0,1.0,1.0,37,4,17
+プロモデラーRG,Aerospray RG,23,23,1.0,1.0,1.0,52,8,19
+スペースシューターコラボ,Annaki Splattershot Nova,1,1,1.0,1.0,1.0,2,0,1
+クーゲルシュライバー,Ballpoint Splatling,1,1,1.0,1.0,1.0,2,0,1
+クーゲルシュライバー・ヒュー,Ballpoint Splatling Nouveau,1,1,1.0,1.0,1.0,2,0,1
+14式竹筒銃・甲,Bamboozler 14 Mk I,1,1,1.0,1.0,1.0,2,0,1
+14式竹筒銃・乙,Bamboozler 14 Mk II,2,2,1.0,1.0,1.0,3,1,2
+ワイドローラー,Big Swig Roller,1,1,1.0,1.0,1.0,2,0,1
+ワイドローラーコラボ,Big Swig Roller Express,1,1,1.0,1.0,1.0,2,0,1
+ホットブラスター,Blaster,1,1,1.0,1.0,1.0,6,1,1
+オーバーフロッシャー,Bloblobber,6,6,1.0,1.0,1.0,30,2,6
+オーバーフロッシャーデコ,Bloblobber Deco,1,1,1.0,1.0,1.0,2,0,1
+トライストリンガー燈,Bulbz Tri-Stringer,2,2,1.0,1.0,1.0,4,1,2
+カーボンローラー,Carbon Roller,1,1,1.0,1.0,1.0,6,0,1
+カーボンローラーANGL,Carbon Roller ANG-L,3,3,1.0,1.0,1.0,2,0,3
+カーボンローラーデコ,Carbon Roller Deco,5,5,1.0,1.0,1.0,11,2,5
+デンタルワイパースミ,Charcoal Decavitator,1,1,1.0,1.0,1.0,2,0,1
+クラッシュブラスター,Clash Blaster,1,1,1.0,1.0,1.0,3,0,1
+クラッシュブラスターネオ,Clash Blaster Neo (2),1,1,1.0,1.0,1.0,2,0,1
+スクイックリンα,Classic Squiffer,4,4,1.0,1.0,1.0,10,4,4
+.96ガロン爪,Clawz 96 Gal,2,2,1.0,1.0,1.0,3,0,2
+プロモデラー彩,Colorz Aerospray,3,3,1.0,1.0,1.0,7,1,3
+ホクサイ彗,Cometz Octobrush,2,2,1.0,1.0,1.0,2,0,2
+ホットブラスターカスタム,Custom Blaster,2,2,1.0,1.0,1.0,18,2,2
+ガエンFFカスタム,Custom Douser Dualies FF,1,1,1.0,1.0,1.0,2,0,1
+デュアルスイーパーカスタム,Custom Dualie Squelchers,1,1,1.0,1.0,1.0,2,0,1
+リッター4Kカスタム,Custom E-liter 4K,3,3,1.0,1.0,1.0,3,1,3
+4Kスコープカスタム,Custom E-liter 4K Scope,1,1,1.0,1.0,1.0,4,0,1
+エクスプロッシャーカスタム,Custom Explosher,3,3,1.0,1.0,1.0,9,4,3
+ソイチューバーカスタム,Custom Goo Tuber,1,1,1.0,1.0,1.0,2,0,1
+ハイドラントカスタム,Custom Hydra Splatling,1,1,1.0,1.0,1.0,2,0,1
+ジェットスイーパーカスタム,Custom Jet Squelcher,2,2,1.0,1.0,1.0,4,0,2
+ロングブラスターカスタム,Custom Range Blaster,2,2,1.0,1.0,1.0,2,1,2
+もみじシューター,Custom Splattershot Jr,8,8,1.0,1.0,1.0,21,4,7
+フルイドVカスタム,Custom Wellstring V,1,1,1.0,1.0,1.0,3,0,1
+スパッタリー,Dapple Dualies,2,2,1.0,1.0,1.0,3,1,2
+スパッタリー・ヒュー,Dapple Dualies Nouveau,8,8,1.0,1.0,1.0,13,3,8
+クアッドホッパーブラック,Dark Tetra Dualies,4,4,1.0,1.0,1.0,3,1,4
+ガエンFF,Douser Dualies FF,1,1,1.0,1.0,1.0,2,0,1
+モップリン,Dread Wringer,1,1,1.0,1.0,1.0,3,1,1
+モップリンD,Dread Wringer D,1,1,1.0,1.0,1.0,2,0,1
+デュアルスイーパー,Dualie Squelchers,3,3,1.0,1.0,1.0,5,3,3
+ダイナモローラー,Dynamo Roller,4,4,1.0,1.0,1.0,12,2,4
+リッター4K,E-liter 4K,9,9,1.0,1.0,1.0,13,6,7
+4Kスコープ,E-liter 4K Scope,3,3,1.0,1.0,1.0,4,2,3
+スプラマニューバーコラボ,Enperry Splat Dualies,5,5,1.0,1.0,1.0,14,2,5
+エクスプロッシャー,Explosher,3,3,1.0,1.0,1.0,2,0,3
+ヴァリアブルローラー,Flingza Roller,3,3,1.0,1.0,1.0,6,1,3
+ヴァリアブルローラーフォイル,Foil Flingza Roller,1,1,1.0,1.0,1.0,2,0,1
+ボトルガイザーフォイル,Foil Squeezer,1,1,1.0,1.0,1.0,2,0,1
+プライムシューターコラボ,Forge Splattershot Pro,3,3,1.0,1.0,1.0,4,1,3
+スプラシューター煌,Glamorz Splattershot,1,1,1.0,1.0,1.0,2,0,1
+ホットブラスター艶,Gleamz Blaster,1,1,1.0,1.0,1.0,2,0,1
+L3リールガン箔,Glitterz L-3 Nozzlenose,1,1,1.0,1.0,1.0,2,0,1
+ケルビン525,Glooga Dualies,2,2,1.0,1.0,1.0,2,1,2
+ケルビン525デコ,Glooga Dualies Deco,1,1,1.0,1.0,1.0,2,0,1
+ダイナモローラーテスラ,Gold Dynamo Roller,3,3,1.0,1.0,1.0,4,0,3
+ソイチューバー,Goo Tuber,1,1,1.0,1.0,1.0,2,0,1
+H3リールガン,H-3 Nozzlenose,1,1,1.0,1.0,1.0,2,0,1
+H3リールガンD,H-3 Nozzlenose D,1,1,1.0,1.0,1.0,2,0,1
+H3リールガンSNAK,H3リールガンSNAK,1,1,1.0,1.0,1.0,2,1,1
+イグザミナー,Heavy Edit Splatling,1,1,1.0,1.0,1.0,3,1,1
+イグザミナー・ヒュー,Heavy Edit Splatling Nouveau,1,1,1.0,1.0,1.0,2,0,1
+バレルスピナー,Heavy Splatling,1,1,1.0,1.0,1.0,6,2,1
+バレルスピナーデコ,Heavy Splatling Deco,1,1,1.0,1.0,1.0,2,0,1
+ヒーローシューター レプリカ,Hero Shot Replica,3,3,1.0,1.0,1.0,3,1,3
+デュアルスイーパー蹄,Hoofz Dualie Squelchers,1,1,1.0,1.0,1.0,2,0,1
+モップリン角,Hornz Dread Wringer,2,2,1.0,1.0,1.0,2,1,2
+ハイドラント,Hydra Splatling,1,1,1.0,1.0,1.0,5,1,1
+パブロ,Inkbrush,3,3,1.0,1.0,1.0,11,3,3
+パブロ・ヒュー,Inkbrush Nouveau,6,6,1.0,1.0,1.0,4,3,6
+トライストリンガーコラボ,Inkline Tri-Stringer,3,3,1.0,1.0,1.0,5,1,3
+ジェットスイーパー,Jet Squelcher,1,1,1.0,1.0,1.0,2,0,1
+ジェットスイーパーCOBR,Jet Squelcher COB-R,2,2,1.0,1.0,1.0,2,1,2
+スプラローラーコラボ,Krak-On Splat Roller,3,3,1.0,1.0,1.0,2,0,3
+L3リールガン,L-3 Nozzlenose,1,1,1.0,1.0,1.0,2,0,1
+L3リールガンD,L-3 Nozzlenose D,2,2,1.0,1.0,1.0,2,1,2
+クアッドホッパーホワイト,Light Tetra Dualies,2,2,1.0,1.0,1.0,2,1,2
+ノヴァブラスター,Luna Blaster,1,1,1.0,1.0,1.0,3,1,1
+ノヴァブラスターネオ,Luna Blaster Neo,2,2,1.0,1.0,1.0,9,4,2
+スプラスピナー,Mini Splatling,1,1,1.0,1.0,1.0,2,0,1
+デンタルワイパーミント,Mint Decavitator,1,1,1.0,1.0,1.0,3,1,1
+N-ZAP85,N-ZAP 85,14,14,1.0,1.0,1.0,45,5,12
+N-ZAP89,N-ZAP 89,12,12,1.0,1.0,1.0,25,4,12
+ノーチラス47,Nautilus 47,1,1,1.0,1.0,1.0,7,2,1
+ノーチラス79,Nautilus 79,3,3,1.0,1.0,1.0,3,0,3
+シャープマーカーネオ,Neo Splash-o-matic,5,5,1.0,1.0,1.0,12,0,5
+ボールドマーカーネオ,Neo Sploosh-o-matic,4,4,1.0,1.0,1.0,14,2,4
+スクイックリンβ,New Squiffer,1,1,1.0,1.0,1.0,2,0,1
+オクタシューター レプリカ,Octo Shot Replica,1,1,1.0,1.0,1.0,2,0,1
+ホクサイ,Octobrush,1,1,1.0,1.0,1.0,2,0,1
+ホクサイ・ヒュー,Octobrush Nouveau,2,2,1.0,1.0,1.0,11,0,2
+オーダーローラー レプリカ,Order Roller Replica,2,2,1.0,1.0,1.0,2,0,2
+オーダーシューター レプリカ,Order Shot Replica,4,4,1.0,1.0,1.0,4,1,4
+オーダースロッシャー レプリカ,Order Slosher Replica,1,1,1.0,1.0,1.0,2,1,1
+オーダーワイパー レプリカ,Order Splatana Replica,1,0,0.0,0.0,1.0,1,0,1
+オーダースピナー レプリカ,Order Splatling Replica,1,1,1.0,1.0,1.0,2,0,1
+オーダーブラシ レプリカ,Orderbrush Replica,1,0,0.0,1.0,1.0,2,0,1
+PETシューター レプリカ,PETシューター レプリカ,1,1,1.0,1.0,1.0,10,1,1
+フィンセント,Painbrush,2,2,1.0,1.0,1.0,5,1,2
+フィンセントBRNZ,Painbrush BRN-Z,1,1,1.0,1.0,1.0,2,0,1
+フィンセント・ヒュー,Painbrush Nouveau,2,2,1.0,1.0,1.0,9,1,2
+スパイガジェット繚,Patternz Undercover Brella,2,2,1.0,1.0,1.0,1,0,2
+ワイドローラー惑,Planetz Big Swig Roller,6,6,1.0,1.0,1.0,7,0,6
+LACT-450,REEF-LUX 450,2,2,1.0,1.0,1.0,11,1,2
+LACT-450デコ,REEF-LUX 450 Deco,1,1,1.0,1.0,1.0,4,1,1
+LACT-450MILK,REEF-LUX 450 MIL-K,2,2,1.0,1.0,1.0,5,1,2
+ロングブラスター,Range Blaster,2,2,1.0,1.0,1.0,5,1,2
+ラピッドブラスター,Rapid Blaster,1,1,1.0,1.0,1.0,2,0,1
+ラピッドブラスターデコ,Rapid Blaster Deco,1,1,1.0,1.0,1.0,2,1,1
+Rブラスターエリート,Rapid Blaster Pro,1,1,1.0,1.0,1.0,2,0,1
+Rブラスターエリートデコ,Rapid Blaster Pro Deco,1,1,1.0,1.0,1.0,4,2,1
+RブラスターエリートWNTR,Rapid Blaster Pro WNT-R,1,1,1.0,1.0,1.0,3,1,1
+24式張替傘・甲,Recycled Brella 24 Mk I,1,1,1.0,1.0,1.0,2,0,1
+24式張替傘・乙,Recycled Brella 24 Mk II,1,1,1.0,1.0,1.0,2,1,1
+S-BLAST91,S-BLAST 91,2,2,1.0,1.0,1.0,7,1,2
+S-BLAST92,S-BLAST 92,1,1,1.0,1.0,1.0,2,0,1
+バケットスロッシャー,Slosher,1,1,1.0,1.0,1.0,3,1,1
+バケットスロッシャーデコ,Slosher Deco,1,1,1.0,1.0,1.0,2,0,1
+スクリュースロッシャー,Sloshing Machine,2,2,1.0,1.0,1.0,5,1,2
+スクリュースロッシャーネオ,Sloshing Machine Neo,1,1,1.0,1.0,1.0,2,0,1
+R-PEN/5B,Snipewriter 5B,1,1,1.0,1.0,1.0,2,0,1
+R-PEN/5H,Snipewriter 5H,1,1,1.0,1.0,1.0,2,1,1
+パラシェルターソレーラ,Sorella Brella,3,3,1.0,1.0,1.0,2,0,3
+シャープマーカー,Splash-o-matic,4,4,1.0,1.0,1.0,10,1,4
+シャープマーカーGECK,Splash-o-matic GCK-O,1,1,1.0,1.0,1.0,6,0,1
+パラシェルター,Splat Brella,2,2,1.0,1.0,1.0,2,0,2
+スプラマニューバー,Splat Dualies,3,3,1.0,1.0,1.0,6,1,3
+スプラローラー,Splat Roller,4,4,1.0,1.0,1.0,16,8,4
+ジムワイパー,Splatana Stamper,1,1,1.0,1.0,1.0,4,1,1
+ジムワイパー・ヒュー,Splatana Stamper Nouveau,1,1,1.0,1.0,1.0,2,0,1
+ドライブワイパー,Splatana Wiper,1,1,1.0,1.0,1.0,2,0,1
+ドライブワイパーデコ,Splatana Wiper Deco,1,1,1.0,1.0,1.0,2,0,1
+ドライブワイパーRUST,Splatana Wiper RUS-T,1,1,1.0,1.0,1.0,2,0,1
+スプラスコープ,Splatterscope,1,1,1.0,1.0,1.0,4,1,1
+スプラシューター,Splattershot,14,14,1.0,1.0,1.0,31,2,13
+わかばシューター,Splattershot Jr.,6,6,1.0,1.0,1.0,18,2,6
+スペースシューター,Splattershot Nova,2,2,1.0,1.0,1.0,5,0,2
+プライムシューター,Splattershot Pro,2,2,1.0,1.0,1.0,7,2,2
+プライムシューターFRZN,Splattershot Pro FRZ-N,2,2,1.0,1.0,1.0,9,1,2
+ボールドマーカー,Sploosh-o-matic,7,7,1.0,1.0,1.0,25,4,7
+ボトルガイザー,Squeezer,1,1,1.0,1.0,1.0,2,0,1
+ジムワイパー封,Stickerz Splatana Stamper,1,1,1.0,1.0,1.0,2,0,1
+キャンピングシェルター,Tenta Brella,1,1,1.0,1.0,1.0,2,1,1
+キャンピングシェルターCREM,Tenta Brella CRE-M,1,1,1.0,1.0,1.0,2,0,1
+キャンピングシェルターソレーラ,Tenta Sorella Brella,1,1,1.0,1.0,1.0,2,1,1
+スプラシューターコラボ,Tentatek Splattershot,7,7,1.0,1.0,1.0,19,1,7
+ハイドラント圧,Torrentz Hydra Splatling,1,1,1.0,1.0,1.0,2,1,1
+ヒッセン,Tri-Slosher,2,2,1.0,1.0,1.0,2,0,2
+ヒッセン・ヒュー,Tri-Slosher Nouveau,1,1,1.0,1.0,1.0,5,1,1
+トライストリンガー,Tri-Stringer,3,3,1.0,1.0,1.0,8,2,3
+スプラマニューバー耀,Twinklez Splat Dualies,1,1,1.0,1.0,1.0,2,0,1
+スパイガジェット,Undercover Brella,3,3,1.0,1.0,1.0,2,0,3
+スパイガジェットソレーラ,Undercover Sorella Brella,1,1,1.0,1.0,1.0,2,1,1
+フルイドV,Wellstring V,1,1,1.0,1.0,1.0,3,1,1
+スプラチャージャーコラボ,ZF Splat Charger,3,2,0.6666666666666666,1.0,1.0,3,1,3
+スプラスコープコラボ,ZF Splatterscope,1,0,0.0,0.0,1.0,2,0,1
+スプラスピナーコラボ,Zink Mini Splatling,1,1,1.0,1.0,1.0,2,0,1
+スプラチャージャー,_Splat Charger,1,0,0.0,0.0,1.0,3,1,1
+スパッタリーOWL,スパッタリーOWL,2,2,1.0,1.0,1.0,4,0,2
+スプラスコープFRST,スプラスコープFRST,1,1,1.0,1.0,1.0,2,1,1
+スプラスピナーPYTN,スプラスピナーPYTN,1,1,1.0,1.0,1.0,4,1,1
+スプラチャージャーFRST,スプラチャージャーFRST,1,1,1.0,1.0,1.0,3,1,1
+ダイナモローラー冥,ダイナモローラー冥,3,3,1.0,1.0,1.0,3,1,3
+ヒッセンASH,ヒッセンASH,1,1,1.0,1.0,1.0,3,1,1

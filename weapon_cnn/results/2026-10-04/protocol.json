@@ -1,0 +1,1277 @@
+{
+  "seed": 20261004,
+  "classes": [
+    "52 Gal",
+    "52 Gal Deco",
+    "96 Gal",
+    "96 Gal Deco",
+    "Aerospray MG",
+    "Aerospray RG",
+    "Annaki Splattershot Nova",
+    "Ballpoint Splatling",
+    "Ballpoint Splatling Nouveau",
+    "Bamboozler 14 Mk I",
+    "Bamboozler 14 Mk II",
+    "Big Swig Roller",
+    "Big Swig Roller Express",
+    "Blaster",
+    "Bloblobber",
+    "Bloblobber Deco",
+    "Bulbz Tri-Stringer",
+    "Carbon Roller",
+    "Carbon Roller ANG-L",
+    "Carbon Roller Deco",
+    "Charcoal Decavitator",
+    "Clash Blaster",
+    "Clash Blaster Neo (2)",
+    "Classic Squiffer",
+    "Clawz 96 Gal",
+    "Colorz Aerospray",
+    "Cometz Octobrush",
+    "Custom Blaster",
+    "Custom Douser Dualies FF",
+    "Custom Dualie Squelchers",
+    "Custom E-liter 4K",
+    "Custom E-liter 4K Scope",
+    "Custom Explosher",
+    "Custom Goo Tuber",
+    "Custom Hydra Splatling",
+    "Custom Jet Squelcher",
+    "Custom Range Blaster",
+    "Custom Splattershot Jr",
+    "Custom Wellstring V",
+    "Dapple Dualies",
+    "Dapple Dualies Nouveau",
+    "Dark Tetra Dualies",
+    "Douser Dualies FF",
+    "Dread Wringer",
+    "Dread Wringer D",
+    "Dualie Squelchers",
+    "Dynamo Roller",
+    "E-liter 4K",
+    "E-liter 4K Scope",
+    "Enperry Splat Dualies",
+    "Explosher",
+    "Flingza Roller",
+    "Foil Flingza Roller",
+    "Foil Squeezer",
+    "Forge Splattershot Pro",
+    "Glamorz Splattershot",
+    "Gleamz Blaster",
+    "Glitterz L-3 Nozzlenose",
+    "Glooga Dualies",
+    "Glooga Dualies Deco",
+    "Gold Dynamo Roller",
+    "Goo Tuber",
+    "H-3 Nozzlenose",
+    "H-3 Nozzlenose D",
+    "H3リールガンSNAK",
+    "Heavy Edit Splatling",
+    "Heavy Edit Splatling Nouveau",
+    "Heavy Splatling",
+    "Heavy Splatling Deco",
+    "Hero Shot Replica",
+    "Hoofz Dualie Squelchers",
+    "Hornz Dread Wringer",
+    "Hydra Splatling",
+    "Inkbrush",
+    "Inkbrush Nouveau",
+    "Inkline Tri-Stringer",
+    "Jet Squelcher",
+    "Jet Squelcher COB-R",
+    "Krak-On Splat Roller",
+    "L-3 Nozzlenose",
+    "L-3 Nozzlenose D",
+    "Light Tetra Dualies",
+    "Luna Blaster",
+    "Luna Blaster Neo",
+    "Mini Splatling",
+    "Mint Decavitator",
+    "N-ZAP 85",
+    "N-ZAP 89",
+    "Nautilus 47",
+    "Nautilus 79",
+    "Neo Splash-o-matic",
+    "Neo Sploosh-o-matic",
+    "New Squiffer",
+    "Octo Shot Replica",
+    "Octobrush",
+    "Octobrush Nouveau",
+    "Order Blaster Replica",
+    "Order Charger Replica",
+    "Order Dualie Replicas",
+    "Order Roller Replica",
+    "Order Shot Replica",
+    "Order Slosher Replica",
+    "Order Splatana Replica",
+    "Order Splatling Replica",
+    "Order Stringer Replica",
+    "Orderbrush Replica",
+    "PETシューター レプリカ",
+    "Painbrush",
+    "Painbrush BRN-Z",
+    "Painbrush Nouveau",
+    "Patternz Undercover Brella",
+    "Planetz Big Swig Roller",
+    "REEF-LUX 450",
+    "REEF-LUX 450 Deco",
+    "REEF-LUX 450 MIL-K",
+    "Range Blaster",
+    "Rapid Blaster",
+    "Rapid Blaster Deco",
+    "Rapid Blaster Pro",
+    "Rapid Blaster Pro Deco",
+    "Rapid Blaster Pro WNT-R",
+    "Recycled Brella 24 Mk I",
+    "Recycled Brella 24 Mk II",
+    "S-BLAST 91",
+    "S-BLAST 92",
+    "Slosher",
+    "Slosher Deco",
+    "Sloshing Machine",
+    "Sloshing Machine Neo",
+    "Snipewriter 5B",
+    "Snipewriter 5H",
+    "Sorella Brella",
+    "Splash-o-matic",
+    "Splash-o-matic GCK-O",
+    "Splat Brella",
+    "Splat Dualies",
+    "Splat Roller",
+    "Splatana Stamper",
+    "Splatana Stamper Nouveau",
+    "Splatana Wiper",
+    "Splatana Wiper Deco",
+    "Splatana Wiper RUS-T",
+    "Splatterscope",
+    "Splattershot",
+    "Splattershot Jr.",
+    "Splattershot Nova",
+    "Splattershot Pro",
+    "Splattershot Pro FRZ-N",
+    "Sploosh-o-matic",
+    "Squeezer",
+    "Stickerz Splatana Stamper",
+    "Tenta Brella",
+    "Tenta Brella CRE-M",
+    "Tenta Sorella Brella",
+    "Tentatek Splattershot",
+    "Torrentz Hydra Splatling",
+    "Tri-Slosher",
+    "Tri-Slosher Nouveau",
+    "Tri-Stringer",
+    "Twinklez Splat Dualies",
+    "Undercover Brella",
+    "Undercover Sorella Brella",
+    "Wellstring V",
+    "ZF Splat Charger",
+    "ZF Splatterscope",
+    "Zink Mini Splatling",
+    "_Splat Charger",
+    "スパッタリーOWL",
+    "スプラスコープFRST",
+    "スプラスピナーPYTN",
+    "スプラチャージャーFRST",
+    "ダイナモローラー冥",
+    "ヒッセンASH"
+  ],
+  "match_ids": {
+    "train": [
+      "19ac1c550cd7d3f5849a3836_000004050",
+      "19ac1c550cd7d3f5849a3836_000029580",
+      "19ac1c550cd7d3f5849a3836_000054960",
+      "19ac1c550cd7d3f5849a3836_000080100",
+      "19ac1c550cd7d3f5849a3836_000128010",
+      "19ac1c550cd7d3f5849a3836_000152640",
+      "19ac1c550cd7d3f5849a3836_000170850",
+      "19ac1c550cd7d3f5849a3836_000202050",
+      "19ac1c550cd7d3f5849a3836_000227160",
+      "19ac1c550cd7d3f5849a3836_000254100",
+      "19ac1c550cd7d3f5849a3836_000281250",
+      "19ac1c550cd7d3f5849a3836_000312330",
+      "19ac1c550cd7d3f5849a3836_000338730",
+      "19ac1c550cd7d3f5849a3836_000381480",
+      "19ac1c550cd7d3f5849a3836_000435480",
+      "19ac1c550cd7d3f5849a3836_000461490",
+      "19ac1c550cd7d3f5849a3836_000485460",
+      "19ac1c550cd7d3f5849a3836_000498240",
+      "19ac1c550cd7d3f5849a3836_000524640",
+      "19ac1c550cd7d3f5849a3836_000537540",
+      "19ac1c550cd7d3f5849a3836_000564660",
+      "19ac1c550cd7d3f5849a3836_000579300",
+      "19ac1c550cd7d3f5849a3836_000594300",
+      "19ac1c550cd7d3f5849a3836_000633240",
+      "19ac1c550cd7d3f5849a3836_000665700",
+      "19ac1c550cd7d3f5849a3836_000678540",
+      "19ac1c550cd7d3f5849a3836_000705480",
+      "19ac1c550cd7d3f5849a3836_000805920",
+      "19ac1c550cd7d3f5849a3836_000836310",
+      "5ffc9f005c2d4ddf_000007320_6b2b06",
+      "5ffc9f005c2d4ddf_000024619_bcf924",
+      "5ffc9f005c2d4ddf_000058835_6e6fa1",
+      "5ffc9f005c2d4ddf_000094305_953ba4",
+      "5ffc9f005c2d4ddf_000098985_19489d",
+      "5ffc9f005c2d4ddf_000144000_860512",
+      "5ffc9f005c2d4ddf_000216223_85e0c1",
+      "5ffc9f005c2d4ddf_000233819_659eb7",
+      "5ffc9f005c2d4ddf_000287646_9ac4f6",
+      "5ffc9f005c2d4ddf_000321212_61bac0",
+      "5ffc9f005c2d4ddf_000355920_accf65",
+      "5ffc9f005c2d4ddf_000378532_f2d05b",
+      "61b130ce8a3c46d2_000004469_ea9917",
+      "61b130ce8a3c46d2_000020736_c4fd82",
+      "73292737653559f7de997d46_000000150",
+      "73292737653559f7de997d46_000051150",
+      "73292737653559f7de997d46_000100920",
+      "73292737653559f7de997d46_000127110",
+      "73292737653559f7de997d46_000151920",
+      "73292737653559f7de997d46_000177660",
+      "73292737653559f7de997d46_000280200",
+      "73292737653559f7de997d46_000330480",
+      "bdaa17824cb04961_000049753_587347",
+      "bdaa17824cb04961_000064456_dbdb0b",
+      "bdaa17824cb04961_000086141_234c8f",
+      "bdaa17824cb04961_000114408_89c814",
+      "bdaa17824cb04961_000146337_43ebbd",
+      "bdaa17824cb04961_000172737_9e7728",
+      "bdaa17824cb04961_000205174_cf6105",
+      "bdaa17824cb04961_000232148_38e0c0",
+      "bdaa17824cb04961_000356932_e4be41",
+      "bdaa17824cb04961_000402182_6b2d55",
+      "bdaa17824cb04961_000421931_cbfbef",
+      "bdaa17824cb04961_000441536_56c0d8",
+      "bdaa17824cb04961_000479169_2117bc",
+      "bdaa17824cb04961_000498114_22f989",
+      "da92b28605fd4aef_000187975_39efad",
+      "da92b28605fd4aef_000204373_c64869",
+      "da92b28605fd4aef_000220424_0d9a11",
+      "da92b28605fd4aef_000237402_eae66d",
+      "da92b28605fd4aef_000260452_9a2fc6",
+      "da92b28605fd4aef_000294280_095c29",
+      "da92b28605fd4aef_000310173_ef481a",
+      "da92b28605fd4aef_000326705_3f4b3e",
+      "da92b28605fd4aef_000342308_f1c223",
+      "da92b28605fd4aef_000358611_02ff22",
+      "da92b28605fd4aef_000394527_6b2191",
+      "da92b28605fd4aef_000410989_8d0518",
+      "da92b28605fd4aef_000442990_ba0a6e",
+      "da92b28605fd4aef_000463297_4237f0",
+      "da92b28605fd4aef_000484344_cf6890",
+      "da92b28605fd4aef_000501295_d4baae",
+      "da92b28605fd4aef_000519436_2175ce",
+      "da92b28605fd4aef_000535354_4c632d",
+      "da92b28605fd4aef_000552171_3f0cac",
+      "da92b28605fd4aef_000568461_698b0d",
+      "da92b28605fd4aef_000600399_a2e328",
+      "da92b28605fd4aef_000616313_3c2bd5",
+      "da92b28605fd4aef_000649934_1d73f2",
+      "da92b28605fd4aef_000665700_07796c",
+      "da92b28605fd4aef_000681485_bd3b6a",
+      "da92b28605fd4aef_001115226_8eeedc",
+      "da92b28605fd4aef_001148634_61b758",
+      "da92b28605fd4aef_001165201_1bc017",
+      "da92b28605fd4aef_001205456_e2a259",
+      "da92b28605fd4aef_001231645_9554e5",
+      "da92b28605fd4aef_001267361_d5a90f",
+      "da92b28605fd4aef_001320201_a7be4c",
+      "da92b28605fd4aef_001373010_50784c",
+      "da92b28605fd4aef_001399150_93f799",
+      "da92b28605fd4aef_001529327_9a35d2",
+      "da92b28605fd4aef_001578642_edeaf2",
+      "da92b28605fd4aef_001628539_f44023",
+      "da92b28605fd4aef_001653258_45b28f",
+      "da92b28605fd4aef_001702545_6fe1b4",
+      "da92b28605fd4aef_001726392_70a390",
+      "da92b28605fd4aef_001808536_7b1682",
+      "da92b28605fd4aef_001825212_ad365a",
+      "da92b28605fd4aef_001858385_c7bdb1",
+      "da92b28605fd4aef_001874896_b2c48d",
+      "da92b28605fd4aef_001891688_76bcae",
+      "da92b28605fd4aef_001908260_1bebd6",
+      "e9ef5b0321984e59_000020663_9e4206",
+      "e9ef5b0321984e59_000071251_80bd5f",
+      "e9ef5b0321984e59_000089035_0939f8",
+      "e9ef5b0321984e59_000097126_2662c8",
+      "e9ef5b0321984e59_000103281_d5956b",
+      "e9ef5b0321984e59_000135366_651852",
+      "e9ef5b0321984e59_000189582_de3f12",
+      "e9ef5b0321984e59_000205415_68de68",
+      "e9ef5b0321984e59_000252565_9e38a3",
+      "e9ef5b0321984e59_000301963_ceac60",
+      "e9ef5b0321984e59_000318600_fba173",
+      "e9ef5b0321984e59_000334466_c9f6b4",
+      "e9ef5b0321984e59_000350265_0ce25c",
+      "e9ef5b0321984e59_000399181_fb0c1a",
+      "e9ef5b0321984e59_000415533_8f4480",
+      "e9ef5b0321984e59_000447264_d53392",
+      "e9ef5b0321984e59_000468703_68ad3c",
+      "e9ef5b0321984e59_000484574_57aa7c",
+      "e9ef5b0321984e59_000502885_be07fa",
+      "e9ef5b0321984e59_000518310_9c0e5e",
+      "e9ef5b0321984e59_000536700_4a3279",
+      "e9ef5b0321984e59_000575341_609498",
+      "e9ef5b0321984e59_000591154_66a80d",
+      "e9ef5b0321984e59_000654370_6f5a73"
+    ],
+    "validation": [
+      "19ac1c550cd7d3f5849a3836_000104490",
+      "19ac1c550cd7d3f5849a3836_000415110",
+      "19ac1c550cd7d3f5849a3836_000644070",
+      "5ffc9f005c2d4ddf_000075377_7f8720",
+      "5ffc9f005c2d4ddf_000182270_076438",
+      "5ffc9f005c2d4ddf_000198622_5cc01c",
+      "5ffc9f005c2d4ddf_000270566_6cf778",
+      "5ffc9f005c2d4ddf_000305020_3bda5d",
+      "73292737653559f7de997d46_000025020",
+      "73292737653559f7de997d46_000202500",
+      "73292737653559f7de997d46_000221940",
+      "73292737653559f7de997d46_000254280",
+      "73292737653559f7de997d46_000305100",
+      "bdaa17824cb04961_000377190_a89449",
+      "da92b28605fd4aef_000377336_5ba1ff",
+      "da92b28605fd4aef_000632529_1d183d",
+      "da92b28605fd4aef_001131423_ac7e70",
+      "da92b28605fd4aef_001499453_24fab6",
+      "da92b28605fd4aef_001677854_70eb60",
+      "e9ef5b0321984e59_000005043_c45853",
+      "e9ef5b0321984e59_000037418_c68ec3"
+    ],
+    "test": [
+      "19ac1c550cd7d3f5849a3836_000307230",
+      "19ac1c550cd7d3f5849a3836_000398010",
+      "19ac1c550cd7d3f5849a3836_000613800",
+      "19ac1c550cd7d3f5849a3836_000722580",
+      "19ac1c550cd7d3f5849a3836_000752400",
+      "19ac1c550cd7d3f5849a3836_000776550",
+      "5ffc9f005c2d4ddf_000040580_a8202e",
+      "5ffc9f005c2d4ddf_000127382_c410a3",
+      "5ffc9f005c2d4ddf_000163292_e9feb7",
+      "5ffc9f005c2d4ddf_000249721_657ed3",
+      "5ffc9f005c2d4ddf_000339064_372eba",
+      "73292737653559f7de997d46_000076170",
+      "bdaa17824cb04961_000002671_761890",
+      "bdaa17824cb04961_000026305_280a9a",
+      "bdaa17824cb04961_000130768_ecaea3",
+      "bdaa17824cb04961_000188775_335510",
+      "bdaa17824cb04961_000252991_3dc9af",
+      "bdaa17824cb04961_000275464_e7d9f1",
+      "bdaa17824cb04961_000293477_1ed5ca",
+      "bdaa17824cb04961_000310914_9d70eb",
+      "bdaa17824cb04961_000332794_83064f",
+      "bdaa17824cb04961_000460021_42cc47",
+      "da92b28605fd4aef_000277800_a241f0",
+      "da92b28605fd4aef_000426689_de5c22",
+      "da92b28605fd4aef_000584435_15cb9d",
+      "da92b28605fd4aef_001181980_4171b7",
+      "da92b28605fd4aef_001256601_8300e3",
+      "da92b28605fd4aef_001291994_ab1dff",
+      "da92b28605fd4aef_001348081_ba33ae",
+      "da92b28605fd4aef_001424847_793f89",
+      "da92b28605fd4aef_001450372_53fc0e",
+      "da92b28605fd4aef_001474766_32674f",
+      "da92b28605fd4aef_001553997_d991d4",
+      "da92b28605fd4aef_001600154_054337",
+      "da92b28605fd4aef_001751553_071798",
+      "da92b28605fd4aef_001842244_ea713b",
+      "e9ef5b0321984e59_000053735_bc7d9a",
+      "e9ef5b0321984e59_000119523_84b064",
+      "e9ef5b0321984e59_000156837_d20ceb",
+      "e9ef5b0321984e59_000173271_842b43",
+      "e9ef5b0321984e59_000221419_e5bb76",
+      "e9ef5b0321984e59_000237279_f620db",
+      "e9ef5b0321984e59_000268528_fe068a",
+      "e9ef5b0321984e59_000286421_92a691",
+      "e9ef5b0321984e59_000366213_1ce21c",
+      "e9ef5b0321984e59_000382692_c8b2b7",
+      "e9ef5b0321984e59_000431342_2c8442",
+      "e9ef5b0321984e59_000555822_e2717f",
+      "e9ef5b0321984e59_000606554_b06058",
+      "e9ef5b0321984e59_000622313_43999a",
+      "e9ef5b0321984e59_000638464_ea9ec4",
+      "e9ef5b0321984e59_000671048_f557bc"
+    ]
+  },
+  "per_weapon_matches": {
+    "52 Gal": {
+      "train": 41,
+      "validation": 4,
+      "test": 7
+    },
+    "52 Gal Deco": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "96 Gal": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "96 Gal Deco": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Aerospray MG": {
+      "train": 37,
+      "validation": 4,
+      "test": 17
+    },
+    "Aerospray RG": {
+      "train": 52,
+      "validation": 8,
+      "test": 19
+    },
+    "Annaki Splattershot Nova": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Ballpoint Splatling": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Ballpoint Splatling Nouveau": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Bamboozler 14 Mk I": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Bamboozler 14 Mk II": {
+      "train": 3,
+      "validation": 1,
+      "test": 2
+    },
+    "Big Swig Roller": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Big Swig Roller Express": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Blaster": {
+      "train": 6,
+      "validation": 1,
+      "test": 1
+    },
+    "Bloblobber": {
+      "train": 30,
+      "validation": 2,
+      "test": 6
+    },
+    "Bloblobber Deco": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Bulbz Tri-Stringer": {
+      "train": 4,
+      "validation": 1,
+      "test": 2
+    },
+    "Carbon Roller": {
+      "train": 6,
+      "validation": 0,
+      "test": 1
+    },
+    "Carbon Roller ANG-L": {
+      "train": 2,
+      "validation": 0,
+      "test": 3
+    },
+    "Carbon Roller Deco": {
+      "train": 11,
+      "validation": 2,
+      "test": 5
+    },
+    "Charcoal Decavitator": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Clash Blaster": {
+      "train": 3,
+      "validation": 0,
+      "test": 1
+    },
+    "Clash Blaster Neo (2)": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Classic Squiffer": {
+      "train": 10,
+      "validation": 4,
+      "test": 4
+    },
+    "Clawz 96 Gal": {
+      "train": 3,
+      "validation": 0,
+      "test": 2
+    },
+    "Colorz Aerospray": {
+      "train": 7,
+      "validation": 1,
+      "test": 3
+    },
+    "Cometz Octobrush": {
+      "train": 2,
+      "validation": 0,
+      "test": 2
+    },
+    "Custom Blaster": {
+      "train": 18,
+      "validation": 2,
+      "test": 2
+    },
+    "Custom Douser Dualies FF": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Custom Dualie Squelchers": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Custom E-liter 4K": {
+      "train": 3,
+      "validation": 1,
+      "test": 3
+    },
+    "Custom E-liter 4K Scope": {
+      "train": 4,
+      "validation": 0,
+      "test": 1
+    },
+    "Custom Explosher": {
+      "train": 9,
+      "validation": 4,
+      "test": 3
+    },
+    "Custom Goo Tuber": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Custom Hydra Splatling": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Custom Jet Squelcher": {
+      "train": 4,
+      "validation": 0,
+      "test": 2
+    },
+    "Custom Range Blaster": {
+      "train": 2,
+      "validation": 1,
+      "test": 2
+    },
+    "Custom Splattershot Jr": {
+      "train": 21,
+      "validation": 4,
+      "test": 7
+    },
+    "Custom Wellstring V": {
+      "train": 3,
+      "validation": 0,
+      "test": 1
+    },
+    "Dapple Dualies": {
+      "train": 3,
+      "validation": 1,
+      "test": 2
+    },
+    "Dapple Dualies Nouveau": {
+      "train": 13,
+      "validation": 3,
+      "test": 8
+    },
+    "Dark Tetra Dualies": {
+      "train": 3,
+      "validation": 1,
+      "test": 4
+    },
+    "Douser Dualies FF": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Dread Wringer": {
+      "train": 3,
+      "validation": 1,
+      "test": 1
+    },
+    "Dread Wringer D": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Dualie Squelchers": {
+      "train": 5,
+      "validation": 3,
+      "test": 3
+    },
+    "Dynamo Roller": {
+      "train": 12,
+      "validation": 2,
+      "test": 4
+    },
+    "E-liter 4K": {
+      "train": 13,
+      "validation": 6,
+      "test": 7
+    },
+    "E-liter 4K Scope": {
+      "train": 4,
+      "validation": 2,
+      "test": 3
+    },
+    "Enperry Splat Dualies": {
+      "train": 14,
+      "validation": 2,
+      "test": 5
+    },
+    "Explosher": {
+      "train": 2,
+      "validation": 0,
+      "test": 3
+    },
+    "Flingza Roller": {
+      "train": 6,
+      "validation": 1,
+      "test": 3
+    },
+    "Foil Flingza Roller": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Foil Squeezer": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Forge Splattershot Pro": {
+      "train": 4,
+      "validation": 1,
+      "test": 3
+    },
+    "Glamorz Splattershot": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Gleamz Blaster": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Glitterz L-3 Nozzlenose": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Glooga Dualies": {
+      "train": 2,
+      "validation": 1,
+      "test": 2
+    },
+    "Glooga Dualies Deco": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Gold Dynamo Roller": {
+      "train": 4,
+      "validation": 0,
+      "test": 3
+    },
+    "Goo Tuber": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "H-3 Nozzlenose": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "H-3 Nozzlenose D": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "H3リールガンSNAK": {
+      "train": 2,
+      "validation": 1,
+      "test": 1
+    },
+    "Heavy Edit Splatling": {
+      "train": 3,
+      "validation": 1,
+      "test": 1
+    },
+    "Heavy Edit Splatling Nouveau": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Heavy Splatling": {
+      "train": 6,
+      "validation": 2,
+      "test": 1
+    },
+    "Heavy Splatling Deco": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Hero Shot Replica": {
+      "train": 3,
+      "validation": 1,
+      "test": 3
+    },
+    "Hoofz Dualie Squelchers": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Hornz Dread Wringer": {
+      "train": 2,
+      "validation": 1,
+      "test": 2
+    },
+    "Hydra Splatling": {
+      "train": 5,
+      "validation": 1,
+      "test": 1
+    },
+    "Inkbrush": {
+      "train": 11,
+      "validation": 3,
+      "test": 3
+    },
+    "Inkbrush Nouveau": {
+      "train": 4,
+      "validation": 3,
+      "test": 6
+    },
+    "Inkline Tri-Stringer": {
+      "train": 5,
+      "validation": 1,
+      "test": 3
+    },
+    "Jet Squelcher": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Jet Squelcher COB-R": {
+      "train": 2,
+      "validation": 1,
+      "test": 2
+    },
+    "Krak-On Splat Roller": {
+      "train": 2,
+      "validation": 0,
+      "test": 3
+    },
+    "L-3 Nozzlenose": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "L-3 Nozzlenose D": {
+      "train": 2,
+      "validation": 1,
+      "test": 2
+    },
+    "Light Tetra Dualies": {
+      "train": 2,
+      "validation": 1,
+      "test": 2
+    },
+    "Luna Blaster": {
+      "train": 3,
+      "validation": 1,
+      "test": 1
+    },
+    "Luna Blaster Neo": {
+      "train": 9,
+      "validation": 4,
+      "test": 2
+    },
+    "Mini Splatling": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Mint Decavitator": {
+      "train": 3,
+      "validation": 1,
+      "test": 1
+    },
+    "N-ZAP 85": {
+      "train": 45,
+      "validation": 5,
+      "test": 12
+    },
+    "N-ZAP 89": {
+      "train": 25,
+      "validation": 4,
+      "test": 12
+    },
+    "Nautilus 47": {
+      "train": 7,
+      "validation": 2,
+      "test": 1
+    },
+    "Nautilus 79": {
+      "train": 3,
+      "validation": 0,
+      "test": 3
+    },
+    "Neo Splash-o-matic": {
+      "train": 12,
+      "validation": 0,
+      "test": 5
+    },
+    "Neo Sploosh-o-matic": {
+      "train": 14,
+      "validation": 2,
+      "test": 4
+    },
+    "New Squiffer": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Octo Shot Replica": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Octobrush": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Octobrush Nouveau": {
+      "train": 11,
+      "validation": 0,
+      "test": 2
+    },
+    "Order Blaster Replica": {
+      "train": 1,
+      "validation": 0,
+      "test": 0
+    },
+    "Order Charger Replica": {
+      "train": 1,
+      "validation": 0,
+      "test": 0
+    },
+    "Order Dualie Replicas": {
+      "train": 1,
+      "validation": 0,
+      "test": 0
+    },
+    "Order Roller Replica": {
+      "train": 2,
+      "validation": 0,
+      "test": 2
+    },
+    "Order Shot Replica": {
+      "train": 4,
+      "validation": 1,
+      "test": 4
+    },
+    "Order Slosher Replica": {
+      "train": 2,
+      "validation": 1,
+      "test": 1
+    },
+    "Order Splatana Replica": {
+      "train": 1,
+      "validation": 0,
+      "test": 1
+    },
+    "Order Splatling Replica": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Order Stringer Replica": {
+      "train": 1,
+      "validation": 0,
+      "test": 0
+    },
+    "Orderbrush Replica": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "PETシューター レプリカ": {
+      "train": 10,
+      "validation": 1,
+      "test": 1
+    },
+    "Painbrush": {
+      "train": 5,
+      "validation": 1,
+      "test": 2
+    },
+    "Painbrush BRN-Z": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Painbrush Nouveau": {
+      "train": 9,
+      "validation": 1,
+      "test": 2
+    },
+    "Patternz Undercover Brella": {
+      "train": 1,
+      "validation": 0,
+      "test": 2
+    },
+    "Planetz Big Swig Roller": {
+      "train": 7,
+      "validation": 0,
+      "test": 6
+    },
+    "REEF-LUX 450": {
+      "train": 11,
+      "validation": 1,
+      "test": 2
+    },
+    "REEF-LUX 450 Deco": {
+      "train": 4,
+      "validation": 1,
+      "test": 1
+    },
+    "REEF-LUX 450 MIL-K": {
+      "train": 5,
+      "validation": 1,
+      "test": 2
+    },
+    "Range Blaster": {
+      "train": 5,
+      "validation": 1,
+      "test": 2
+    },
+    "Rapid Blaster": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Rapid Blaster Deco": {
+      "train": 2,
+      "validation": 1,
+      "test": 1
+    },
+    "Rapid Blaster Pro": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Rapid Blaster Pro Deco": {
+      "train": 4,
+      "validation": 2,
+      "test": 1
+    },
+    "Rapid Blaster Pro WNT-R": {
+      "train": 3,
+      "validation": 1,
+      "test": 1
+    },
+    "Recycled Brella 24 Mk I": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Recycled Brella 24 Mk II": {
+      "train": 2,
+      "validation": 1,
+      "test": 1
+    },
+    "S-BLAST 91": {
+      "train": 7,
+      "validation": 1,
+      "test": 2
+    },
+    "S-BLAST 92": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Slosher": {
+      "train": 3,
+      "validation": 1,
+      "test": 1
+    },
+    "Slosher Deco": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Sloshing Machine": {
+      "train": 5,
+      "validation": 1,
+      "test": 2
+    },
+    "Sloshing Machine Neo": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Snipewriter 5B": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Snipewriter 5H": {
+      "train": 2,
+      "validation": 1,
+      "test": 1
+    },
+    "Sorella Brella": {
+      "train": 2,
+      "validation": 0,
+      "test": 3
+    },
+    "Splash-o-matic": {
+      "train": 10,
+      "validation": 1,
+      "test": 4
+    },
+    "Splash-o-matic GCK-O": {
+      "train": 6,
+      "validation": 0,
+      "test": 1
+    },
+    "Splat Brella": {
+      "train": 2,
+      "validation": 0,
+      "test": 2
+    },
+    "Splat Dualies": {
+      "train": 6,
+      "validation": 1,
+      "test": 3
+    },
+    "Splat Roller": {
+      "train": 16,
+      "validation": 8,
+      "test": 4
+    },
+    "Splatana Stamper": {
+      "train": 4,
+      "validation": 1,
+      "test": 1
+    },
+    "Splatana Stamper Nouveau": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Splatana Wiper": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Splatana Wiper Deco": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Splatana Wiper RUS-T": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Splatterscope": {
+      "train": 4,
+      "validation": 1,
+      "test": 1
+    },
+    "Splattershot": {
+      "train": 31,
+      "validation": 2,
+      "test": 13
+    },
+    "Splattershot Jr.": {
+      "train": 18,
+      "validation": 2,
+      "test": 6
+    },
+    "Splattershot Nova": {
+      "train": 5,
+      "validation": 0,
+      "test": 2
+    },
+    "Splattershot Pro": {
+      "train": 7,
+      "validation": 2,
+      "test": 2
+    },
+    "Splattershot Pro FRZ-N": {
+      "train": 9,
+      "validation": 1,
+      "test": 2
+    },
+    "Sploosh-o-matic": {
+      "train": 25,
+      "validation": 4,
+      "test": 7
+    },
+    "Squeezer": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Stickerz Splatana Stamper": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Tenta Brella": {
+      "train": 2,
+      "validation": 1,
+      "test": 1
+    },
+    "Tenta Brella CRE-M": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Tenta Sorella Brella": {
+      "train": 2,
+      "validation": 1,
+      "test": 1
+    },
+    "Tentatek Splattershot": {
+      "train": 19,
+      "validation": 1,
+      "test": 7
+    },
+    "Torrentz Hydra Splatling": {
+      "train": 2,
+      "validation": 1,
+      "test": 1
+    },
+    "Tri-Slosher": {
+      "train": 2,
+      "validation": 0,
+      "test": 2
+    },
+    "Tri-Slosher Nouveau": {
+      "train": 5,
+      "validation": 1,
+      "test": 1
+    },
+    "Tri-Stringer": {
+      "train": 8,
+      "validation": 2,
+      "test": 3
+    },
+    "Twinklez Splat Dualies": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Undercover Brella": {
+      "train": 2,
+      "validation": 0,
+      "test": 3
+    },
+    "Undercover Sorella Brella": {
+      "train": 2,
+      "validation": 1,
+      "test": 1
+    },
+    "Wellstring V": {
+      "train": 3,
+      "validation": 1,
+      "test": 1
+    },
+    "ZF Splat Charger": {
+      "train": 3,
+      "validation": 1,
+      "test": 3
+    },
+    "ZF Splatterscope": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "Zink Mini Splatling": {
+      "train": 2,
+      "validation": 0,
+      "test": 1
+    },
+    "_Splat Charger": {
+      "train": 3,
+      "validation": 1,
+      "test": 1
+    },
+    "スパッタリーOWL": {
+      "train": 4,
+      "validation": 0,
+      "test": 2
+    },
+    "スプラスコープFRST": {
+      "train": 2,
+      "validation": 1,
+      "test": 1
+    },
+    "スプラスピナーPYTN": {
+      "train": 4,
+      "validation": 1,
+      "test": 1
+    },
+    "スプラチャージャーFRST": {
+      "train": 3,
+      "validation": 1,
+      "test": 1
+    },
+    "ダイナモローラー冥": {
+      "train": 3,
+      "validation": 1,
+      "test": 3
+    },
+    "ヒッセンASH": {
+      "train": 3,
+      "validation": 1,
+      "test": 1
+    }
+  },
+  "singleton_training_only": [
+    "Order Blaster Replica",
+    "Order Charger Replica",
+    "Order Dualie Replicas",
+    "Order Stringer Replica"
+  ],
+  "test_unrepresented": [
+    "Order Blaster Replica",
+    "Order Charger Replica",
+    "Order Dualie Replicas",
+    "Order Stringer Replica"
+  ],
+  "policy": "Whole match split, class-aware greedy coverage with fixed seed; every class remains in train. Singleton matches stay in training. Validation preserves 2 train matches when possible. No frame/slot random split.",
+  "scope": "cross_match, not cross_video/cross_session; fixed historical recordings, not untouched newly collected data.",
+  "dataset_sha256": "db66079748eb50d0f953261b5499ca4bde0642f0eae7734917b18a28add2c084",
+  "created_at": "2026-10-04T07:53:48+00:00"
+}

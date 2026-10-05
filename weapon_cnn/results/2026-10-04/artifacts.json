@@ -1,0 +1,27 @@
+{
+  "model_sha256": "7ca39d3eb2e81d900643274699be1c33326f14452a791c8c145bcb05ad8c6f7f",
+  "dataset_sha256": "db66079748eb50d0f953261b5499ca4bde0642f0eae7734917b18a28add2c084",
+  "protocol_sha256": "b855d9fe92da735742df3d124f234481e1ebd6604e27f0b71954e92b4578cf0b",
+  "files": {
+    "assessment.md": "cfa0dc0ef3e63b125edfe1e4e7a68e61e47d90eadcb1f05de6f741419195be52",
+    "errors/01_context.jpg": "e74d655f77442f1ef3204c2bdf162f63e51122ff364e494a31b17dc67890bdfd",
+    "errors/01_crop.png": "2c2d90f6bc8ac1a66e41f5d46911f916dfd4888962fe88fc24aacf9da820fa1e",
+    "errors/02_context.jpg": "1327771912904aca80d8057a58409d69a4d8c0598f4e72114b38e3a26f3b2520",
+    "errors/02_crop.png": "2ef97af38bd38232d3b6377f6bfb57eb9002b495285df7484d9842b4e77dba8a",
+    "errors/03_context.jpg": "60806feb7b191f39fe12c0c8520fac7d71ae9817107a77e2bb3a5650644d4221",
+    "errors/03_crop.png": "6561b15c3315a70ea86e58314bab179ee7ab901db2a398aa8a8e42a28c1efd7f",
+    "errors/04_context.jpg": "d857f51181218bfe2acfcfc92a9a89fff01407efbf36697fd733317d41e044c7",
+    "errors/04_crop.png": "e67ea9059f683b14d9ec9369ba88927bbcb7d51eced86f8bd8a9c4d24c64cb1c",
+    "errors/05_context.jpg": "071c7ecc0d324100fa0d78f294a552ba6b913a343725a05e6f661730819ebbf9",
+    "errors/05_crop.png": "6f0fadb4b1d640129f06fa59b895829f37ef7bcff70ec12911c30e9b61e83e43",
+    "errors.json": "5de9c416abb20757ed039a941ec8d9765160b0b1bc0c0f5069b6fb7df6684e46",
+    "errors.md": "9f0d7032df8c072d2870371a43df6a4c0433424f73d8ba74dc16f367117b06e9",
+    "history.json": "356b59099ac6b61ae8bfa0a4cdc730e3bbd4b771a7c4ff76c682f9346b28448c",
+    "per_weapon.csv": "9d973c4f862fb08871f1f192da95373871d1223a840e6df3bdc32cd51e811524",
+    "predictions.jsonl": "62ae86d2cbfe16821b17e800fbe6dba6b7658fbbd5069dd2e53d3c44c9364852",
+    "protocol.json": "b855d9fe92da735742df3d124f234481e1ebd6604e27f0b71954e92b4578cf0b",
+    "report.json": "0aeee77c09093c9799760fe489c337e5d01494c8fc9ee2881e0f8fbb0abc9ac5",
+    "settings.json": "893f0e6c29ac1abff2095ed9d298cae14563573dfbd4a58f5fb54741bc87fa07"
+  },
+  "note": "Exact validation-selected checkpoint; no refit. Compact predictions retain top-5 for all evaluated rows. Error images are copies. Report dataset path must exist for browser viewer; portable error gallery needs no dataset."
+}

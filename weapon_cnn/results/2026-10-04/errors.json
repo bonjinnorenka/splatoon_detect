@@ -1,0 +1,1071 @@
+[
+  {
+    "sample_id": "19ac1c550cd7d3f5849a3836_000613800_000614580_left0",
+    "source_video": "/home/ryokuryu/splat_2/videos/2026-07-22 21-21-21.mkv",
+    "video_id": "19ac1c550cd7d3f5849a3836",
+    "match_id": "19ac1c550cd7d3f5849a3836_000613800",
+    "timestamp": 10243.0,
+    "frame_index": 614580,
+    "side": "left",
+    "slot_index": 0,
+    "state": "alive",
+    "state_source": "automatic squid_lamp_detect",
+    "weapon_label": "ZF Splat Charger",
+    "weapon_class": "charger",
+    "label_status": "labeled",
+    "label_source": "human_confirmed_match",
+    "match_revision": 10,
+    "rect": [
+      515,
+      23,
+      614,
+      122
+    ],
+    "opening_timestamp": 10243.0,
+    "opening_frame_ordinal": 0,
+    "seconds_after_opening": 0.0,
+    "remaining_seconds": 300,
+    "opening_detection_fallback": false,
+    "crop": "crops/obs/19ac1c550cd7d3f5849a3836_000613800/000614580_left0.png",
+    "context": "frames/obs/19ac1c550cd7d3f5849a3836_000613800/000614580.jpg",
+    "special_score": 0.968888888888889,
+    "blur_variance": 1676.7993305739421,
+    "cnn_source_kind": "obs",
+    "image_quality": {
+      "white_fraction": 0.0013477088948787063,
+      "contrast": 87.0,
+      "weight": 0.997306398529508
+    },
+    "source_dataset": "obs_snapshot",
+    "frame_identity": "obs:19ac1c550cd7d3f5849a3836:614580",
+    "method": "cnn_raw_frame_quality_5frame",
+    "scope": "cross_match",
+    "expected": "ZF Splat Charger",
+    "predicted": "Clawz 96 Gal",
+    "predicted_class": "shooter",
+    "correct": false,
+    "best_score": 0.07282875720798279,
+    "second_best_score": 0.06700140185721204,
+    "margin": 0.005827355350770752,
+    "confidence": 0.07282875720798279,
+    "top_k": [
+      {
+        "weapon": "Clawz 96 Gal",
+        "weapon_class": "shooter",
+        "score": 0.07282875720798279,
+        "confidence": 0.07282875720798279
+      },
+      {
+        "weapon": "ZF Splat Charger",
+        "weapon_class": "charger",
+        "score": 0.06700140185721204,
+        "confidence": 0.06700140185721204
+      },
+      {
+        "weapon": "Custom Jet Squelcher",
+        "weapon_class": "shooter",
+        "score": 0.06407900272029415,
+        "confidence": 0.06407900272029415
+      },
+      {
+        "weapon": "Undercover Sorella Brella",
+        "weapon_class": "brella",
+        "score": 0.05894005147755806,
+        "confidence": 0.05894005147755806
+      },
+      {
+        "weapon": "Snipewriter 5H",
+        "weapon_class": "charger",
+        "score": 0.03443085392588077,
+        "confidence": 0.03443085392588077
+      }
+    ],
+    "decision_frame_count": 5,
+    "usable_frame_count": 5,
+    "insufficient_frames": false,
+    "decision_status": "inferred",
+    "decision_timestamp": 10247.0,
+    "frame_indices": [
+      614580,
+      614640,
+      614700,
+      614760,
+      614820
+    ],
+    "decision_frames": [
+      {
+        "crop": "crops/obs/19ac1c550cd7d3f5849a3836_000613800/000614580_left0.png",
+        "context": "frames/obs/19ac1c550cd7d3f5849a3836_000613800/000614580.jpg",
+        "rect": [
+          515,
+          23,
+          614,
+          122
+        ],
+        "frame_index": 614580,
+        "timestamp": 10243.0,
+        "state": "alive",
+        "remaining_seconds": 300,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/obs/19ac1c550cd7d3f5849a3836_000613800/000614640_left0.png",
+        "context": "frames/obs/19ac1c550cd7d3f5849a3836_000613800/000614640.jpg",
+        "rect": [
+          515,
+          23,
+          614,
+          122
+        ],
+        "frame_index": 614640,
+        "timestamp": 10244.0,
+        "state": "alive",
+        "remaining_seconds": 300,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/obs/19ac1c550cd7d3f5849a3836_000613800/000614700_left0.png",
+        "context": "frames/obs/19ac1c550cd7d3f5849a3836_000613800/000614700.jpg",
+        "rect": [
+          515,
+          23,
+          614,
+          122
+        ],
+        "frame_index": 614700,
+        "timestamp": 10245.0,
+        "state": "alive",
+        "remaining_seconds": 300,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/obs/19ac1c550cd7d3f5849a3836_000613800/000614760_left0.png",
+        "context": "frames/obs/19ac1c550cd7d3f5849a3836_000613800/000614760.jpg",
+        "rect": [
+          515,
+          23,
+          614,
+          122
+        ],
+        "frame_index": 614760,
+        "timestamp": 10246.0,
+        "state": "alive",
+        "remaining_seconds": 299,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/obs/19ac1c550cd7d3f5849a3836_000613800/000614820_left0.png",
+        "context": "frames/obs/19ac1c550cd7d3f5849a3836_000613800/000614820.jpg",
+        "rect": [
+          515,
+          23,
+          614,
+          122
+        ],
+        "frame_index": 614820,
+        "timestamp": 10247.0,
+        "state": "alive",
+        "remaining_seconds": 298,
+        "reserved_template_frame": null
+      }
+    ],
+    "decision_note": "Opening-only quality; first global 5 frames, no later rescue; automatic state is not a gate.",
+    "aggregation_policy": "quality",
+    "frame_quality": [
+      {
+        "white_fraction": 0.0013477088948787063,
+        "contrast": 87.0,
+        "weight": 0.997306398529508
+      },
+      {
+        "white_fraction": 0.0011792452830188679,
+        "contrast": 89.0,
+        "weight": 0.9976429000533998
+      },
+      {
+        "white_fraction": 0.0010107816711590297,
+        "contrast": 73.0,
+        "weight": 0.9106562557327578
+      },
+      {
+        "white_fraction": 0.0010107816711590297,
+        "contrast": 89.0,
+        "weight": 0.9979794583372688
+      },
+      {
+        "white_fraction": 0.003200808625336927,
+        "contrast": 103.0,
+        "weight": 0.9936086279251822
+      }
+    ],
+    "aggregation_weights": {
+      "19ac1c550cd7d3f5849a3836_000613800_000614580_left0": 0.20364855297242757,
+      "19ac1c550cd7d3f5849a3836_000613800_000614640_left0": 0.2037172661066405,
+      "19ac1c550cd7d3f5849a3836_000613800_000614700_left0": 0.18595471663343383,
+      "19ac1c550cd7d3f5849a3836_000613800_000614760_left0": 0.20378599083116034,
+      "19ac1c550cd7d3f5849a3836_000613800_000614820_left0": 0.20289347345633776
+    },
+    "exported_crop": "errors/01_crop.png",
+    "exported_context": "errors/01_context.jpg"
+  },
+  {
+    "sample_id": "bdaa17824cb04961_000026305_280a9a_000026305_right1",
+    "source_video": "0",
+    "source_kind": "camera",
+    "source_image": "/home/ryokuryu/splat_2/private/datasets/weapon_opening/2026-10-04/live_session/matches/bdaa17824cb04961_000026305_280a9a/frames/00.png",
+    "source_image_sha256": "728b38d0bba42c0f625326810d7aa4430c0e8059ba8ed75d5bc591cb33d214bb",
+    "video_id": "bdaa17824cb04961",
+    "video_id_definition": "live acquisition session UUID, not a video file hash",
+    "match_id": "bdaa17824cb04961_000026305_280a9a",
+    "timestamp": 438.39086659999157,
+    "frame_index": 26305,
+    "timing": "monotonic elapsed since capture open",
+    "frame_index_definition": "successful camera read counter (not device hardware frame number)",
+    "side": "right",
+    "slot_index": 1,
+    "state": "alive",
+    "state_source": "automatic squid_lamp_detect, not human ground truth",
+    "weapon_label": "ZF Splatterscope",
+    "weapon_class": "charger",
+    "label_status": "labeled",
+    "label_source": "human_confirmed_match",
+    "match_revision": 11,
+    "rect": [
+      1125,
+      23,
+      1225,
+      122
+    ],
+    "crop": "crops/live/bdaa17824cb04961_000026305_280a9a/00_right1.png",
+    "context": "frames/live/bdaa17824cb04961_000026305_280a9a/000026305.jpg",
+    "special_score": 0.8789626497533475,
+    "opening_timestamp": 438.39086659999157,
+    "opening_frame_ordinal": 0,
+    "seconds_after_opening": 0.0,
+    "remaining_seconds": 180,
+    "opening_detection_fallback": false,
+    "blur_variance": 679.0184348535864,
+    "cnn_source_kind": "live",
+    "image_quality": {
+      "white_fraction": 0.00033692722371967657,
+      "contrast": 110.0,
+      "weight": 0.9993262590725147
+    },
+    "source_dataset": "live_snapshot",
+    "frame_identity": "live:728b38d0bba42c0f625326810d7aa4430c0e8059ba8ed75d5bc591cb33d214bb",
+    "method": "cnn_raw_frame_quality_5frame",
+    "scope": "cross_match",
+    "expected": "ZF Splatterscope",
+    "predicted": "ZF Splat Charger",
+    "predicted_class": "charger",
+    "correct": false,
+    "best_score": 0.8647104907058639,
+    "second_best_score": 0.021340190254895343,
+    "margin": 0.8433703004509686,
+    "confidence": 0.8647104907058639,
+    "top_k": [
+      {
+        "weapon": "ZF Splat Charger",
+        "weapon_class": "charger",
+        "score": 0.8647104907058639,
+        "confidence": 0.8647104907058639
+      },
+      {
+        "weapon": "Splatterscope",
+        "weapon_class": "charger",
+        "score": 0.021340190254895343,
+        "confidence": 0.021340190254895343
+      },
+      {
+        "weapon": "_Splat Charger",
+        "weapon_class": "charger",
+        "score": 0.01628576526649929,
+        "confidence": 0.01628576526649929
+      },
+      {
+        "weapon": "ZF Splatterscope",
+        "weapon_class": "charger",
+        "score": 0.010713876290804253,
+        "confidence": 0.010713876290804253
+      },
+      {
+        "weapon": "Snipewriter 5H",
+        "weapon_class": "charger",
+        "score": 0.004965152480812588,
+        "confidence": 0.004965152480812588
+      }
+    ],
+    "decision_frame_count": 5,
+    "usable_frame_count": 5,
+    "insufficient_frames": false,
+    "decision_status": "inferred",
+    "decision_timestamp": 442.46685819998675,
+    "frame_indices": [
+      26305,
+      26366,
+      26427,
+      26488,
+      26550
+    ],
+    "decision_frames": [
+      {
+        "crop": "crops/live/bdaa17824cb04961_000026305_280a9a/00_right1.png",
+        "context": "frames/live/bdaa17824cb04961_000026305_280a9a/000026305.jpg",
+        "rect": [
+          1125,
+          23,
+          1225,
+          122
+        ],
+        "frame_index": 26305,
+        "timestamp": 438.39086659999157,
+        "state": "alive",
+        "remaining_seconds": 180,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/bdaa17824cb04961_000026305_280a9a/01_right1.png",
+        "context": "frames/live/bdaa17824cb04961_000026305_280a9a/000026366.jpg",
+        "rect": [
+          1125,
+          23,
+          1225,
+          122
+        ],
+        "frame_index": 26366,
+        "timestamp": 439.409064099993,
+        "state": "alive",
+        "remaining_seconds": 180,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/bdaa17824cb04961_000026305_280a9a/02_right1.png",
+        "context": "frames/live/bdaa17824cb04961_000026305_280a9a/000026427.jpg",
+        "rect": [
+          1125,
+          23,
+          1225,
+          122
+        ],
+        "frame_index": 26427,
+        "timestamp": 440.4220178999967,
+        "state": "unknown",
+        "remaining_seconds": null,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/bdaa17824cb04961_000026305_280a9a/03_right1.png",
+        "context": "frames/live/bdaa17824cb04961_000026305_280a9a/000026488.jpg",
+        "rect": [
+          1125,
+          23,
+          1225,
+          122
+        ],
+        "frame_index": 26488,
+        "timestamp": 441.44672969999374,
+        "state": "alive",
+        "remaining_seconds": null,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/bdaa17824cb04961_000026305_280a9a/04_right1.png",
+        "context": "frames/live/bdaa17824cb04961_000026305_280a9a/000026550.jpg",
+        "rect": [
+          1125,
+          23,
+          1225,
+          122
+        ],
+        "frame_index": 26550,
+        "timestamp": 442.46685819998675,
+        "state": "alive",
+        "remaining_seconds": 178,
+        "reserved_template_frame": null
+      }
+    ],
+    "decision_note": "Opening-only quality; first global 5 frames, no later rescue; automatic state is not a gate.",
+    "aggregation_policy": "quality",
+    "frame_quality": [
+      {
+        "white_fraction": 0.00033692722371967657,
+        "contrast": 110.0,
+        "weight": 0.9993262590725147
+      },
+      {
+        "white_fraction": 0.00033692722371967657,
+        "contrast": 110.0,
+        "weight": 0.9993262590725147
+      },
+      {
+        "white_fraction": 0.004380053908355795,
+        "contrast": 111.0,
+        "weight": 0.9912590770555284
+      },
+      {
+        "white_fraction": 0.00033692722371967657,
+        "contrast": 122.0,
+        "weight": 0.9993262590725147
+      },
+      {
+        "white_fraction": 0.00033692722371967657,
+        "contrast": 112.0,
+        "weight": 0.9993262590725147
+      }
+    ],
+    "aggregation_weights": {
+      "bdaa17824cb04961_000026305_280a9a_000026305_right1": 0.20032342701561776,
+      "bdaa17824cb04961_000026305_280a9a_000026366_right1": 0.20032342701561776,
+      "bdaa17824cb04961_000026305_280a9a_000026427_right1": 0.19870629193752892,
+      "bdaa17824cb04961_000026305_280a9a_000026488_right1": 0.20032342701561776,
+      "bdaa17824cb04961_000026305_280a9a_000026550_right1": 0.20032342701561776
+    },
+    "exported_crop": "errors/02_crop.png",
+    "exported_context": "errors/02_context.jpg"
+  },
+  {
+    "sample_id": "da92b28605fd4aef_001348081_ba33ae_001348081_left3",
+    "source_video": "0",
+    "source_kind": "camera",
+    "source_image": "/home/ryokuryu/splat_2/private/datasets/weapon_opening/2026-10-04/live_session/matches/da92b28605fd4aef_001348081_ba33ae/frames/00.png",
+    "source_image_sha256": "5f8f9b67a74f3a71a49960ba37c386790099700500b1a604619cc5993715973f",
+    "video_id": "da92b28605fd4aef",
+    "video_id_definition": "live acquisition session UUID, not a video file hash",
+    "match_id": "da92b28605fd4aef_001348081_ba33ae",
+    "timestamp": 22468.401475499995,
+    "frame_index": 1348081,
+    "timing": "monotonic elapsed since capture open",
+    "frame_index_definition": "successful camera read counter (not device hardware frame number)",
+    "side": "left",
+    "slot_index": 3,
+    "state": "alive",
+    "state_source": "automatic squid_lamp_detect, not human ground truth",
+    "weapon_label": "Orderbrush Replica",
+    "weapon_class": "brush",
+    "label_status": "labeled",
+    "label_source": "human_confirmed_match",
+    "match_revision": 8,
+    "rect": [
+      785,
+      23,
+      885,
+      122
+    ],
+    "crop": "crops/live/da92b28605fd4aef_001348081_ba33ae/00_left3.png",
+    "context": "frames/live/da92b28605fd4aef_001348081_ba33ae/001348081.jpg",
+    "special_score": 0.7246145829192341,
+    "opening_timestamp": 22468.401475499995,
+    "opening_frame_ordinal": 0,
+    "seconds_after_opening": 0.0,
+    "remaining_seconds": 300,
+    "opening_detection_fallback": false,
+    "blur_variance": 252.75053699622487,
+    "cnn_source_kind": "live",
+    "image_quality": {
+      "white_fraction": 0.079177897574124,
+      "contrast": 184.5,
+      "weight": 0.8479133443160105
+    },
+    "source_dataset": "live_snapshot",
+    "frame_identity": "live:5f8f9b67a74f3a71a49960ba37c386790099700500b1a604619cc5993715973f",
+    "method": "cnn_raw_frame_quality_5frame",
+    "scope": "cross_match",
+    "expected": "Orderbrush Replica",
+    "predicted": "Order Splatana Replica",
+    "predicted_class": "splatana",
+    "correct": false,
+    "best_score": 0.7922476088093997,
+    "second_best_score": 0.01670732248493713,
+    "margin": 0.7755402863244626,
+    "confidence": 0.7922476088093997,
+    "top_k": [
+      {
+        "weapon": "Order Splatana Replica",
+        "weapon_class": "splatana",
+        "score": 0.7922476088093997,
+        "confidence": 0.7922476088093997
+      },
+      {
+        "weapon": "Orderbrush Replica",
+        "weapon_class": "brush",
+        "score": 0.01670732248493713,
+        "confidence": 0.01670732248493713
+      },
+      {
+        "weapon": "Aerospray MG",
+        "weapon_class": "shooter",
+        "score": 0.005789190128465656,
+        "confidence": 0.005789190128465656
+      },
+      {
+        "weapon": "Inkbrush",
+        "weapon_class": "brush",
+        "score": 0.005497081628766445,
+        "confidence": 0.005497081628766445
+      },
+      {
+        "weapon": "E-liter 4K",
+        "weapon_class": "charger",
+        "score": 0.004592868934371757,
+        "confidence": 0.004592868934371757
+      }
+    ],
+    "decision_frame_count": 5,
+    "usable_frame_count": 5,
+    "insufficient_frames": false,
+    "decision_status": "inferred",
+    "decision_timestamp": 22472.50249710001,
+    "frame_indices": [
+      1348081,
+      1348142,
+      1348204,
+      1348266,
+      1348327
+    ],
+    "decision_frames": [
+      {
+        "crop": "crops/live/da92b28605fd4aef_001348081_ba33ae/00_left3.png",
+        "context": "frames/live/da92b28605fd4aef_001348081_ba33ae/001348081.jpg",
+        "rect": [
+          785,
+          23,
+          885,
+          122
+        ],
+        "frame_index": 1348081,
+        "timestamp": 22468.401475499995,
+        "state": "alive",
+        "remaining_seconds": 300,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/da92b28605fd4aef_001348081_ba33ae/01_left3.png",
+        "context": "frames/live/da92b28605fd4aef_001348081_ba33ae/001348142.jpg",
+        "rect": [
+          785,
+          23,
+          885,
+          122
+        ],
+        "frame_index": 1348142,
+        "timestamp": 22469.425000000017,
+        "state": "alive",
+        "remaining_seconds": 300,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/da92b28605fd4aef_001348081_ba33ae/02_left3.png",
+        "context": "frames/live/da92b28605fd4aef_001348081_ba33ae/001348204.jpg",
+        "rect": [
+          785,
+          23,
+          885,
+          122
+        ],
+        "frame_index": 1348204,
+        "timestamp": 22470.45839710001,
+        "state": "unknown",
+        "remaining_seconds": null,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/da92b28605fd4aef_001348081_ba33ae/03_left3.png",
+        "context": "frames/live/da92b28605fd4aef_001348081_ba33ae/001348266.jpg",
+        "rect": [
+          785,
+          23,
+          885,
+          122
+        ],
+        "frame_index": 1348266,
+        "timestamp": 22471.485714800016,
+        "state": "alive",
+        "remaining_seconds": 299,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/da92b28605fd4aef_001348081_ba33ae/04_left3.png",
+        "context": "frames/live/da92b28605fd4aef_001348081_ba33ae/001348327.jpg",
+        "rect": [
+          785,
+          23,
+          885,
+          122
+        ],
+        "frame_index": 1348327,
+        "timestamp": 22472.50249710001,
+        "state": "alive",
+        "remaining_seconds": 298,
+        "reserved_template_frame": null
+      }
+    ],
+    "decision_note": "Opening-only quality; first global 5 frames, no later rescue; automatic state is not a gate.",
+    "aggregation_policy": "quality",
+    "frame_quality": [
+      {
+        "white_fraction": 0.079177897574124,
+        "contrast": 184.5,
+        "weight": 0.8479133443160105
+      },
+      {
+        "white_fraction": 0.07884097035040431,
+        "contrast": 185.0,
+        "weight": 0.8485339579049848
+      },
+      {
+        "white_fraction": 0.972877358490566,
+        "contrast": 0.0,
+        "weight": 0.02
+      },
+      {
+        "white_fraction": 0.08018867924528301,
+        "contrast": 185.0,
+        "weight": 0.8460528657885368
+      },
+      {
+        "white_fraction": 0.0805256064690027,
+        "contrast": 185.0,
+        "weight": 0.8454331603591952
+      }
+    ],
+    "aggregation_weights": {
+      "da92b28605fd4aef_001348081_ba33ae_001348081_left3": 0.2488057313967115,
+      "da92b28605fd4aef_001348081_ba33ae_001348142_left3": 0.24898783988569162,
+      "da92b28605fd4aef_001348081_ba33ae_001348204_left3": 0.005868659411119814,
+      "da92b28605fd4aef_001348081_ba33ae_001348266_left3": 0.24825980565573924,
+      "da92b28605fd4aef_001348081_ba33ae_001348327_left3": 0.24807796365073786
+    },
+    "exported_crop": "errors/03_crop.png",
+    "exported_context": "errors/03_context.jpg"
+  },
+  {
+    "sample_id": "da92b28605fd4aef_001474766_32674f_001474766_right3",
+    "source_video": "0",
+    "source_kind": "camera",
+    "source_image": "/home/ryokuryu/splat_2/private/datasets/weapon_opening/2026-10-04/live_session/matches/da92b28605fd4aef_001474766_32674f/frames/00.png",
+    "source_image_sha256": "aa1f73935cc1c32e5528450ddbab5f20c9bbe3f1e2475d33c28068f984b04649",
+    "video_id": "da92b28605fd4aef",
+    "video_id_definition": "live acquisition session UUID, not a video file hash",
+    "match_id": "da92b28605fd4aef_001474766_32674f",
+    "timestamp": 24579.36980459999,
+    "frame_index": 1474766,
+    "timing": "monotonic elapsed since capture open",
+    "frame_index_definition": "successful camera read counter (not device hardware frame number)",
+    "side": "right",
+    "slot_index": 3,
+    "state": "alive",
+    "state_source": "automatic squid_lamp_detect, not human ground truth",
+    "weapon_label": "Order Splatana Replica",
+    "weapon_class": "splatana",
+    "label_status": "labeled",
+    "label_source": "human_confirmed_match",
+    "match_revision": 13,
+    "rect": [
+      1306,
+      23,
+      1405,
+      122
+    ],
+    "crop": "crops/live/da92b28605fd4aef_001474766_32674f/00_right3.png",
+    "context": "frames/live/da92b28605fd4aef_001474766_32674f/001474766.jpg",
+    "special_score": 0.7176872093023255,
+    "opening_timestamp": 24579.36980459999,
+    "opening_frame_ordinal": 0,
+    "seconds_after_opening": 0.0,
+    "remaining_seconds": 300,
+    "opening_detection_fallback": false,
+    "blur_variance": 305.1341794351197,
+    "cnn_source_kind": "live",
+    "image_quality": {
+      "white_fraction": 0.07850404312668463,
+      "contrast": 177.0,
+      "weight": 0.8491547985338672
+    },
+    "source_dataset": "live_snapshot",
+    "frame_identity": "live:aa1f73935cc1c32e5528450ddbab5f20c9bbe3f1e2475d33c28068f984b04649",
+    "method": "cnn_raw_frame_quality_5frame",
+    "scope": "cross_match",
+    "expected": "Order Splatana Replica",
+    "predicted": "Orderbrush Replica",
+    "predicted_class": "brush",
+    "correct": false,
+    "best_score": 0.5669592426771616,
+    "second_best_score": 0.0437318586433309,
+    "margin": 0.5232273840338306,
+    "confidence": 0.5669592426771616,
+    "top_k": [
+      {
+        "weapon": "Orderbrush Replica",
+        "weapon_class": "brush",
+        "score": 0.5669592426771616,
+        "confidence": 0.5669592426771616
+      },
+      {
+        "weapon": "Mint Decavitator",
+        "weapon_class": "splatana",
+        "score": 0.0437318586433309,
+        "confidence": 0.0437318586433309
+      },
+      {
+        "weapon": "Order Blaster Replica",
+        "weapon_class": "blaster",
+        "score": 0.04115532381586051,
+        "confidence": 0.04115532381586051
+      },
+      {
+        "weapon": "Splatana Wiper Deco",
+        "weapon_class": "splatana",
+        "score": 0.03466792055389745,
+        "confidence": 0.03466792055389745
+      },
+      {
+        "weapon": "Order Splatana Replica",
+        "weapon_class": "splatana",
+        "score": 0.0318748310180948,
+        "confidence": 0.0318748310180948
+      }
+    ],
+    "decision_frame_count": 5,
+    "usable_frame_count": 5,
+    "insufficient_frames": false,
+    "decision_status": "inferred",
+    "decision_timestamp": 24583.435752199992,
+    "frame_indices": [
+      1474766,
+      1474828,
+      1474890,
+      1474950,
+      1475010
+    ],
+    "decision_frames": [
+      {
+        "crop": "crops/live/da92b28605fd4aef_001474766_32674f/00_right3.png",
+        "context": "frames/live/da92b28605fd4aef_001474766_32674f/001474766.jpg",
+        "rect": [
+          1306,
+          23,
+          1405,
+          122
+        ],
+        "frame_index": 1474766,
+        "timestamp": 24579.36980459999,
+        "state": "alive",
+        "remaining_seconds": 300,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/da92b28605fd4aef_001474766_32674f/01_right3.png",
+        "context": "frames/live/da92b28605fd4aef_001474766_32674f/001474828.jpg",
+        "rect": [
+          1306,
+          23,
+          1405,
+          122
+        ],
+        "frame_index": 1474828,
+        "timestamp": 24580.392293100012,
+        "state": "alive",
+        "remaining_seconds": 300,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/da92b28605fd4aef_001474766_32674f/02_right3.png",
+        "context": "frames/live/da92b28605fd4aef_001474766_32674f/001474890.jpg",
+        "rect": [
+          1306,
+          23,
+          1405,
+          122
+        ],
+        "frame_index": 1474890,
+        "timestamp": 24581.422658299998,
+        "state": "alive",
+        "remaining_seconds": 300,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/da92b28605fd4aef_001474766_32674f/03_right3.png",
+        "context": "frames/live/da92b28605fd4aef_001474766_32674f/001474950.jpg",
+        "rect": [
+          1306,
+          23,
+          1405,
+          122
+        ],
+        "frame_index": 1474950,
+        "timestamp": 24582.430284800008,
+        "state": "alive",
+        "remaining_seconds": 299,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/da92b28605fd4aef_001474766_32674f/04_right3.png",
+        "context": "frames/live/da92b28605fd4aef_001474766_32674f/001475010.jpg",
+        "rect": [
+          1306,
+          23,
+          1405,
+          122
+        ],
+        "frame_index": 1475010,
+        "timestamp": 24583.435752199992,
+        "state": "alive",
+        "remaining_seconds": 298,
+        "reserved_template_frame": null
+      }
+    ],
+    "decision_note": "Opening-only quality; first global 5 frames, no later rescue; automatic state is not a gate.",
+    "aggregation_policy": "quality",
+    "frame_quality": [
+      {
+        "white_fraction": 0.07850404312668463,
+        "contrast": 177.0,
+        "weight": 0.8491547985338672
+      },
+      {
+        "white_fraction": 0.07799865229110513,
+        "contrast": 160.0,
+        "weight": 0.8500864851770185
+      },
+      {
+        "white_fraction": 0.44727088948787064,
+        "contrast": 158.0,
+        "weight": 0.3055094696075297
+      },
+      {
+        "white_fraction": 0.08103099730458221,
+        "contrast": 160.0,
+        "weight": 0.8445040279150108
+      },
+      {
+        "white_fraction": 0.07850404312668463,
+        "contrast": 160.0,
+        "weight": 0.8491547985338672
+      }
+    ],
+    "aggregation_weights": {
+      "da92b28605fd4aef_001474766_32674f_001474766_right3": 0.22959998891937128,
+      "da92b28605fd4aef_001474766_32674f_001474828_right3": 0.22985190440440792,
+      "da92b28605fd4aef_001474766_32674f_001474890_right3": 0.08260563439994999,
+      "da92b28605fd4aef_001474766_32674f_001474950_right3": 0.22834248335689947,
+      "da92b28605fd4aef_001474766_32674f_001475010_right3": 0.22959998891937128
+    },
+    "exported_crop": "errors/04_crop.png",
+    "exported_context": "errors/04_context.jpg"
+  },
+  {
+    "sample_id": "e9ef5b0321984e59_000156837_d20ceb_000156837_left1",
+    "source_video": "0",
+    "source_kind": "camera",
+    "source_image": "/home/ryokuryu/splat_2/private/datasets/weapon_opening/2026-10-04/live_session/matches/e9ef5b0321984e59_000156837_d20ceb/frames/00.png",
+    "source_image_sha256": "6b62090071b883a6adc17dfa5af97a89c6b7de14fda37f356d18218353499129",
+    "video_id": "e9ef5b0321984e59",
+    "video_id_definition": "live acquisition session UUID, not a video file hash",
+    "match_id": "e9ef5b0321984e59_000156837_d20ceb",
+    "timestamp": 2613.448442300025,
+    "frame_index": 156837,
+    "timing": "monotonic elapsed since capture open",
+    "frame_index_definition": "successful camera read counter (not device hardware frame number)",
+    "side": "left",
+    "slot_index": 1,
+    "state": "alive",
+    "state_source": "automatic squid_lamp_detect, not human ground truth",
+    "weapon_label": "_Splat Charger",
+    "weapon_class": "charger",
+    "label_status": "labeled",
+    "label_source": "human_confirmed_match",
+    "match_revision": 9,
+    "rect": [
+      605,
+      23,
+      705,
+      122
+    ],
+    "crop": "crops/live/e9ef5b0321984e59_000156837_d20ceb/00_left1.png",
+    "context": "frames/live/e9ef5b0321984e59_000156837_d20ceb/000156837.jpg",
+    "special_score": 0.35512826475849735,
+    "opening_timestamp": 2613.448442300025,
+    "opening_frame_ordinal": 0,
+    "seconds_after_opening": 0.0,
+    "remaining_seconds": 180,
+    "opening_detection_fallback": false,
+    "blur_variance": 647.2103043669014,
+    "cnn_source_kind": "live",
+    "image_quality": {
+      "white_fraction": 0.0006738544474393531,
+      "contrast": 75.5,
+      "weight": 0.9424785282682847
+    },
+    "source_dataset": "live_snapshot",
+    "frame_identity": "live:6b62090071b883a6adc17dfa5af97a89c6b7de14fda37f356d18218353499129",
+    "method": "cnn_raw_frame_quality_5frame",
+    "scope": "cross_match",
+    "expected": "_Splat Charger",
+    "predicted": "Splatterscope",
+    "predicted_class": "charger",
+    "correct": false,
+    "best_score": 0.28534818676662316,
+    "second_best_score": 0.09820176453882233,
+    "margin": 0.1871464222278008,
+    "confidence": 0.28534818676662316,
+    "top_k": [
+      {
+        "weapon": "Splatterscope",
+        "weapon_class": "charger",
+        "score": 0.28534818676662316,
+        "confidence": 0.28534818676662316
+      },
+      {
+        "weapon": "Snipewriter 5H",
+        "weapon_class": "charger",
+        "score": 0.09820176453882233,
+        "confidence": 0.09820176453882233
+      },
+      {
+        "weapon": "ZF Splat Charger",
+        "weapon_class": "charger",
+        "score": 0.09594770498254324,
+        "confidence": 0.09594770498254324
+      },
+      {
+        "weapon": "_Splat Charger",
+        "weapon_class": "charger",
+        "score": 0.07467174173473158,
+        "confidence": 0.07467174173473158
+      },
+      {
+        "weapon": "E-liter 4K",
+        "weapon_class": "charger",
+        "score": 0.02752489817649497,
+        "confidence": 0.02752489817649497
+      }
+    ],
+    "decision_frame_count": 5,
+    "usable_frame_count": 5,
+    "insufficient_frames": false,
+    "decision_status": "inferred",
+    "decision_timestamp": 2617.5065888000536,
+    "frame_indices": [
+      156837,
+      156897,
+      156959,
+      157020,
+      157080
+    ],
+    "decision_frames": [
+      {
+        "crop": "crops/live/e9ef5b0321984e59_000156837_d20ceb/00_left1.png",
+        "context": "frames/live/e9ef5b0321984e59_000156837_d20ceb/000156837.jpg",
+        "rect": [
+          605,
+          23,
+          705,
+          122
+        ],
+        "frame_index": 156837,
+        "timestamp": 2613.448442300025,
+        "state": "alive",
+        "remaining_seconds": 180,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/e9ef5b0321984e59_000156837_d20ceb/01_left1.png",
+        "context": "frames/live/e9ef5b0321984e59_000156837_d20ceb/000156897.jpg",
+        "rect": [
+          605,
+          23,
+          705,
+          122
+        ],
+        "frame_index": 156897,
+        "timestamp": 2614.45955780003,
+        "state": "alive",
+        "remaining_seconds": 180,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/e9ef5b0321984e59_000156837_d20ceb/02_left1.png",
+        "context": "frames/live/e9ef5b0321984e59_000156837_d20ceb/000156959.jpg",
+        "rect": [
+          605,
+          23,
+          705,
+          122
+        ],
+        "frame_index": 156959,
+        "timestamp": 2615.4894861000357,
+        "state": "alive",
+        "remaining_seconds": 180,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/e9ef5b0321984e59_000156837_d20ceb/03_left1.png",
+        "context": "frames/live/e9ef5b0321984e59_000156837_d20ceb/000157020.jpg",
+        "rect": [
+          605,
+          23,
+          705,
+          122
+        ],
+        "frame_index": 157020,
+        "timestamp": 2616.5045831000316,
+        "state": "alive",
+        "remaining_seconds": 179,
+        "reserved_template_frame": null
+      },
+      {
+        "crop": "crops/live/e9ef5b0321984e59_000156837_d20ceb/04_left1.png",
+        "context": "frames/live/e9ef5b0321984e59_000156837_d20ceb/000157080.jpg",
+        "rect": [
+          605,
+          23,
+          705,
+          122
+        ],
+        "frame_index": 157080,
+        "timestamp": 2617.5065888000536,
+        "state": "unknown",
+        "remaining_seconds": 178,
+        "reserved_template_frame": null
+      }
+    ],
+    "decision_note": "Opening-only quality; first global 5 frames, no later rescue; automatic state is not a gate.",
+    "aggregation_policy": "quality",
+    "frame_quality": [
+      {
+        "white_fraction": 0.0006738544474393531,
+        "contrast": 75.5,
+        "weight": 0.9424785282682847
+      },
+      {
+        "white_fraction": 0.0006738544474393531,
+        "contrast": 71.0,
+        "weight": 0.886304311351632
+      },
+      {
+        "white_fraction": 0.0006738544474393531,
+        "contrast": 71.0,
+        "weight": 0.886304311351632
+      },
+      {
+        "white_fraction": 0.0006738544474393531,
+        "contrast": 71.0,
+        "weight": 0.886304311351632
+      },
+      {
+        "white_fraction": 0.0006738544474393531,
+        "contrast": 73.0,
+        "weight": 0.9112706299812554
+      }
+    ],
+    "aggregation_weights": {
+      "e9ef5b0321984e59_000156837_d20ceb_000156837_left1": 0.20885200553250347,
+      "e9ef5b0321984e59_000156837_d20ceb_000156897_left1": 0.1964038727524205,
+      "e9ef5b0321984e59_000156837_d20ceb_000156959_left1": 0.1964038727524205,
+      "e9ef5b0321984e59_000156837_d20ceb_000157020_left1": 0.1964038727524205,
+      "e9ef5b0321984e59_000156837_d20ceb_000157080_left1": 0.20193637621023514
+    },
+    "exported_crop": "errors/05_crop.png",
+    "exported_context": "errors/05_context.jpg"
+  }
+]
